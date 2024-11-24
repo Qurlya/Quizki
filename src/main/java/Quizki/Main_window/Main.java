@@ -6,6 +6,7 @@ import Quizki.Create.Create;
 import Quizki.Materials.Materials;
 import Quizki.Repository.Repository;
 import Quizki.Settings.Settings;
+import Quizki.Variables;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -39,7 +40,7 @@ public class Main extends Application {
         b_settings.setOnAction(new Settings.changeScene());
 
         HBox p = new HBox(b_about_as, b_materials, b_create, b_repository, b_account, b_settings);
-        scene = new Scene(p, 500, 600);
+        scene = new Scene(p, Variables.appHeight, Variables.appWidth);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.setResizable(false);

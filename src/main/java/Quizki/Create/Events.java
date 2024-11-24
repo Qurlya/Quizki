@@ -19,11 +19,7 @@ public class Events {
     static class ChangeType implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (Create.langsComboBox.getValue() == "Card"){
-                Create.b_plus.setVisible(false);
-            } else {
-                Create.b_plus.setVisible(true);
-            }
+            Create.b_plus.setVisible(!Create.langsComboBox.getValue().equals("Card"));
         }
     }
     static class AddTf implements EventHandler<ActionEvent> {
@@ -31,16 +27,16 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             TextField tf = new TextField();
             Create.tf_list.add(tf);
-            Create.p.getChildren().add(Create.tf_list.getLast());
-            System.out.println(Create.tf_list.getLast());
+            //Create.p.getChildren().add(Create.tf_list.getLast());
+            //System.out.println(Create.tf_list.getLast());
 
         }
     }
     static class DelTf implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            Create.p.getChildren().remove(Create.tf_list.getLast());
-            Create.tf_list.remove(Create.tf_list.getLast());
+            //Create.p.getChildren().remove(Create.tf_list.getLast());
+            //Create.tf_list.remove(Create.tf_list.getLast());
         }
     }
 }
