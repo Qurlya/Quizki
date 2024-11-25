@@ -1,6 +1,6 @@
 package Quizki.Main_window;
 
-import Quizki.About_as.About_as;
+import Quizki.About_us.About_us;
 import Quizki.Account.Account;
 import Quizki.Create.Create;
 import Quizki.Materials.Materials;
@@ -15,14 +15,22 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Реализация неполного функционала тестовой сцены, где пользователю предложен выбор между
+ * функциональными вкладками, реализующими полноту проекта.
+ * На будущее:
+ * - Перенести лейбл с кнопками для каждого функционального окна в top_center
+ * - Уменьшить код в main, путем абстрагирования
+ */
 public class Main extends Application {
     static public Stage temp;
     static public Scene scene;
+
     @Override
     public void start(Stage stage) throws IOException {
         temp = stage;
         Button b_about_as = new Button("About us");
-        b_about_as.setOnAction(new About_as.changeScene());
+        b_about_as.setOnAction(new About_us.changeScene());
 
         Button b_materials = new Button("Materials");
         b_materials.setOnAction(new Materials.changeScene());
@@ -40,14 +48,14 @@ public class Main extends Application {
         b_settings.setOnAction(new Settings.changeScene());
 
         HBox p = new HBox(b_about_as, b_materials, b_create, b_repository, b_account, b_settings);
-        scene = new Scene(p, Variables.appHeight, Variables.appWidth);
-        stage.setTitle("Hello!");
+        scene = new Scene(p, Variables.appWidth, Variables.appHeight);
+        stage.setTitle(Variables.projectTitle);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }

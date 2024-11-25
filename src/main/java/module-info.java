@@ -1,4 +1,4 @@
-module com.example.quiz {
+module com.example.quizki {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -13,6 +13,7 @@ module com.example.quiz {
 
     opens Quizki to javafx.fxml;
     exports Quizki;
-    exports Quizki.Main_window;
+
     opens Quizki.Main_window to javafx.fxml;
+    exports Quizki.Main_window;
 }
