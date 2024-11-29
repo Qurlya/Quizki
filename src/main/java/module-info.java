@@ -1,3 +1,7 @@
+/**
+ * Зависимости для JavaFX
+ */
+
 module com.example.quizki {
     requires javafx.controls;
     requires javafx.fxml;
@@ -10,10 +14,13 @@ module com.example.quizki {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.smartcardio;
+    requires com.google.gson;
+    requires com.fasterxml.jackson.databind;
 
     opens Quizki to javafx.fxml;
     exports Quizki;
 
-    opens Quizki.Main_window to javafx.fxml;
-    exports Quizki.Main_window;
+    opens Quizki.Pages.Main_window to javafx.fxml;
+    exports Quizki.Pages.Main_window;
 }
