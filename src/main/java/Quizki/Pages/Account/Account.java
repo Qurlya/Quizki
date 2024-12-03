@@ -1,7 +1,7 @@
 package Quizki.Pages.Account;
 
 import Quizki.Pages.Main_window.Main;
-import Quizki.Variables;
+import Quizki.Models.Variables;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -13,8 +13,8 @@ import javafx.scene.layout.VBox;
  * Информация об аккаунте:
  * - Логин;
  * - Пароль;
- * - Изменения дизайна приложения;
- * - Актуальный рейтинг в глобальной системе;
+ * - Изменение дизайна приложения;
+ * - Актуальный рейтинг в локальной системе учета активности;
  * - Информация о созданных тестах.
  */
 
@@ -27,6 +27,7 @@ public class Account {
             Label l = new Label("Здесь будет информация, связанная с аккаунтом");
             VBox p = new VBox(l);
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);
+            scene.getStylesheets().add("account_style.css");
             Main.temp.setScene(scene);
         }
     }

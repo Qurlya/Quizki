@@ -1,7 +1,7 @@
 package Quizki.Pages.Materials;
 
 import Quizki.Pages.Main_window.Main;
-import Quizki.Variables;
+import Quizki.Models.Variables;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -25,6 +25,7 @@ public class Materials {
             Label l = new Label("Здесь будут учебные пособия");
             VBox p = new VBox(l);
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);
+            scene.getStylesheets().add("materials_style.css");
             Main.temp.setScene(scene);
         }
     }

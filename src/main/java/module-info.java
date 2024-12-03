@@ -19,8 +19,10 @@ module com.example.quizki {
     requires com.fasterxml.jackson.databind;
 
     opens Quizki to javafx.fxml;
-    exports Quizki;
+    //exports Quizki;
 
     opens Quizki.Pages.Main_window to javafx.fxml;
     exports Quizki.Pages.Main_window;
+    exports Quizki.Models;
+    opens Quizki.Models to javafx.fxml;
 }

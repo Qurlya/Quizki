@@ -1,6 +1,6 @@
 package Quizki.Pages.About_us;
 import Quizki.Pages.Main_window.Main;
-import Quizki.Variables;
+import Quizki.Models.Variables;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -19,6 +19,7 @@ public class About_us {
             Label l = new Label("Здесь будет описание разработчиков");
             VBox p = new VBox(l);
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);
+            scene.getStylesheets().add("about_us_style.css");
             Main.temp.setScene(scene);
         }
     }
