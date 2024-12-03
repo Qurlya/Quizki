@@ -14,6 +14,7 @@ public class Repository {
             Label l = new Label("Здесь будут храниться карточки");
             VBox p = new VBox(l);
             Scene scene = new Scene(p, 500, 600);
+            scene.getStylesheets().add("repository_style.css");
             Main.temp.setScene(scene);
         }
     }

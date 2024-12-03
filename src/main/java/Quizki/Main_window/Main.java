@@ -1,6 +1,6 @@
 package Quizki.Main_window;
 
-import Quizki.About_as.About_as;
+import Quizki.About_us.About_as;
 import Quizki.Account.Account;
 import Quizki.Create.Create;
 import Quizki.Materials.Materials;

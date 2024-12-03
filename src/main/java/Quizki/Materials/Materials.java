@@ -14,6 +14,7 @@ public class Materials {
             Label l = new Label("Здесь будут учебные пособия");
             VBox p = new VBox(l);
             Scene scene = new Scene(p, 500, 600);
+            scene.getStylesheets().add("material_style.css");
             Main.temp.setScene(scene);
         }
     }

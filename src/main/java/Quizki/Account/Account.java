@@ -14,6 +14,7 @@ public class Account {
             Label l = new Label("Здесь будет информация, связанная с аккаунтом");
             VBox p = new VBox(l);
             Scene scene = new Scene(p, 500, 600);
+            scene.getStylesheets().add("account_style.css");
             Main.temp.setScene(scene);
         }
     }

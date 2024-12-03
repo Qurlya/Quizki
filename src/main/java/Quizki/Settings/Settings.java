@@ -14,6 +14,7 @@ public class Settings {
             Label l = new Label("Здесь будут настройки");
             VBox p = new VBox(l);
             Scene scene = new Scene(p, 500, 600);
+            scene.getStylesheets().add("settings_style.css");
             Main.temp.setScene(scene);
         }
     }
