@@ -1,37 +1,28 @@
 package Quizki.Models;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
- * Коллекция - совокупность единичных вопросов. Имеет имя, описание
- * соответствующие сущности, а также двусвязный список, по которому можно обращаться
- * к каждому вопросу.
+ * Коллекция - совокупность тестов (карточек). Имеет имя, описание
+ * соответствующие сущности, а также список, по которому можно обращаться
+ * к каждой карточке.
  */
 
-public class Collect{
+public class Collect {
     private String name;
     private String description;
-    private List<Question> qSet;
+    private ArrayList<Card> card_set;
 
-    public Collect(String name, String description) {
+    public Collect(String name, String description){
         this.name = name;
         this.description = description;
-        this.qSet = new LinkedList<>();
+        this.card_set = new ArrayList<>();
     }
 
     public Collect(){
         this.name = "no-name";
         this.description = "...";
-        this.qSet = new LinkedList<>();
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        this.card_set = new ArrayList<>();
     }
 
     public String getName() {
@@ -42,11 +33,19 @@ public class Collect{
         this.name = name;
     }
 
-    public List<Question> getqSet() {
-        return qSet;
+    public String getDescription() {
+        return description;
     }
 
-    public void setqSet(List<Question> qSet) {
-        this.qSet = qSet;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ArrayList<Card> getCard_set() {
+        return card_set;
+    }
+
+    public void setCard_set(ArrayList<Card> card_set) {
+        this.card_set = card_set;
     }
 }

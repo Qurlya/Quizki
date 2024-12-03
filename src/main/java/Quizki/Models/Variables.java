@@ -1,4 +1,4 @@
-package Quizki;
+package Quizki.Models;
 
 /**
  * Реализация класса констант и переменных, задействованных в коде проекта.
@@ -9,6 +9,5 @@ public class Variables {
     public static final int appHeight = 800;    // Высота окна приложения
     public static final int appWidth = 1600;    // Ширина окна приложения
     public static final String projectTitle = "Quizki";     // Название приложения
-
-
+    public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
 }

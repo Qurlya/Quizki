@@ -1,7 +1,7 @@
 package Quizki.Pages.Settings;
 
 import Quizki.Pages.Main_window.Main;
-import Quizki.Variables;
+import Quizki.Models.Variables;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -21,6 +21,7 @@ public class Settings {
             Label l = new Label("Здесь будут настройки");
             VBox p = new VBox(l);
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);
+            scene.getStylesheets().add("settings_style.css");
             Main.temp.setScene(scene);
         }
     }

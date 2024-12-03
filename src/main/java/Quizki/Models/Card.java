@@ -1,7 +1,7 @@
 package Quizki.Models;
 
 /**
- * Карточка - ФИЗ, основанный на однозначном соответствии запроса и единственного ответа.
+ * Карточка - ФИЗ (форма измерения знаний), основанный на однозначном соответствии запроса и единственного ответа.
  * Имеет 2 сущности:
  * - Лицевая сторона (Сущность запроса);
  * - Задняя сторона (Сущность ответа).
@@ -10,14 +10,36 @@ package Quizki.Models;
  * с ответом на задней стороне карточки.
  */
 
-public class Card extends Collect {
+public class Card{
+    private String face;
+    private String back;
 
-    public Card(String name, String description){
-        super(name, description);
+    //конструкторы (с параметрами и без)
+    public Card(String face, String back){
+        this.face = face;
+        this.back = back;
     }
 
-    public Card(){
-        super();
+    public Card(){}
+
+    //геттеры и сеттеры
+    public String getFace() {
+        return face;
     }
 
+    public void setFace(String face) {
+        this.face = face;
+    }
+
+    public String getBack() {
+        return back;
+    }
+
+    public void setBack(String back) {
+        this.back = back;
+    }
+
+    public String toString(){
+        return "{" + face + ":" + back+ "}";
+    }
 }
