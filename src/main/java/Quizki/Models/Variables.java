@@ -6,8 +6,8 @@ package Quizki.Models;
  */
 
 public class Variables {
-    public static final int appHeight = 800;    // Высота окна приложения
-    public static final int appWidth = 1600;    // Ширина окна приложения
+    public static final int appHeight = 600;    // Высота окна приложения
+    public static final int appWidth = 500;    // Ширина окна приложения
     public static final String projectTitle = "Quizki";     // Название приложения
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
 }

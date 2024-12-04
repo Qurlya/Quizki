@@ -1,6 +1,7 @@
 package Quizki.Pages.Create;
 
 import Quizki.Models.Card;
+import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,7 +29,7 @@ public class Create {
     public static TextField tf_face_card, tf_back_card, tf_name, tf_describe;
     public static Button b_count, b_next, b_prev, b_create, b_add, b_del, b_back;
     public static Pane p;
-    public static ArrayList<Card> arr_card = new ArrayList<Card>();
+    public static ArrayList<Card> arr_card = new ArrayList<>();
     public static Label l_card;
     public static Scene sc_create;
     public static class changeScene implements EventHandler<ActionEvent> {
@@ -36,17 +37,26 @@ public class Create {
         public void handle(ActionEvent actionEvent) {
             p = new Pane();
 
+            Label l1 = new Label("Name");
+            firstOption(l1, 0, 5, true);
+            Label l2 = new Label("Description");
+            firstOption(l2, 0, 35, true);
+            Label l3 = new Label("Question");
+            firstOption(l3, 0, 95, true);
+            Label l4 = new Label("Answer");
+            firstOption(l4, 0, 125, true);
+
             tf_name = new TextField();
-            firstOption(tf_name, 100, 10, true);
+            firstOption(tf_name, 125, 10, true);
 
             tf_describe = new TextField();
-            firstOption(tf_describe, 100, 40, true);
+            firstOption(tf_describe, 125, 40, true);
 
             tf_face_card = new TextField();
-            firstOption(tf_face_card, 100, 100, true);
+            firstOption(tf_face_card, 125, 100, true);
 
             tf_back_card = new TextField();
-            firstOption(tf_back_card, 100, 130, true);
+            firstOption(tf_back_card, 125, 130, true);
 
             b_create = new Button("Create");
             firstOption(b_create, 0, 500, true);
@@ -63,16 +73,16 @@ public class Create {
             b_del.setDisable(true);
 
             b_next = new Button(">");
-            firstOption(b_next, 200, 210, true);
+            firstOption(b_next, 215, 210, true);
             b_next.setOnAction(new Events.NextCard());
             b_next.setDisable(true);
 
 
             b_count = new Button("0");
-            firstOption(b_count, 150, 210, true);
+            firstOption(b_count, 165, 210, true);
 
             b_prev = new Button("<");
-            firstOption(b_prev, 100, 210, true);
+            firstOption(b_prev, 115, 210, true);
             b_prev.setOnAction(new Events.PrevCard());
             b_prev.setDisable(true);
 
@@ -85,10 +95,12 @@ public class Create {
             b_back.setOnAction(new Events.BackScene());
 
 
-            sc_create = new Scene(p, 500, 600);
+            sc_create = new Scene(p, Variables.appWidth, Variables.appHeight);
             sc_create.getStylesheets().add("create_style.css");
             Main.temp.setScene(sc_create);
         }
+
+        // Абстрагированные методы установки кнопок по координатам с определенной видимостью
         private void firstOption(Button temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);
