@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 
 public class Settings {
     public static class changeScene implements EventHandler<ActionEvent> {
+
         @Override
         public void handle(ActionEvent actionEvent) {
             Label l = new Label("Здесь будут настройки");

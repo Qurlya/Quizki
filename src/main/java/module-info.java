@@ -17,6 +17,7 @@ module com.example.quizki {
     requires java.smartcardio;
     requires com.google.gson;
     requires com.fasterxml.jackson.databind;
+    requires java.desktop;
 
     opens Quizki to javafx.fxml;
     //exports Quizki;
