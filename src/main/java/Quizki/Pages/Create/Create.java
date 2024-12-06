@@ -27,10 +27,10 @@ import java.util.ArrayList;
 public class Create {
 
     public static TextField tf_face_card, tf_back_card, tf_name, tf_describe;
-    public static Button b_count, b_next, b_prev, b_create, b_add, b_del, b_back;
+    public static Button b_next, b_prev, b_create, b_add, b_del, b_back;
     public static Pane p;
     public static ArrayList<Card> arr_card = new ArrayList<>();
-    public static Label l_card;
+    public static Label l_card, b_count;
     public static Scene sc_create;
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
@@ -78,7 +78,7 @@ public class Create {
             b_next.setDisable(true);
 
 
-            b_count = new Button("0");
+            b_count = new Label("0");
             firstOption(b_count, 165, 210, true);
 
             b_prev = new Button("<");

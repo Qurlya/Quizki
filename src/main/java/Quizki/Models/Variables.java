@@ -10,4 +10,8 @@ public class Variables {
     public static final int appWidth = 500;    // Ширина окна приложения
     public static final String projectTitle = "Quizki";     // Название приложения
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
+    public static final String correctEmoji = "ヾ(≧▽≦*)o";   // Смешной смайлик правильного ответа
+    public static final String wrongEmoji = "(┬┬﹏┬┬)";   // Смешной смайлик неправильного ответа
+    public static final String backEmoji = "💀";   // Смешной смайлик кнопки "назад"
+
 }
