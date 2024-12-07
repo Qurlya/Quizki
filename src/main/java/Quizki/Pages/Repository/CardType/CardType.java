@@ -49,11 +49,11 @@ public class CardType {
             firstOption(b_back, 0, 300, true);
             b_back.setOnAction(new Events.BackScene());
 
-            b_correct = new Button("ヾ(≧▽≦*)o");
+            b_correct = new Button("+");
             firstOption(b_correct, 10, 200, true);
             b_correct.setOnAction(new Events.CorrectAnswer());
 
-            b_mistake = new Button("(┬┬﹏┬┬)");
+            b_mistake = new Button("-");
             firstOption(b_mistake, 150, 200, true);
             b_mistake.setOnAction(new Events.WrongAnswer());
 

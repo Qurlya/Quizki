@@ -1,0 +1,6 @@
+{"collect_name":"word",
+  "collect_description":"desc_word",
+  "card_set":[
+    {"face":"tree","back":"дерево"},
+    {"face":"table","back":"стол"},
+    {"face":"face","back":"лицо"}]}

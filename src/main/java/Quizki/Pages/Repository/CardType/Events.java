@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  *  Реализация класса обработки событий функционального
@@ -86,6 +88,8 @@ public class Events {
     static class Reset implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
+            CardType.arr_cards = Repository.cur_collect.getCard_set();
+            Collections.shuffle(CardType.arr_cards);
             CardType.arr_wrong = new ArrayList<>();
             CardType.arr_corr = new ArrayList<>();
             CardType.card_count = 1;

@@ -5,6 +5,7 @@ import Quizki.Models.JsonHandler;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
 import Quizki.Pages.Repository.CardType.CardType;
+import Quizki.Pages.Repository.TestType.TestType;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -70,9 +71,11 @@ public class Repository {
 
             b_card = new Button("Карточки");
             firstOption(b_card, 0, 300, true);
+
             b_card.setOnAction(new CardType.changeScene());
             b_test = new Button("Тест");
             firstOption(b_test, 150, 300, true);
+            b_test.setOnAction(new TestType.changeScene());
             b_write = new Button("Письменный");
             firstOption(b_write, 250, 300, true);
 

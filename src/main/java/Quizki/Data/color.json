@@ -1,0 +1,5 @@
+{"collect_name":"color","collect_description":"desc_color",
+  "card_set":[{"face":"black","back":"черный"},
+    {"face":"white","back":"белый"},
+    {"face":"blue","back":"синий"},
+    {"face":"red","back":"красный"}]}

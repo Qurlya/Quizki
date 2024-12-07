@@ -17,8 +17,7 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             int count = Integer.parseInt(Repository.l_count.getText());
             Repository.l_count.setText(String.valueOf(count - 1));
-            int prev = count - 2;
-            Repository.cur_collect = Repository.arr_cols.get(count);
+            Repository.cur_collect = Repository.arr_cols.get(count-2);
             Repository.name.setText("Название: " + Repository.cur_collect.getName());
             Repository.description.setText("Описание: " + Repository.cur_collect.getDescription());
             checkBorder();
