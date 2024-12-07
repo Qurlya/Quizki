@@ -6,6 +6,7 @@ import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -34,10 +35,13 @@ public class Create {
     public static ArrayList<Card> arr_card = new ArrayList<>();
     public static Label l_card, b_count;
     public static Scene sc_create;
+    public static Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
             create_p = new Pane();
+            alert.setTitle("Quizki Alarm");
 
             Label l1 = new Label("Name");
             firstOption(create_p, l1, 0, 5, true);

@@ -7,30 +7,35 @@ import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
 
 import java.io.IOException;
 
 /**
  * Реализация событий для кнопок функционального окна Create (см. Create).
  */
+
 public class Events {
 
     // Создание теста (запись в файл JSON)
     static class CreateCollect implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            // Нижний предел на количество карточек - хотя бы 4!
-            if(Create.arr_card.size() < 4){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Quizki Alarm");
-                alert.setContentText("Тест должен содержать хотя бы 4 карточки!");
-                alert.showAndWait();
-            }else {
+            // Нижний предел на количество карточек - хотя бы 4
+            if (Create.arr_card.size() < 4) {
+                Create.alert.setContentText("Тест должен содержать хотя бы 4 карточки!");
+                Create.alert.showAndWait();
+            } else if (Create.tf_name.getText().isEmpty() || Create.tf_describe.getText().isEmpty()) {
+                Create.alert.setContentText("Тест не может иметь пустое имя/описание!");
+                Create.alert.showAndWait();
+            } else if (!parseString(Create.tf_name.getText())) {
+                Create.alert.setContentText("Название теста не должно иметь специальные символы!");
+                Create.alert.showAndWait();
+            } else {
                 Main.temp.setScene(Main.scene);
                 Collect collect = new Collect(Create.tf_name.getText(), Create.tf_describe.getText());
                 collect.setCard_set(Create.arr_card);
                 String path = Variables.card_filepath + Create.tf_name.getText() + ".json";
+                // Добавить окно "прогресса создания"
                 try {
                     JsonHandler.saveToFile(collect, path);
                 } catch (IOException e) {
@@ -38,12 +43,41 @@ public class Events {
                 }
             }
         }
+
+        // Парсер строки на специальные символы
+        private static boolean parseString(String stringToParse){
+            char[] temp = stringToParse.toCharArray();
+            char[] specialChars = {'/', '\\', '?', '!', '.', '*', '>', '<', '"', ':', '|'};
+            for (char spec : specialChars){
+                for (char c : temp){
+                    if(c == spec){
+                        return false;
+                    }
+                }
+            }
+            return true;
+            /*ArrayList<Character> charToParse = new ArrayList<>();
+            for (char c : temp){
+                charToParse.add(c);
+            }
+            return !charToParse.contains('/')
+                    && !charToParse.contains('.')
+                    && !charToParse.contains('\\')
+                    && !charToParse.contains('*')
+                    && !charToParse.contains('?')
+                    && !charToParse.contains('!')
+                    && !charToParse.contains('>')
+                    && !charToParse.contains('<')
+                    && !charToParse.contains('|')
+                    && !charToParse.contains(':')
+                    && !charToParse.contains('"');*/
+        }
     }
 
     // Изменение действующей сцены на главную страницу
-    static class BackScene implements EventHandler<ActionEvent>{
+    static class BackScene implements EventHandler<ActionEvent> {
         @Override
-        public void handle(ActionEvent actionEvent){
+        public void handle(ActionEvent actionEvent) {
             Main.temp.setScene(Main.scene);
         }
     }
@@ -53,13 +87,17 @@ public class Events {
         @Override
         public void handle(ActionEvent actionEvent) {
             int limit = 20;
+            int face_len, back_len;
+            face_len = Create.tf_face_card.getText().length();
+            back_len = Create.tf_back_card.getText().length();
             // Верхний предел на количество символов в вопросе/ответе
-            if(Create.tf_face_card.getText().length() > limit || Create.tf_back_card.getText().length() > limit){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Quizki Alarm");
-                alert.setContentText("Вопрос/Ответ не может быть длиннее " + limit + " символов!");
-                alert.showAndWait();
-            }else {
+            if (face_len > limit || back_len > limit) {
+                Create.alert.setContentText("Вопрос/Ответ не может быть длиннее " + limit + " символов!");
+                Create.alert.showAndWait();
+            } else if (face_len == 0 || back_len == 0) {
+                Create.alert.setContentText("Вопрос/Ответ не может быть пустым!");
+                Create.alert.showAndWait();
+            } else {
                 Create.b_del.setDisable(false);
                 String back_text = Create.tf_back_card.getText();
                 String face_text = Create.tf_face_card.getText();
@@ -110,7 +148,7 @@ public class Events {
     }
 
     // Проверка существования карточки
-    private static void checkBorder(){
+    private static void checkBorder() {
         int count = Integer.parseInt(Create.b_count.getText());
         Create.b_prev.setDisable(count <= 1);
         Create.b_next.setDisable(count == Create.arr_card.size() || Create.arr_card.size() <= 1);

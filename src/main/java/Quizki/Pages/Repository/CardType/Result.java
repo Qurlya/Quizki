@@ -11,9 +11,9 @@ import javafx.scene.layout.Pane;
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 /**
- *  Реализация функционального окна результат прохождения теста с карточками.
- *  Отображается количество правильных и неправильных ответов, а также пользователю
- *  доступны варианты прохождения этого же теста (см. CardType).
+ * Реализация функционального окна результат прохождения теста с карточками.
+ * Отображается количество правильных и неправильных ответов, а также пользователю
+ * доступны варианты прохождения этого же теста (см. CardType).
  */
 
 public class Result {
@@ -21,6 +21,7 @@ public class Result {
     public static Label l_correct_count, l_incorrect_count;
     public static Button b_continue, b_again, b_back;
     public static Scene scene;
+
     public static void changeScene() {
         result_card_p = new Pane();
         l_correct_count = new Label("Верных ответов: " + Repository.arr_corr.size());

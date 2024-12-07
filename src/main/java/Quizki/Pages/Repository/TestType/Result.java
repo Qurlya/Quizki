@@ -6,7 +6,6 @@ import Quizki.Pages.Repository.Repository;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
@@ -24,6 +23,7 @@ public class Result {
     public static Label l_correct_count, l_incorrect_count;
     public static Button b_continue, b_again, b_back;
     public static Scene scene;
+
     public static void changeScene() {
         result_test_p = new Pane();
         l_correct_count = new Label("Верных ответов: " + Repository.arr_corr.size());

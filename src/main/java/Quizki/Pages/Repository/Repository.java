@@ -3,8 +3,8 @@ package Quizki.Pages.Repository;
 import Quizki.Models.Card;
 import Quizki.Models.Collect;
 import Quizki.Models.JsonHandler;
-import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
+import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.CardType.CardType;
 import Quizki.Pages.Repository.TestType.TestType;
 import Quizki.Pages.Repository.TextType.TextType;
@@ -39,14 +39,15 @@ public class Repository {
     public static ArrayList<Card> arr_corr, arr_wrong, arr_cards;
     public static int card_count = 1;
     public static Card cur_card;
+
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
             repos_p = new Pane();
 
-            // Добавление файлов с тестами в массив коллекций карточек
+            // Добавление файлов с тестами в список коллекций карточек
             ArrayList<File> arr_files = new ArrayList<>(Arrays.asList(Objects.requireNonNull(new File(Variables.card_filepath).listFiles())));
-            for (File f : arr_files){
+            for (File f : arr_files) {
                 try {
                     arr_cols.add(JsonHandler.loadCardFromFile(f.getPath()));
                 } catch (IOException e) {
@@ -62,17 +63,19 @@ public class Repository {
             description = new Label("Описание: " + cur_collect.getDescription());
             firstOption(repos_p, description, 10, 40, true);
 
-            b_next = new Button(">");
-            firstOption(repos_p, b_next, 215, 210, true);
-            b_next.setOnAction(new Events.NextCollection());
-
             l_count = new Label("");
             l_count.setText(arr_cols.isEmpty() ? "0" : "1");
             firstOption(repos_p, l_count, 175, 210, true);
 
+            b_next = new Button(">");
+            firstOption(repos_p, b_next, 215, 210, true);
+            b_next.setOnAction(new Events.NextCollection());
+            b_next.setDisable(arr_cols.size() == 1);
+
             b_prev = new Button("<");
             firstOption(repos_p, b_prev, 115, 210, true);
             b_prev.setOnAction(new Events.PrevCollection());
+            b_prev.setDisable(arr_cols.size() == 1);
 
             b_card = new Button("Карточки");
             firstOption(repos_p, b_card, 0, 300, true);
@@ -106,18 +109,21 @@ public class Repository {
             temp.setVisible(flag);
             pane.getChildren().add(temp);
         }
+
         public static void firstOption(Pane pane, TextField temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);
             temp.setVisible(flag);
             pane.getChildren().add(temp);
         }
+
         public static void firstOption(Pane pane, Label temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);
             temp.setVisible(flag);
             pane.getChildren().add(temp);
         }
+
         public static void firstOption(Pane pane, RadioButton temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);

@@ -6,9 +6,9 @@ import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.Button;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,17 +16,18 @@ import java.util.Collections;
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 /**
- *  Реализация функционального окна прохождения карточек (см. Models. Card).
- *  Если пользователь ответил на некоторые карточки неправильно, то
- *  у него будет возможность пройти отдельный тест карточек с исключительно
- *  неправильными карточками.
- *  Также, у пользователя есть возможность повторно пройти тест.
+ * Реализация функционального окна прохождения карточек (см. Models. Card).
+ * Если пользователь ответил на некоторые карточки неправильно, то
+ * у него будет возможность пройти отдельный тест карточек с исключительно
+ * неправильными карточками.
+ * Также, у пользователя есть возможность повторно пройти тест.
  */
 
 public class CardType {
     public static Pane card_type_p;
     public static Button b_back, b_correct, b_mistake, b_card;
     public static Label l_count;
+
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {

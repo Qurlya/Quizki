@@ -1,9 +1,10 @@
 package Quizki.Models;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  * Для работы с JSON используется библиотека Jackson.
  */
 
-public class JsonHandler{
+public class JsonHandler {
 
     // Метод для сохранения коллекции карточек в JSON файл
     public static void saveToFile(Collect collect, String filePath) throws IOException {

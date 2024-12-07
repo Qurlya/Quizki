@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- *  Реализация класса обработки событий функционального
- *  окна прохождения карточек (см. CardType)
+ * Реализация класса обработки событий функционального
+ * окна прохождения карточек (см. CardType)
  */
 
 public class Events {
@@ -34,11 +34,11 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             Repository.arr_corr.add(Repository.cur_card);
             Repository.card_count++;
-            if (Repository.card_count == Repository.arr_cards.size() + 1){
+            if (Repository.card_count == Repository.arr_cards.size() + 1) {
                 Result.changeScene();
                 Main.temp.setScene(Result.scene);
                 Result.b_continue.setDisable(Repository.arr_cards.equals(Repository.arr_corr));
-            }else{
+            } else {
                 Repository.cur_card = Repository.arr_cards.get(Repository.card_count - 1);
                 CardType.b_card.setText(Repository.cur_card.getFace());
                 CardType.l_count.setText(Repository.card_count + " / " + Repository.arr_cards.size());
@@ -52,10 +52,10 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             Repository.arr_wrong.add(Repository.cur_card);
             Repository.card_count++;
-            if (Repository.card_count == Repository.arr_cards.size() + 1){
+            if (Repository.card_count == Repository.arr_cards.size() + 1) {
                 Result.changeScene();
                 Main.temp.setScene(Result.scene);
-            }else {
+            } else {
                 Repository.cur_card = Repository.arr_cards.get(Repository.card_count - 1);
                 CardType.b_card.setText(Repository.cur_card.getFace());
                 CardType.l_count.setText(Repository.card_count + " / " + Repository.arr_cards.size());
@@ -67,7 +67,8 @@ public class Events {
     static class FlipCard implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (CardType.b_card.getText().equals(Repository.cur_card.getFace())) CardType.b_card.setText(Repository.cur_card.getBack());
+            if (CardType.b_card.getText().equals(Repository.cur_card.getFace()))
+                CardType.b_card.setText(Repository.cur_card.getBack());
             else CardType.b_card.setText(Repository.cur_card.getFace());
         }
     }

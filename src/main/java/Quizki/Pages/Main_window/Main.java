@@ -1,12 +1,12 @@
 package Quizki.Pages.Main_window;
 
+import Quizki.Models.Variables;
 import Quizki.Pages.About_us.About_us;
 import Quizki.Pages.Account.Account;
 import Quizki.Pages.Create.Create;
 import Quizki.Pages.Materials.Materials;
 import Quizki.Pages.Repository.Repository;
 import Quizki.Pages.Settings.Settings;
-import Quizki.Models.Variables;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

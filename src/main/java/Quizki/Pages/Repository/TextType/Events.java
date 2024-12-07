@@ -5,8 +5,10 @@ import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+
 import java.util.ArrayList;
 import java.util.Collections;
+
 /**
  * Реализация класса обработки событий
  * прохождения текстового формата теста (см. TextType).
@@ -27,7 +29,7 @@ public class Events {
         @Override
         public void handle(ActionEvent actionEvent) {
             if (TextType.b_continue.getText().equals("Проверить")) {
-                if (TextType.tf_answer.getText().toUpperCase().equals(TextType.cur_card.getBack().toUpperCase())) {
+                if (TextType.tf_answer.getText().trim().equalsIgnoreCase(TextType.cur_card.getBack())) {
                     TextType.tf_answer.setStyle("-fx-text-fill: green");
                     Repository.arr_corr.add(TextType.cur_card);
                 } else {
@@ -66,7 +68,7 @@ public class Events {
     static class ContinueTest implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (Repository.arr_wrong.isEmpty()){
+            if (Repository.arr_wrong.isEmpty()) {
                 Result.b_continue.setDisable(true);
                 return;
             }

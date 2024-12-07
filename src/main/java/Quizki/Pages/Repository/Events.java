@@ -1,12 +1,14 @@
 package Quizki.Pages.Repository;
 
 import Quizki.Models.Variables;
+import Quizki.Pages.Create.Create;
 import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 
 /**
@@ -43,33 +45,30 @@ public class Events {
     }
 
     // Изменение действующей сцены на главную страницу
-    static class BackScene implements EventHandler<ActionEvent>{
+    static class BackScene implements EventHandler<ActionEvent> {
         @Override
-        public void handle(ActionEvent actionEvent){
+        public void handle(ActionEvent actionEvent) {
             Main.temp.setScene(Main.scene);
         }
     }
 
     // Удаление текущей выбранной коллекции
-    static class DeleteCollection implements EventHandler<ActionEvent>{
+    static class DeleteCollection implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            File file = new File("C:/Users/maksi/IdeaProjects/Quizki/" + Variables.card_filepath + Repository.cur_collect.getName() + ".json");
-            System.out.println(file.getPath());
-            if(file.delete()){
-
+            File file = new File(Variables.card_filepath + Repository.cur_collect.getName() + ".json");
+            if (file.delete()) {
+                // Добавить окно "прогресса удаления"
                 Main.temp.setScene(Repository.repos_p.getScene());
-            }else{
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Quizki Alarm");
-                alert.setContentText("Ошибка удаления объекта! (Попробуйте еще раз)");
-                alert.showAndWait();
+            } else {
+                Create.alert.setContentText("Ошибка удаления объекта! (Попробуйте еще раз)");
+                Create.alert.showAndWait();
             }
         }
     }
 
     // Проверка существования карточки
-    private static void checkBorder(){
+    private static void checkBorder() {
         int count = Integer.parseInt(Repository.l_count.getText());
         Repository.b_prev.setDisable(count <= 1);
         Repository.b_next.setDisable(count == Repository.arr_cols.size() || Repository.arr_cols.size() <= 1);

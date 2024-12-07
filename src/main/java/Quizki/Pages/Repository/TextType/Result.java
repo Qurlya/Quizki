@@ -2,7 +2,6 @@ package Quizki.Pages.Repository.TextType;
 
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
-
 import Quizki.Pages.Repository.Repository;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,6 +23,7 @@ public class Result {
     public static Label l_correct_count, l_incorrect_count;
     public static Button b_continue, b_again, b_back;
     public static Scene scene;
+
     public static void changeScene() {
         result_txt_type_p = new Pane();
         l_correct_count = new Label("Верных ответов: " + Repository.arr_corr.size());

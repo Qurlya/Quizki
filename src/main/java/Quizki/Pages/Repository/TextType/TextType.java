@@ -7,7 +7,9 @@ import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class TextType {
     public static Label l_count, l_card;
     public static Card cur_card;
     public static TextField tf_answer;
+
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
@@ -42,7 +45,7 @@ public class TextType {
             printScene();
         }
 
-        public static void printScene(){
+        public static void printScene() {
             txt_type_p = new Pane();
 
             l_card = new Label(Repository.arr_cards.getFirst().getFace());

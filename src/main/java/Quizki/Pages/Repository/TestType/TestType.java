@@ -7,8 +7,12 @@ import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -29,6 +33,7 @@ public class TestType {
     public static Card cur_card;
     public static ToggleGroup group;
     public static RadioButton rb_answer1, rb_answer2, rb_answer3, rb_answer4;
+
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
@@ -42,7 +47,7 @@ public class TestType {
             printScene();
         }
 
-        public static void printScene(){
+        public static void printScene() {
             test_type_p = new Pane();
 
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
@@ -91,14 +96,16 @@ public class TestType {
             Main.temp.setScene(scene);
         }
 
-        public static ArrayList<String> createAnswer(Card card){
-            ArrayList<Card> arr_temp_cards = (ArrayList<Card>) Repository.arr_cards.clone();
+        // Метод генерации списка ответов на основе выбранной коллекции
+        // по принципу добавления ответов в интерфейс из ответов других карточек той же коллекции
+        public static ArrayList<String> createAnswer(Card card) {
+            ArrayList<Card> arr_temp_cards = (ArrayList<Card>) Repository.cur_collect.getCard_set().clone();
 
             ArrayList<String> arr_answer = new ArrayList<>();
             arr_answer.add(card.getBack());
             arr_temp_cards.remove(card);
 
-            for (int i = 0; i < 3; i++){
+            for (int i = 0; i < 3; i++) {
                 Random rand = new Random();
                 int rand_number = rand.nextInt(arr_temp_cards.size());
                 String temp = arr_temp_cards.get(rand_number).getBack();
