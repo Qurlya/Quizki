@@ -13,5 +13,4 @@ public class Variables {
     public static final String correctEmoji = "ヾ(≧▽≦*)o";   // Смешной смайлик правильного ответа
     public static final String wrongEmoji = "(┬┬﹏┬┬)";   // Смешной смайлик неправильного ответа
     public static final String backEmoji = "💀";   // Смешной смайлик кнопки "назад"
-
 }

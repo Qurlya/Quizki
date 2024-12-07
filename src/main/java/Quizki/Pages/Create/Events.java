@@ -7,6 +7,8 @@ import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+
 import java.io.IOException;
 
 /**
@@ -18,14 +20,22 @@ public class Events {
     static class CreateCollect implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            Main.temp.setScene(Main.scene);
-            Collect collect = new Collect(Create.tf_name.getText(), Create.tf_describe.getText());
-            collect.setCard_set(Create.arr_card);
-            String path = Variables.card_filepath + Create.tf_name.getText() + ".json";
-            try {
-                JsonHandler.saveToFile(collect, path);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            // Нижний предел на количество карточек - хотя бы 4!
+            if(Create.arr_card.size() < 4){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Quizki Alarm");
+                alert.setContentText("Тест должен содержать хотя бы 4 карточки!");
+                alert.showAndWait();
+            }else {
+                Main.temp.setScene(Main.scene);
+                Collect collect = new Collect(Create.tf_name.getText(), Create.tf_describe.getText());
+                collect.setCard_set(Create.arr_card);
+                String path = Variables.card_filepath + Create.tf_name.getText() + ".json";
+                try {
+                    JsonHandler.saveToFile(collect, path);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
@@ -42,14 +52,23 @@ public class Events {
     static class AddCard implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            Create.b_del.setDisable(false);
-            String back_text = Create.tf_back_card.getText();
-            String face_text = Create.tf_face_card.getText();
-            Card card = new Card(face_text, back_text);
-            Create.arr_card.add(card);
-            Create.b_count.setText(String.valueOf(Create.arr_card.size()));
-            Create.l_card.setText(face_text + " // "+ back_text);
-            checkBorder();
+            int limit = 20;
+            // Верхний предел на количество символов в вопросе/ответе
+            if(Create.tf_face_card.getText().length() > limit || Create.tf_back_card.getText().length() > limit){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Quizki Alarm");
+                alert.setContentText("Вопрос/Ответ не может быть длиннее " + limit + " символов!");
+                alert.showAndWait();
+            }else {
+                Create.b_del.setDisable(false);
+                String back_text = Create.tf_back_card.getText();
+                String face_text = Create.tf_face_card.getText();
+                Card card = new Card(face_text, back_text);
+                Create.arr_card.add(card);
+                Create.b_count.setText(String.valueOf(Create.arr_card.size()));
+                Create.l_card.setText(face_text + " // " + back_text);
+                checkBorder();
+            }
         }
     }
 
@@ -59,8 +78,10 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             int count = Integer.parseInt(Create.b_count.getText());
             Create.b_count.setText(String.valueOf(count - 1));
-            int prev = count - 2;
-            Create.l_card.setText(Create.arr_card.get(prev).getFace() + " // " + Create.arr_card.get(prev).getBack());
+            Card temp = Create.arr_card.get(count - 2);
+            Create.l_card.setText(temp.getFace() + " // " + temp.getBack());
+            Create.tf_face_card.setText(temp.getFace());
+            Create.tf_back_card.setText(temp.getBack());
             checkBorder();
         }
     }

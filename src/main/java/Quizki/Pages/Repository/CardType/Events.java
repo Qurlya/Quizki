@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *  Реализация класса обработки событий функционального
@@ -18,7 +19,12 @@ public class Events {
     static class BackScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            Main.temp.setScene(Repository.p.getScene());
+            Repository.arr_wrong = new ArrayList<>();
+            Repository.arr_corr = new ArrayList<>();
+            Repository.card_count = 1;
+            Repository.cur_card = Repository.arr_cards.getFirst();
+
+            Main.temp.setScene(Repository.repos_p.getScene());
         }
     }
 
@@ -26,16 +32,16 @@ public class Events {
     static class CorrectAnswer implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            CardType.arr_corr.add(CardType.cur_card);
-            CardType.card_count++;
-            if (CardType.card_count == CardType.arr_cards.size() + 1){
+            Repository.arr_corr.add(Repository.cur_card);
+            Repository.card_count++;
+            if (Repository.card_count == Repository.arr_cards.size() + 1){
                 Result.changeScene();
                 Main.temp.setScene(Result.scene);
-                Result.b_continue.setDisable(CardType.arr_cards.equals(CardType.arr_corr));
+                Result.b_continue.setDisable(Repository.arr_cards.equals(Repository.arr_corr));
             }else{
-                CardType.cur_card = CardType.arr_cards.get(CardType.card_count - 1);
-                CardType.b_card.setText(CardType.cur_card.getFace());
-                CardType.l_count.setText(CardType.card_count + " /" + CardType.arr_cards.size());
+                Repository.cur_card = Repository.arr_cards.get(Repository.card_count - 1);
+                CardType.b_card.setText(Repository.cur_card.getFace());
+                CardType.l_count.setText(Repository.card_count + " / " + Repository.arr_cards.size());
             }
         }
     }
@@ -44,15 +50,15 @@ public class Events {
     static class WrongAnswer implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            CardType.arr_wrong.add(CardType.cur_card);
-            CardType.card_count++;
-            if (CardType.card_count == CardType.arr_cards.size() + 1){
+            Repository.arr_wrong.add(Repository.cur_card);
+            Repository.card_count++;
+            if (Repository.card_count == Repository.arr_cards.size() + 1){
                 Result.changeScene();
                 Main.temp.setScene(Result.scene);
             }else {
-                CardType.cur_card = CardType.arr_cards.get(CardType.card_count - 1);
-                CardType.b_card.setText(CardType.cur_card.getFace());
-                CardType.l_count.setText(CardType.card_count + " /" + CardType.arr_cards.size());
+                Repository.cur_card = Repository.arr_cards.get(Repository.card_count - 1);
+                CardType.b_card.setText(Repository.cur_card.getFace());
+                CardType.l_count.setText(Repository.card_count + " / " + Repository.arr_cards.size());
             }
         }
     }
@@ -61,8 +67,8 @@ public class Events {
     static class FlipCard implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (CardType.b_card.getText().equals(CardType.cur_card.getFace())) CardType.b_card.setText(CardType.cur_card.getBack());
-            else CardType.b_card.setText(CardType.cur_card.getFace());
+            if (CardType.b_card.getText().equals(Repository.cur_card.getFace())) CardType.b_card.setText(Repository.cur_card.getBack());
+            else CardType.b_card.setText(Repository.cur_card.getFace());
         }
     }
 
@@ -70,15 +76,16 @@ public class Events {
     static class Continue implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            CardType.arr_cards = CardType.arr_wrong;
+            Repository.arr_cards = Repository.arr_wrong;
+            Collections.shuffle(Repository.arr_cards);
 
-            CardType.arr_wrong = new ArrayList<>();
-            CardType.arr_corr = new ArrayList<>();
-            CardType.card_count = 1;
-            CardType.l_count.setText(CardType.card_count + " / " + CardType.arr_cards.size());
-            CardType.cur_card = CardType.arr_cards.getFirst();
-            CardType.b_card.setText(CardType.cur_card.getFace());
-            Main.temp.setScene(CardType.p.getScene());
+            Repository.arr_wrong = new ArrayList<>();
+            Repository.arr_corr = new ArrayList<>();
+            Repository.card_count = 1;
+            CardType.l_count.setText(Repository.card_count + " / " + Repository.arr_cards.size());
+            Repository.cur_card = Repository.arr_cards.getFirst();
+            CardType.b_card.setText(Repository.cur_card.getFace());
+            Main.temp.setScene(CardType.card_type_p.getScene());
         }
     }
 
@@ -86,13 +93,16 @@ public class Events {
     static class Reset implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            CardType.arr_wrong = new ArrayList<>();
-            CardType.arr_corr = new ArrayList<>();
-            CardType.card_count = 1;
-            CardType.l_count.setText(CardType.card_count + " / " + CardType.arr_cards.size());
-            CardType.cur_card = CardType.arr_cards.getFirst();
-            CardType.b_card.setText(CardType.cur_card.getFace());
-            Main.temp.setScene(CardType.p.getScene());
+            Repository.arr_cards = Repository.cur_collect.getCard_set();
+            Collections.shuffle(Repository.arr_cards);
+
+            Repository.arr_wrong = new ArrayList<>();
+            Repository.arr_corr = new ArrayList<>();
+            Repository.card_count = 1;
+            CardType.l_count.setText(Repository.card_count + " / " + Repository.arr_cards.size());
+            Repository.cur_card = Repository.arr_cards.getFirst();
+            CardType.b_card.setText(Repository.cur_card.getFace());
+            Main.temp.setScene(CardType.card_type_p.getScene());
         }
     }
 
