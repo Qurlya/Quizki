@@ -6,6 +6,7 @@ import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
 import Quizki.Pages.Repository.CardType.CardType;
 import Quizki.Pages.Repository.TestType.TestType;
+import Quizki.Pages.Repository.TextType.TextType;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -78,6 +79,7 @@ public class Repository {
             b_test.setOnAction(new TestType.changeScene());
             b_write = new Button("Письменный");
             firstOption(b_write, 250, 300, true);
+            b_write.setOnAction(new TextType.changeScene());
 
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");

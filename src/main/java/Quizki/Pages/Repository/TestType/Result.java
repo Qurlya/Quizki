@@ -2,9 +2,6 @@ package Quizki.Pages.Repository.TestType;
 
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
-import Quizki.Pages.Repository.CardType.CardType;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
