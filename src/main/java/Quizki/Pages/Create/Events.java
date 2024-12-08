@@ -22,16 +22,16 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             // Нижний предел на количество карточек - хотя бы 4
             if (Create.arr_card.size() < 4) {
-                Create.alert.setContentText("Тест должен содержать хотя бы 4 карточки!");
+                Create.alert.setContentText(Variables.curLanguageList.get("Alert_UnderLimit"));
                 Create.alert.showAndWait();
             } else if (Create.tf_name.getText().isEmpty() || Create.tf_describe.getText().isEmpty()) {
-                Create.alert.setContentText("Тест не может иметь пустое имя/описание!");
+                Create.alert.setContentText(Variables.curLanguageList.get("Alert_EmptyName"));
                 Create.alert.showAndWait();
             } else if (!parseString(Create.tf_name.getText())) {
-                Create.alert.setContentText("Название теста не должно иметь специальные символы!");
+                Create.alert.setContentText(Variables.curLanguageList.get("Alert_SpecSymbols"));
                 Create.alert.showAndWait();
             } else if (Create.tf_name.getText().trim().equals("__user__")) {
-                Create.alert.setContentText("Тест не может иметь имя '__user__'!");
+                Create.alert.setContentText(Variables.curLanguageList.get("Alert_UserFile"));
                 Create.alert.showAndWait();
             } else {
                 Main.temp.setScene(Main.scene);
@@ -89,13 +89,12 @@ public class Events {
     static class AddCard implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            int limit = 20;
             String face, back;
             face = Create.tf_face_card.getText();
             back = Create.tf_back_card.getText();
             // Верхний и нижний пределы на количество символов в вопросе/ответе
-            if (face.length() > limit || back.length() > limit) {
-                Create.alert.setContentText("Вопрос/Ответ не должен быть длиннее " + limit + " символов!");
+            if (face.length() > Variables.inputLimit || back.length() > Variables.inputLimit) {
+                Create.alert.setContentText(Variables.curLanguageList.get("Alert_OverLimit"));
                 Create.alert.showAndWait();
             } else if (face.isEmpty() || back.isEmpty()) {
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_IsEmpty"));

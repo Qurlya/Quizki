@@ -14,6 +14,7 @@ public class Variables {
     public static final int appWidth = 500;    // Ширина окна приложения
     public static final String projectTitle = "Quizki";     // Название приложения
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
+    public static final int inputLimit = 20;    // Ограничение на ввод по символам
 
     // Косметические элементы дизайна
     // Набор 1
@@ -60,10 +61,14 @@ public class Variables {
         temp.put("Test_Check", "Check");
         temp.put("Test_CorrectAnswers", "Your correct answers");
         temp.put("Test_WrongAnswers", "Your wrong answers");
-        temp.put("Alert_OverLimit", "Question/Answer must be under ... symbols!");
+        temp.put("Alert_OverLimit", "Question/Answer must be under " + inputLimit + " symbols!");
         temp.put("Alert_IsEmpty", "Question/Answer must be filled!");
         temp.put("Alert_AlreadyExist", "This question is already exist! Come up with another one.");
         temp.put("Alert_DeleteErr", "Error deleting an object! (Try again)");
+        temp.put("Alert_UnderLimit", "The test must contain at least 4 cards!");
+        temp.put("Alert_EmptyName", "The test cannot have an empty name/description!");
+        temp.put("Alert_UserFile", "The test cannot have the name '__user__'!");
+        temp.put("Alert_SpecSymbols", "The name of the test must not have special characters!");
         return temp;
     }
 
@@ -96,10 +101,16 @@ public class Variables {
         temp.put("Test_Check", "Проверить");
         temp.put("Test_CorrectAnswers", "Ваши правильные ответы");
         temp.put("Test_WrongAnswers", "Ваши неправильные ответы");
-        temp.put("Alert_OverLimit", "Вопрос/Ответ не должен быть длиннее ... символов!");
+        temp.put("Alert_OverLimit", "Вопрос/Ответ не должен быть длиннее " + inputLimit + " символов!");
         temp.put("Alert_IsEmpty", "Вопрос/Ответ не должен быть пустым!");
         temp.put("Alert_AlreadyExist", "Такой вопрос уже существует! Придумайте другой.");
         temp.put("Alert_DeleteErr", "Ошибка удаления объекта! (Попробуйте еще раз)");
+        temp.put("Alert_UnderLimit", "Тест должен содержать хотя бы 4 карточки!");
+        temp.put("Alert_EmptyName", "Тест не может иметь пустое имя/описание!");
+        temp.put("Alert_UserFile", "Тест не может иметь имя '__user__'!");
+        temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
+
+
         return temp;
     }
 
@@ -132,10 +143,14 @@ public class Variables {
         temp.put("Test_Check", "Überprüfen");
         temp.put("Test_CorrectAnswers", "Ihre richtigen Antworten");
         temp.put("Test_WrongAnswers", "Deine falschen Antworten");
-        temp.put("Alert_OverLimit", "Die Frage/Antwort sollte nicht länger sein ... zeichen!");
+        temp.put("Alert_OverLimit", "Die Frage/Antwort sollte nicht länger sein " + inputLimit + " zeichen!");
         temp.put("Alert_IsEmpty", "Die Frage/Antwort darf nicht leer sein!");
         temp.put("Alert_AlreadyExist", "Eine solche Frage existiert bereits! Denken Sie an einen anderen.");
         temp.put("Alert_DeleteErr", "Fehler beim Löschen des Objekts! (Versuchen Sie es erneut)");
+        temp.put("Alert_UnderLimit", "Der Test sollte mindestens 4 Karten enthalten!");
+        temp.put("Alert_EmptyName", "Der Test darf keinen leeren Namen/keine leere Beschreibung haben!");
+        temp.put("Alert_UserFile", "Der Test kann nicht den Namen '__user__' haben!");
+        temp.put("Alert_SpecSymbols", "Der Name des Tests sollte keine Sonderzeichen haben!");
         return temp;
     }
 
@@ -168,10 +183,14 @@ public class Variables {
         temp.put("Test_Check", "检查");
         temp.put("Test_CorrectAnswers", "你的正确答案");
         temp.put("Test_WrongAnswers", "你的错误答案");
-        temp.put("Alert_OverLimit", "问题/答案不应该更长。.. 人物！");
+        temp.put("Alert_OverLimit", "问题/答案不应该更长 " + inputLimit + " 人物！");
         temp.put("Alert_IsEmpty", "问题/答案不应该是空的！");
         temp.put("Alert_AlreadyExist", "这样的问题已经存在了！ 再想出一个。");
         temp.put("Alert_DeleteErr", "删除对象时出错！（再试一次）");
+        temp.put("Alert_UnderLimit", "测试必须包含至少4张卡片！");
+        temp.put("Alert_EmptyName", "测试不能有一个空的名称/描述！");
+        temp.put("Alert_UserFile", "测试不能具有名称'__user__'！");
+        temp.put("Alert_SpecSymbols", "考试名称不得有特殊字符！");
         return temp;
     }
 }
