@@ -1,6 +1,7 @@
 package Quizki.Pages.Repository.TestType;
 
 import Quizki.Models.Card;
+import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
@@ -49,7 +50,7 @@ public class Events {
             TestType.b_continue.setDisable(false);
 
             if (Repository.card_count == Repository.arr_cards.size()) {
-                TestType.b_continue.setText("Закончить");
+                TestType.b_continue.setText(Variables.curLanguageList.get("Test_End"));
             }
 
         }
@@ -59,7 +60,7 @@ public class Events {
     static class NextCard implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (TestType.b_continue.getText().equals("Закончить")) {
+            if (TestType.b_continue.getText().equals(Variables.curLanguageList.get("Test_End"))) {
                 Result.changeScene();
                 if (Repository.arr_wrong.isEmpty()) {
                     Result.b_continue.setDisable(true);

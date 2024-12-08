@@ -48,22 +48,21 @@ public class TextType {
         public static void printScene() {
             txt_type_p = new Pane();
 
+            // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
             firstOption(txt_type_p, l_card, 50, 50, true);
-
 
             l_count = new Label(Repository.card_count + " / " + Repository.arr_cards.size());
             firstOption(txt_type_p, l_count, 25, 100, true);
 
-
-            b_back = new Button("💀");
+            b_back = new Button(Variables.curLanguageList.get("Back"));
             firstOption(txt_type_p, b_back, 0, 350, true);
             b_back.setOnAction(new Events.BackScene());
 
             tf_answer = new TextField();
             firstOption(txt_type_p, tf_answer, 10, 200, true);
 
-            b_continue = new Button("Проверить");
+            b_continue = new Button(Variables.curLanguageList.get("Test_Check"));
             firstOption(txt_type_p, b_continue, 200, 350, true);
             b_continue.setOnAction(new Events.NextCard());
 

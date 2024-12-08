@@ -50,6 +50,7 @@ public class TestType {
         public static void printScene() {
             test_type_p = new Pane();
 
+            // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
             firstOption(test_type_p, l_card, 50, 50, true);
 

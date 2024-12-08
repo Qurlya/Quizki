@@ -1,6 +1,7 @@
 package Quizki.Pages.Repository.TextType;
 
 import Quizki.Models.Card;
+import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
@@ -28,7 +29,7 @@ public class Events {
     static class NextCard implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (TextType.b_continue.getText().equals("Проверить")) {
+            if (TextType.b_continue.getText().equals(Variables.curLanguageList.get("Test_Check"))) {
                 if (TextType.tf_answer.getText().trim().equalsIgnoreCase(TextType.cur_card.getBack())) {
                     TextType.tf_answer.setStyle("-fx-text-fill: green");
                     Repository.arr_corr.add(TextType.cur_card);
@@ -39,7 +40,7 @@ public class Events {
                 TextType.tf_answer.setDisable(true);
                 TextType.b_continue.setText("-->");
                 if (Repository.card_count == Repository.arr_cards.size()) {
-                    TextType.b_continue.setText("Закончить");
+                    TextType.b_continue.setText(Variables.curLanguageList.get("Test_End"));
                 }
             } else if (TextType.b_continue.getText().equals("-->")) {
                 Repository.card_count++;
@@ -53,7 +54,7 @@ public class Events {
                 TextType.tf_answer.setStyle("-fx-text-fill: black");
                 TextType.tf_answer.setDisable(false);
                 TextType.tf_answer.setText("");
-                TextType.b_continue.setText("Проверить");
+                TextType.b_continue.setText(Variables.curLanguageList.get("Test_Check"));
 
             } else {
                 Result.changeScene();

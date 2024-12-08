@@ -26,26 +26,23 @@ public class Result {
 
     public static void changeScene() {
         result_test_p = new Pane();
-        l_correct_count = new Label("Верных ответов: " + Repository.arr_corr.size());
+        l_correct_count = new Label(Variables.curLanguageList.get("Test_CorrectAnswers") + ": " + Repository.arr_corr.size());
         firstOption(result_test_p, l_correct_count, 0, 20, true);
 
-        l_incorrect_count = new Label("Неверных ответов: " + Repository.arr_wrong.size());
+        l_incorrect_count = new Label(Variables.curLanguageList.get("Test_WrongAnswers") + ": " + Repository.arr_wrong.size());
         firstOption(result_test_p, l_incorrect_count, 0, 50, true);
 
-        b_continue = new Button("Продолжить");
+        b_continue = new Button(Variables.curLanguageList.get("Test_Continue"));
         firstOption(result_test_p, b_continue, 0, 100, true);
         b_continue.setOnAction(new Events.ContinueTest());
 
-
-        b_again = new Button("Начать заново");
+        b_again = new Button(Variables.curLanguageList.get("Test_Again"));
         firstOption(result_test_p, b_again, 150, 100, true);
         b_again.setOnAction(new Events.AgainTest());
 
-
-        b_back = new Button("Назад");
+        b_back = new Button(Variables.curLanguageList.get("Back"));
         firstOption(result_test_p, b_back, 0, 300, true);
         b_back.setOnAction(new Events.BackScene());
-
 
         scene = new Scene(result_test_p, Variables.appWidth, Variables.appHeight);
         scene.getStylesheets().add("repository_style.css");

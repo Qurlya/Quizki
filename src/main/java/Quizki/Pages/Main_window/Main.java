@@ -20,7 +20,6 @@ import java.io.IOException;
  * функциональными вкладками, реализующими полноту проекта.
  * На будущее:
  * - Перенести лейбл с кнопками для каждого функционального окна в top_center
- * - Уменьшить код в main, путем абстрагирования
  */
 
 public class Main extends Application {
@@ -30,22 +29,24 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         temp = stage;
-        Button b_about_as = new Button("About us");
+
+        // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
+        Button b_about_as = new Button(Variables.curLanguageList.get("Page_AboutUs"));
         b_about_as.setOnAction(new About_us.changeScene());
 
-        Button b_materials = new Button("Materials");
+        Button b_materials = new Button(Variables.curLanguageList.get("Page_Materials"));
         b_materials.setOnAction(new Materials.changeScene());
 
-        Button b_create = new Button("Create");
+        Button b_create = new Button(Variables.curLanguageList.get("Page_Create"));
         b_create.setOnAction(new Create.changeScene());
 
-        Button b_repository = new Button("Repository");
+        Button b_repository = new Button(Variables.curLanguageList.get("Page_Repository"));
         b_repository.setOnAction(new Repository.changeScene());
 
-        Button b_account = new Button("Account");
+        Button b_account = new Button(Variables.curLanguageList.get("Page_Account"));
         b_account.setOnAction(new Account.changeScene());
 
-        Button b_settings = new Button("Settings");
+        Button b_settings = new Button(Variables.curLanguageList.get("Page_Settings"));
         b_settings.setOnAction(new Settings.changeScene());
 
         HBox p = new HBox(b_about_as, b_materials, b_create, b_repository, b_account, b_settings);

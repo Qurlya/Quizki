@@ -30,6 +30,9 @@ public class Events {
             } else if (!parseString(Create.tf_name.getText())) {
                 Create.alert.setContentText("Название теста не должно иметь специальные символы!");
                 Create.alert.showAndWait();
+            } else if (Create.tf_name.getText().trim().equals("__user__")) {
+                Create.alert.setContentText("Тест не может иметь имя '__user__'!");
+                Create.alert.showAndWait();
             } else {
                 Main.temp.setScene(Main.scene);
                 Collect collect = new Collect(Create.tf_name.getText(), Create.tf_describe.getText());
@@ -87,15 +90,18 @@ public class Events {
         @Override
         public void handle(ActionEvent actionEvent) {
             int limit = 20;
-            int face_len, back_len;
-            face_len = Create.tf_face_card.getText().length();
-            back_len = Create.tf_back_card.getText().length();
-            // Верхний предел на количество символов в вопросе/ответе
-            if (face_len > limit || back_len > limit) {
-                Create.alert.setContentText("Вопрос/Ответ не может быть длиннее " + limit + " символов!");
+            String face, back;
+            face = Create.tf_face_card.getText();
+            back = Create.tf_back_card.getText();
+            // Верхний и нижний пределы на количество символов в вопросе/ответе
+            if (face.length() > limit || back.length() > limit) {
+                Create.alert.setContentText("Вопрос/Ответ не должен быть длиннее " + limit + " символов!");
                 Create.alert.showAndWait();
-            } else if (face_len == 0 || back_len == 0) {
-                Create.alert.setContentText("Вопрос/Ответ не может быть пустым!");
+            } else if (face.isEmpty() || back.isEmpty()) {
+                Create.alert.setContentText(Variables.curLanguageList.get("Alert_IsEmpty"));
+                Create.alert.showAndWait();
+            } else if (Create.arr_card.contains(new Card(face, back))) {
+                Create.alert.setContentText(Variables.curLanguageList.get("Alert_AlreadyExist"));
                 Create.alert.showAndWait();
             } else {
                 Create.b_del.setDisable(false);

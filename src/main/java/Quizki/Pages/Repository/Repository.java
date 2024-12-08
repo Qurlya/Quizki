@@ -56,11 +56,11 @@ public class Repository {
             }
             cur_collect = arr_cols.getFirst();
 
-            // Добавление элементов интерфейса
-            name = new Label("Название: " + cur_collect.getName());
+            // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
+            name = new Label(Variables.curLanguageList.get("Test_Name") + ": " + cur_collect.getName());
             firstOption(repos_p, name, 10, 10, true);
 
-            description = new Label("Описание: " + cur_collect.getDescription());
+            description = new Label(Variables.curLanguageList.get("Test_Description") + ": " + cur_collect.getDescription());
             firstOption(repos_p, description, 10, 40, true);
 
             l_count = new Label("");
@@ -77,23 +77,23 @@ public class Repository {
             b_prev.setOnAction(new Events.PrevCollection());
             b_prev.setDisable(arr_cols.size() == 1);
 
-            b_card = new Button("Карточки");
+            b_card = new Button(Variables.curLanguageList.get("Repos_Card"));
             firstOption(repos_p, b_card, 0, 300, true);
             b_card.setOnAction(new CardType.changeScene());
 
-            b_test = new Button("Тест");
+            b_test = new Button(Variables.curLanguageList.get("Repos_Test"));
             firstOption(repos_p, b_test, 150, 300, true);
             b_test.setOnAction(new TestType.changeScene());
 
-            b_write = new Button("Письменный");
+            b_write = new Button(Variables.curLanguageList.get("Repos_Text"));
             firstOption(repos_p, b_write, 250, 300, true);
             b_write.setOnAction(new TextType.changeScene());
 
-            b_back = new Button("Назад");   // Кнопка назад
+            b_back = new Button(Variables.curLanguageList.get("Back"));   // Кнопка назад
             firstOption(repos_p, b_back, 0, 400, true);
             b_back.setOnAction(new Events.BackScene());
 
-            b_delete = new Button("Удалить");
+            b_delete = new Button(Variables.curLanguageList.get("Repos_Delete"));
             firstOption(repos_p, b_delete, 0, 450, true);
             b_delete.setOnAction(new Events.DeleteCollection());
 

@@ -43,14 +43,15 @@ public class Create {
             create_p = new Pane();
             alert.setTitle("Quizki Alarm");
 
-            Label l1 = new Label("Name");
-            firstOption(create_p, l1, 0, 5, true);
-            Label l2 = new Label("Description");
-            firstOption(create_p, l2, 0, 35, true);
-            Label l3 = new Label("Question");
-            firstOption(create_p, l3, 0, 95, true);
-            Label l4 = new Label("Answer");
-            firstOption(create_p, l4, 0, 125, true);
+            // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
+            Label l_name = new Label(Variables.curLanguageList.get("Test_Name"));
+            firstOption(create_p, l_name, 0, 5, true);
+            Label l_desc = new Label(Variables.curLanguageList.get("Test_Description"));
+            firstOption(create_p, l_desc, 0, 35, true);
+            Label l_quest = new Label(Variables.curLanguageList.get("Create_Question"));
+            firstOption(create_p, l_quest, 0, 95, true);
+            Label l_answer = new Label(Variables.curLanguageList.get("Create_Answer"));
+            firstOption(create_p, l_answer, 0, 125, true);
 
             tf_name = new TextField();
             firstOption(create_p, tf_name, 125, 10, true);
@@ -64,16 +65,15 @@ public class Create {
             tf_back_card = new TextField();
             firstOption(create_p, tf_back_card, 125, 130, true);
 
-            b_create = new Button("Create");
+            b_create = new Button(Variables.curLanguageList.get("Create_MakeNew"));
             firstOption(create_p, b_create, 0, 500, true);
             b_create.setOnAction(new Events.CreateCollect());
 
-
-            b_add = new Button("Add");
+            b_add = new Button(Variables.curLanguageList.get("Create_AddCard"));
             firstOption(create_p, b_add, 100, 160, true);
             b_add.setOnAction(new Events.AddCard());
 
-            b_del = new Button("Delete");
+            b_del = new Button(Variables.curLanguageList.get("Create_DelCard"));
             firstOption(create_p, b_del, 200, 160, true);
             b_del.setOnAction(new Events.DelCard());
             b_del.setDisable(true);
@@ -96,7 +96,7 @@ public class Create {
             l_card = new Label("");
             firstOption(create_p, l_card, 100, 260, true);
 
-            b_back = new Button("Back");
+            b_back = new Button(Variables.curLanguageList.get("Back"));
             firstOption(create_p, b_back, 100, 500, true);
             b_back.setOnAction(new Events.BackScene());
 

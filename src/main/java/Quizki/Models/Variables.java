@@ -1,12 +1,14 @@
 package Quizki.Models;
 
+import java.util.HashMap;
+
 /**
  * Реализация класса констант и переменных, задействованных в коде проекта.
  * Абстрагирование необходимых данных для простоты внесения изменений в код приложения.
  */
 
 public class Variables {
-    //ϏЯΞΣ⩱
+    // ϏЯΞΣ⩱
     // Основные параметры приложения
     public static final int appHeight = 600;    // Высота окна приложения
     public static final int appWidth = 500;    // Ширина окна приложения
@@ -14,7 +16,162 @@ public class Variables {
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
 
     // Косметические элементы дизайна
+    // Набор 1
     public static final String correctAnswerEmoji_cat = "ヾ(≧▽≦*)o";   // Смешной смайлик правильного ответа
     public static final String wrongAnswerEmoji_cat = "(┬┬﹏┬┬)";   // Смешной смайлик неправильного ответа
     public static final String backEmoji_cat = "＼（〇_ｏ）／";   // Смешной смайлик кнопки "назад"
+
+    // Расцветки
+    // ...
+
+    // Языковые наборы
+    public static final HashMap<String, String> engList = fillEngList();  // Английский
+    public static final HashMap<String, String> rusList = fillRusList();  // Русский
+    public static final HashMap<String, String> deuList = fillDeuList();  // Немецкий
+    public static final HashMap<String, String> chnList = fillChnList();  // Китайский
+    public static HashMap<String, String> curLanguageList = engList;    // По умолчанию - английский
+
+    // Инициализация для английского набора
+    private static HashMap<String, String> fillEngList(){
+        HashMap<String, String> temp = new HashMap<>();
+        temp.put("Page_AboutUs", "About us");
+        temp.put("Page_Materials", "Materials");
+        temp.put("Page_Create", "Create");
+        temp.put("Page_Repository", "Repository");
+        temp.put("Page_Account", "Account");
+        temp.put("Page_Settings", "Settings");
+        temp.put("Test_Name", "Name");
+        temp.put("Test_Description", "Description");
+        temp.put("Create_Question", "Question");
+        temp.put("Create_Answer", "Answer");
+        temp.put("Create_MakeNew", "Create");
+        temp.put("Create_AddCard", "Add card");
+        temp.put("Create_DelCard", "Delete card");
+        temp.put("Back", "Back");
+        temp.put("Test_Correct", "True");
+        temp.put("Test_Wrong", "False");
+        temp.put("Repos_Card", "As cards");
+        temp.put("Repos_Test", "As test");
+        temp.put("Repos_Text", "As txt-input");
+        temp.put("Repos_Delete", "Delete test");
+        temp.put("Test_End", "Finish");
+        temp.put("Test_Continue", "Continue");
+        temp.put("Test_Again", "Start over");
+        temp.put("Test_Check", "Check");
+        temp.put("Test_CorrectAnswers", "Your correct answers");
+        temp.put("Test_WrongAnswers", "Your wrong answers");
+        temp.put("Alert_OverLimit", "Question/Answer must be under ... symbols!");
+        temp.put("Alert_IsEmpty", "Question/Answer must be filled!");
+        temp.put("Alert_AlreadyExist", "This question is already exist! Come up with another one.");
+        temp.put("Alert_DeleteErr", "Error deleting an object! (Try again)");
+        return temp;
+    }
+
+    // Инициализация для русского набора
+    private static HashMap<String, String> fillRusList(){
+        HashMap<String, String> temp = new HashMap<>();
+        temp.put("Page_AboutUs", "О разработчиках");
+        temp.put("Page_Materials", "Материалы");
+        temp.put("Page_Create", "Создание");
+        temp.put("Page_Repository", "Репозиторий");
+        temp.put("Page_Account", "Профиль");
+        temp.put("Page_Settings", "Настройки");
+        temp.put("Test_Name", "Name");
+        temp.put("Test_Description", "Описание");
+        temp.put("Create_Question", "Вопрос");
+        temp.put("Create_Answer", "Ответ");
+        temp.put("Create_MakeNew", "Создать");
+        temp.put("Create_AddCard", "Добавить");
+        temp.put("Create_DelCard", "Удалить");
+        temp.put("Back", "Назад");
+        temp.put("Test_Correct", "Верно");
+        temp.put("Test_Wrong", "Неверно");
+        temp.put("Repos_Card", "Карточки");
+        temp.put("Repos_Test", "Тест");
+        temp.put("Repos_Text", "Письменный ввод");
+        temp.put("Repos_Delete", "Удалить тест");
+        temp.put("Test_End", "Закончить");
+        temp.put("Test_Continue", "Продолжить");
+        temp.put("Test_Again", "Пройти заново");
+        temp.put("Test_Check", "Проверить");
+        temp.put("Test_CorrectAnswers", "Ваши правильные ответы");
+        temp.put("Test_WrongAnswers", "Ваши неправильные ответы");
+        temp.put("Alert_OverLimit", "Вопрос/Ответ не должен быть длиннее ... символов!");
+        temp.put("Alert_IsEmpty", "Вопрос/Ответ не должен быть пустым!");
+        temp.put("Alert_AlreadyExist", "Такой вопрос уже существует! Придумайте другой.");
+        temp.put("Alert_DeleteErr", "Ошибка удаления объекта! (Попробуйте еще раз)");
+        return temp;
+    }
+
+    // Инициализация для немецкого набора
+    private static HashMap<String, String> fillDeuList(){
+        HashMap<String, String> temp = new HashMap<>();
+        temp.put("Page_AboutUs", "Über Entwickler");
+        temp.put("Page_Materials", "Werkstoffe");
+        temp.put("Page_Create", "Schaffung");
+        temp.put("Page_Repository", "Repository");
+        temp.put("Page_Account", "Profil");
+        temp.put("Page_Settings", "Einstellungen");
+        temp.put("Test_Name", "Name");
+        temp.put("Test_Description", "Beschreibung");
+        temp.put("Create_Question", "Frage");
+        temp.put("Create_Answer", "Antwort");
+        temp.put("Create_MakeNew", "Erstellen");
+        temp.put("Create_AddCard", "Karte hinzufügen");
+        temp.put("Create_DelCard", "Karte löschen");
+        temp.put("Back", "Zurück");
+        temp.put("Test_Correct", "Richtig");
+        temp.put("Test_Wrong", "Falsch");
+        temp.put("Repos_Card", "Als Karten");
+        temp.put("Repos_Test", "Als Test");
+        temp.put("Repos_Text", "Als Texteingabe");
+        temp.put("Repos_Delete", "Test löschen");
+        temp.put("Test_End", "Beenden");
+        temp.put("Test_Continue", "Weiterhin");
+        temp.put("Test_Again", "Von vorne beginnen");
+        temp.put("Test_Check", "Überprüfen");
+        temp.put("Test_CorrectAnswers", "Ihre richtigen Antworten");
+        temp.put("Test_WrongAnswers", "Deine falschen Antworten");
+        temp.put("Alert_OverLimit", "Die Frage/Antwort sollte nicht länger sein ... zeichen!");
+        temp.put("Alert_IsEmpty", "Die Frage/Antwort darf nicht leer sein!");
+        temp.put("Alert_AlreadyExist", "Eine solche Frage existiert bereits! Denken Sie an einen anderen.");
+        temp.put("Alert_DeleteErr", "Fehler beim Löschen des Objekts! (Versuchen Sie es erneut)");
+        return temp;
+    }
+
+    // Инициализация для китайского набора
+    private static HashMap<String, String> fillChnList(){
+        HashMap<String, String> temp = new HashMap<>();
+        temp.put("Page_AboutUs", "关于开发人员");
+        temp.put("Page_Materials", "材料");
+        temp.put("Page_Create", "创作");
+        temp.put("Page_Repository", "存储库");
+        temp.put("Page_Account", "个人资料");
+        temp.put("Page_Settings", "设置");
+        temp.put("Test_Name", "名称");
+        temp.put("Test_Description", "描述");
+        temp.put("Create_Question", "问题");
+        temp.put("Create_Answer", "答案");
+        temp.put("Create_MakeNew", "创建");
+        temp.put("Create_AddCard", "添加卡");
+        temp.put("Create_DelCard", "删除卡");
+        temp.put("Back", "返回");
+        temp.put("Test_Correct", "对");
+        temp.put("Test_Wrong", "錯");
+        temp.put("Repos_Card", "作为卡片");
+        temp.put("Repos_Test", "作为测试");
+        temp.put("Repos_Text", "作为文本输入");
+        temp.put("Repos_Delete", "删除测试");
+        temp.put("Test_End", "完成");
+        temp.put("Test_Continue", "继续");
+        temp.put("Test_Again", "重新开始");
+        temp.put("Test_Check", "检查");
+        temp.put("Test_CorrectAnswers", "你的正确答案");
+        temp.put("Test_WrongAnswers", "你的错误答案");
+        temp.put("Alert_OverLimit", "问题/答案不应该更长。.. 人物！");
+        temp.put("Alert_IsEmpty", "问题/答案不应该是空的！");
+        temp.put("Alert_AlreadyExist", "这样的问题已经存在了！ 再想出一个。");
+        temp.put("Alert_DeleteErr", "删除对象时出错！（再试一次）");
+        return temp;
+    }
 }

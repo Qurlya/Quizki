@@ -5,10 +5,8 @@ import Quizki.Pages.Create.Create;
 import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 
 /**
@@ -25,8 +23,8 @@ public class Events {
             int count = Integer.parseInt(Repository.l_count.getText());
             Repository.l_count.setText(String.valueOf(count - 1));
             Repository.cur_collect = Repository.arr_cols.get(count - 2);
-            Repository.name.setText("Название: " + Repository.cur_collect.getName());
-            Repository.description.setText("Описание: " + Repository.cur_collect.getDescription());
+            Repository.name.setText(Variables.curLanguageList.get("Test_Name") + ": " + Repository.cur_collect.getName());
+            Repository.description.setText(Variables.curLanguageList.get("Test_Description") + ": " + Repository.cur_collect.getDescription());
             checkBorder();
         }
     }
@@ -38,8 +36,8 @@ public class Events {
             int count = Integer.parseInt(Repository.l_count.getText());
             Repository.l_count.setText(String.valueOf(count + 1));
             Repository.cur_collect = Repository.arr_cols.get(count);
-            Repository.name.setText("Название: " + Repository.cur_collect.getName());
-            Repository.description.setText("Описание: " + Repository.cur_collect.getDescription());
+            Repository.name.setText(Variables.curLanguageList.get("Test_Name") + ": " + Repository.cur_collect.getName());
+            Repository.description.setText(Variables.curLanguageList.get("Test_Description") + ": " + Repository.cur_collect.getDescription());
             checkBorder();
         }
     }
@@ -61,7 +59,7 @@ public class Events {
                 // Добавить окно "прогресса удаления"
                 Main.temp.setScene(Repository.repos_p.getScene());
             } else {
-                Create.alert.setContentText("Ошибка удаления объекта! (Попробуйте еще раз)");
+                Create.alert.setContentText(Variables.curLanguageList.get("Alert_DeleteErr"));
                 Create.alert.showAndWait();
             }
         }

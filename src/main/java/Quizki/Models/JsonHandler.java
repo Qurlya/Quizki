@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +27,18 @@ public class JsonHandler {
         jsonNode.put("collect_name", collect.getName());
         jsonNode.put("collect_description", collect.getDescription());
         jsonNode.putArray("card_set").addAll(array);
+
+        mapper.writeValue(file, jsonNode);
+    }
+
+    // Метод "регистрации пользователя" (создание файла с персональными данными)
+    public static void createAccount(String login, Image image) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode jsonNode = mapper.createObjectNode();
+        File file = new File(Variables.card_filepath + "__user__.json");
+
+        jsonNode.put("user_login", login);
+        jsonNode.put("user_image", image.toString());
 
         mapper.writeValue(file, jsonNode);
     }
