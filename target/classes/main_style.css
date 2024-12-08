@@ -1,3 +1,30 @@
 .root{
-    -fx-background-color: linear-gradient(#3f5efb, #c633d0);
+    -fx-background-color: #004048
+}
+/*Кнопка*/
+.button{
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-text-fill: #ACCBC3;
+    -fx-font-size: 20;
+    -fx-translate-y: 10;
+    -fx-translate-x: 10;
+}
+/*Кнопки "Аккаунт" и "Настройки"*/
+.b_right{
+    -fx-translate-x: 610;
+}
+/*При наведении кнопки*/
+.button:hover{
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-text-fill: #ACCBC3;
+}
+/*Кнопка "Создать"*/
+#b_create{
+    -fx-font-weight: bold;
+    -fx-background-color: #117479;
+    -fx-translate-x: 225;
+}
+/*При наведении на кнопку "Создать"*/
+#b_create:hover{
+    -fx-background-color: rgba(17, 116, 121, 0.7);
 }

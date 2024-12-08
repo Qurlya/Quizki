@@ -36,19 +36,22 @@ public class Main extends Application {
         Button b_materials = new Button("Materials");
         b_materials.setOnAction(new Materials.changeScene());
 
-        Button b_create = new Button("Create");
+        Button b_create = new Button("➕");
         b_create.setOnAction(new Create.changeScene());
+        b_create.setId("b_create");
 
-        Button b_repository = new Button("Repository");
+        Button b_repository = new Button("\uD83D\uDCC1");
         b_repository.setOnAction(new Repository.changeScene());
 
-        Button b_account = new Button("Account");
+        Button b_account = new Button("\uD83D\uDC64");
         b_account.setOnAction(new Account.changeScene());
+        b_account.getStyleClass().add("b_right");
 
-        Button b_settings = new Button("Settings");
+        Button b_settings = new Button("⚙");
         b_settings.setOnAction(new Settings.changeScene());
+        b_settings.getStyleClass().add("b_right");
 
-        HBox p = new HBox(b_about_as, b_materials, b_create, b_repository, b_account, b_settings);
+        HBox p = new HBox(b_about_as, b_materials, b_repository, b_create, b_account, b_settings);
         scene = new Scene(p, Variables.appWidth, Variables.appHeight);
 
         scene.getStylesheets().add("main_style.css");

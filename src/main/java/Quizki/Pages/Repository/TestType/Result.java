@@ -24,23 +24,23 @@ public class Result {
     public static void changeScene() {
         p = new Pane();
         l_correct_count = new Label("Верных ответов: " + TestType.arr_corr.size());
-        firstOption(l_correct_count, 0, 20, true);
+        firstOption(l_correct_count, 400, 300, true);
 
         l_incorrect_count = new Label("Неверных ответов: " + TestType.arr_wrong.size());
-        firstOption(l_incorrect_count, 0, 50, true);
+        firstOption(l_incorrect_count, 400, 350, true);
 
         b_continue = new Button("Продолжить");
-        firstOption(b_continue, 0, 100, true);
+        firstOption(b_continue, 530, 400, true);
         b_continue.setOnAction(new Events.continueStudy());
 
 
         b_again = new Button("Начать заново");
-        firstOption(b_again, 150, 100, true);
+        firstOption(b_again, 350, 400, true);
         b_again.setOnAction(new Events.AgainCard());
 
 
         b_back = new Button("Назад");
-        firstOption(b_back, 0, 300, true);
+        firstOption(b_back, 100, 700, true);
         b_back.setOnAction(new Events.BackScene());
 
 

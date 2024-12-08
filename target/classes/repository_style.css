@@ -1,24 +1,24 @@
 .root{
-    -fx-background-color: linear-gradient(#3f5efb, #c633d0);
+    -fx-background-color: #004048;
 }
 /*Кнопка*/
 .button{
-    -fx-background-color: cornflowerblue ;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-text-fill: #ACCBC3;
     -fx-font-size: 20;
+    -fx-border-color: #ACCBC3;
 }
 /*При наведении кнопки*/
 .button:hover{
-    -fx-background-color: #ffffff;
-    -fx-text-fill: cornflowerblue;
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-text-fill: #ACCBC3;
+    -fx-border-color: #ACCBC3;
 }
 
 /*Текст*/
 .label{
-    -fx-alignment: top-center;
     -fx-font-size: 24;
     -fx-font-style: normal;
     -fx-font-weight: normal;
-    -fx-text-fill: black;
-    /*-fx-font-family: "JetBrains Mono";*/
+    -fx-text-fill: #ACCBC3;
 }

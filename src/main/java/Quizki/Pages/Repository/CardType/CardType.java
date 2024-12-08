@@ -39,22 +39,22 @@ public class CardType {
             cur_card = arr_cards.getFirst();
 
             b_card = new Button(arr_cards.getFirst().getFace());
-            firstOption(b_card, 50, 50, true);
+            firstOption(b_card, 470, 280, true);
             b_card.setOnAction(new Events.FlipCard());
 
             l_count = new Label(card_count + " / " + arr_cards.size());
-            firstOption(l_count, 25, 100, true);
+            firstOption(l_count, 485, 475, true);
 
-            b_back = new Button("💀");
-            firstOption(b_back, 0, 300, true);
+            b_back = new Button("⋆\uD83D\uDC3E°");
+            firstOption(b_back, 100, 700, true);
             b_back.setOnAction(new Events.BackScene());
 
-            b_correct = new Button("+");
-            firstOption(b_correct, 10, 200, true);
+            b_correct = new Button("ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧");
+            firstOption(b_correct, 560, 470, true);
             b_correct.setOnAction(new Events.CorrectAnswer());
 
-            b_mistake = new Button("-");
-            firstOption(b_mistake, 150, 200, true);
+            b_mistake = new Button("∘ ∘ ∘ ( °ヮ° ) ?");
+            firstOption(b_mistake, 320, 470, true);
             b_mistake.setOnAction(new Events.WrongAnswer());
 
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);

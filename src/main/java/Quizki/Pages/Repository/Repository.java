@@ -52,33 +52,34 @@ public class Repository {
             cur_collect = arr_cols.getFirst();
 
             name = new Label("Название: " + cur_collect.getName());
-            firstOption(name, 10, 10, true);
+            firstOption(name, 300, 265, true);
 
             description = new Label("Описание: " + cur_collect.getDescription());
-            firstOption(description, 10, 40, true);
+            firstOption(description, 300, 305, true);
 
 
             b_next = new Button(">");
-            firstOption(b_next, 215, 210, true);
+            firstOption(b_next, 542, 470, true);
             b_next.setOnAction(new Events.NextCollection());
 
             l_count = new Label("");
             l_count.setText(arr_cols.isEmpty() ? "0" : "1");
-            firstOption(l_count, 175, 210, true);
+            firstOption(l_count, 497, 475, true);
 
             b_prev = new Button("<");
-            firstOption(b_prev, 115, 210, true);
+            firstOption(b_prev, 420, 470, true);
             b_prev.setOnAction(new Events.PrevCollection());
 
             b_card = new Button("Карточки");
-            firstOption(b_card, 0, 300, true);
-
+            firstOption(b_card, 300, 390, true);
             b_card.setOnAction(new CardType.changeScene());
+
             b_test = new Button("Тест");
-            firstOption(b_test, 150, 300, true);
+            firstOption(b_test, 468, 390, true);
             b_test.setOnAction(new TestType.changeScene());
+
             b_write = new Button("Письменный");
-            firstOption(b_write, 250, 300, true);
+            firstOption(b_write, 590, 390, true);
             b_write.setOnAction(new TextType.changeScene());
 
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);

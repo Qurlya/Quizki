@@ -47,25 +47,25 @@ public class TextType {
 
 
             l_card = new Label(arr_cards.getFirst().getFace());
-            firstOption(l_card, 50, 50, true);
+            firstOption(l_card, 470, 375, true);
 
 
             l_count = new Label(card_count + " / " + arr_cards.size());
-            firstOption(l_count, 25, 100, true);
+            firstOption(l_count, 485, 425, true);
 
 
 
             b_back = new Button("💀");
-            firstOption(b_back, 0, 350, true);
+            firstOption(b_back, 100, 700, true);
             b_back.setOnAction(new Quizki.Pages.Repository.TextType.Events.BackScene());
 
 
 
             tf_answer = new TextField();
-            firstOption(tf_answer, 10, 200, true);
+            firstOption(tf_answer, 435, 475, true);
 
             b_continue = new Button("Проверить");
-            firstOption(b_continue, 200, 350, true);
+            firstOption(b_continue, 445, 525, true);
             b_continue.setOnAction(new Events.ContinueCard());
 
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);

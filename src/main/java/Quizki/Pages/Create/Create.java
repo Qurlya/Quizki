@@ -37,61 +37,63 @@ public class Create {
         public void handle(ActionEvent actionEvent) {
             p = new Pane();
 
-            Label l1 = new Label("Name");
-            firstOption(l1, 0, 5, true);
-            Label l2 = new Label("Description");
-            firstOption(l2, 0, 35, true);
-            Label l3 = new Label("Question");
-            firstOption(l3, 0, 95, true);
-            Label l4 = new Label("Answer");
-            firstOption(l4, 0, 125, true);
+            Label l1 = new Label("Коллекция");
+            firstOption(l1, 100, 205, true);
+            Label l2 = new Label("Описание");
+            firstOption(l2, 107, 235, true);
+            Label l3 = new Label("Вопрос");
+            firstOption(l3, 138, 295, true);
+            Label l4 = new Label("Ответ");
+            firstOption(l4, 155, 325, true);
 
             tf_name = new TextField();
-            firstOption(tf_name, 125, 10, true);
+            firstOption(tf_name, 225, 210, true);
 
             tf_describe = new TextField();
-            firstOption(tf_describe, 125, 40, true);
+            firstOption(tf_describe, 225, 240, true);
 
             tf_face_card = new TextField();
-            firstOption(tf_face_card, 125, 100, true);
+            firstOption(tf_face_card, 225, 300, true);
 
             tf_back_card = new TextField();
-            firstOption(tf_back_card, 125, 130, true);
+            firstOption(tf_back_card, 225, 330, true);
 
-            b_create = new Button("Create");
-            firstOption(b_create, 0, 500, true);
+            b_create = new Button("Создать");
+            firstOption(b_create, 830, 700, true);
             b_create.setOnAction(new Events.CreateCollect());
+            b_create.setId("b_create");
 
 
-            b_add = new Button("Add");
-            firstOption(b_add, 100, 160, true);
+            b_add = new Button("Добавить");
+            firstOption(b_add, 605, 390, true);
             b_add.setOnAction(new Events.AddCard());
 
-            b_del = new Button("Delete");
-            firstOption(b_del, 200, 160, true);
+            b_del = new Button("Удалить");
+            firstOption(b_del, 300, 390, true);
             b_del.setOnAction(new Events.DelCard());
             b_del.setDisable(true);
 
             b_next = new Button(">");
-            firstOption(b_next, 215, 210, true);
+            firstOption(b_next, 542, 470, true);
             b_next.setOnAction(new Events.NextCard());
             b_next.setDisable(true);
 
 
             b_count = new Label("0");
-            firstOption(b_count, 165, 210, true);
+            firstOption(b_count, 497, 475, true);
+            b_count.setId("b_count");
 
             b_prev = new Button("<");
-            firstOption(b_prev, 115, 210, true);
+            firstOption(b_prev, 420, 470, true);
             b_prev.setOnAction(new Events.PrevCard());
             b_prev.setDisable(true);
 
 
             l_card = new Label("");
-            firstOption(l_card, 100, 260, true);
+            firstOption(l_card, 437, 460, true);
 
-            b_back = new Button("Back");
-            firstOption(b_back, 100, 500, true);
+            b_back = new Button("\uD83C\uDFE0\uD83D\uDC08");
+            firstOption(b_back, 100, 700, true);
             b_back.setOnAction(new Events.BackScene());
 
 
