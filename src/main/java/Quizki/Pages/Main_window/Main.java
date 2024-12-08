@@ -10,7 +10,10 @@ import Quizki.Models.Variables;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,11 +29,12 @@ import java.io.IOException;
 public class Main extends Application {
     static public Stage temp;
     static public Scene scene;
+    static public Pane p;
 
     @Override
     public void start(Stage stage) throws IOException {
         temp = stage;
-        Button b_about_as = new Button("About us");
+        Button b_about_as = new Button("О нас");
         b_about_as.setOnAction(new About_us.changeScene());
 
         Button b_materials = new Button("Materials");
@@ -57,7 +61,24 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.show();
     }
-
+    private void firstOption(Button temp, int x, int y, boolean flag) {
+        temp.setLayoutX(x);
+        temp.setLayoutY(y);
+        temp.setVisible(flag);
+        p.getChildren().add(temp);
+    }
+    private void firstOption(TextField temp, int x, int y, boolean flag) {
+        temp.setLayoutX(x);
+        temp.setLayoutY(y);
+        temp.setVisible(flag);
+        p.getChildren().add(temp);
+    }
+    private void firstOption(Label temp, int x, int y, boolean flag) {
+        temp.setLayoutX(x);
+        temp.setLayoutY(y);
+        temp.setVisible(flag);
+        p.getChildren().add(temp);
+    }
     public static void main(String[] args) {
         launch(args);
     }

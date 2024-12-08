@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.io.IOException;
 
+import static Quizki.Pages.Create.Create.changeScene.showLoadingWindow;
+
 /**
  * Реализация событий для кнопок функционального окна Create (см. Create).
  */
@@ -18,6 +20,8 @@ public class Events {
     static class CreateCollect implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
+            showLoadingWindow();
+
             Main.temp.setScene(Main.scene);
             Collect collect = new Collect(Create.tf_name.getText(), Create.tf_describe.getText());
             collect.setCard_set(Create.arr_card);

@@ -3,14 +3,20 @@ package Quizki.Pages.Create;
 import Quizki.Models.Card;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -35,6 +41,10 @@ public class Create {
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
+            printScene();
+        }
+
+        public static void printScene(){
             p = new Pane();
 
             Label l1 = new Label("Name");
@@ -100,20 +110,56 @@ public class Create {
             Main.temp.setScene(sc_create);
         }
 
+        public static void showLoadingWindow() {
+            String DIRECTORY_PATH = Variables.card_filepath; // Укажите путь к директории
+            String FILE_NAME = tf_name.getText() + ".json"; // Укажите имя файла, который нужно отслеживать
+            Stage loadingStage = new Stage();
+            loadingStage.initModality(Modality.APPLICATION_MODAL);
+            loadingStage.setTitle("Загрузка");
+
+            ProgressIndicator progressIndicator = new ProgressIndicator();
+            VBox loadingLayout = new VBox(progressIndicator);
+            loadingLayout.setStyle("-fx-padding: 20; -fx-alignment: center;");
+            Scene loadingScene = new Scene(loadingLayout, 200, 100);
+            loadingStage.setScene(loadingScene);
+            loadingStage.show();
+
+            // Запускаем задачу в отдельном потоке
+            Task<Void> task = new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    Thread.sleep(5000); // Проверяем каждые 1 секунду
+                    return null;
+                }
+
+                @Override
+                protected void succeeded() {
+                    loadingStage.close(); // Закрываем окно загрузки
+                }
+
+                @Override
+                protected void failed() {
+                    loadingStage.close(); // Закрываем окно загрузки в случае ошибки
+                }
+            };
+
+            new Thread(task).start(); // Запускаем задачу в новом потоке
+        }
+
         // Абстрагированные методы установки кнопок по координатам с определенной видимостью
-        private void firstOption(Button temp, int x, int y, boolean flag) {
+        private static void firstOption(Button temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);
             temp.setVisible(flag);
             p.getChildren().add(temp);
         }
-        private void firstOption(TextField temp, int x, int y, boolean flag) {
+        private static void firstOption(TextField temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);
             temp.setVisible(flag);
             p.getChildren().add(temp);
         }
-        private void firstOption(Label temp, int x, int y, boolean flag) {
+        private static void firstOption(Label temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);
             temp.setVisible(flag);

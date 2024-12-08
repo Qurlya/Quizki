@@ -31,7 +31,7 @@ import java.util.Objects;
 public class Repository {
     public static Pane p;
     public static Label name, description, l_count;
-    public static Button b_next, b_prev, b_card, b_write, b_test;
+    public static Button b_next, b_prev, b_card, b_write, b_test, b_back;
     public static Collect cur_collect;
     public static ArrayList<Collect> arr_cols = new ArrayList<>();
     public static class changeScene implements EventHandler<ActionEvent> {
@@ -80,6 +80,15 @@ public class Repository {
             b_write = new Button("Письменный");
             firstOption(b_write, 250, 300, true);
             b_write.setOnAction(new TextType.changeScene());
+
+            b_back = new Button("Главное меню");
+            b_back.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    Main.temp.setScene(Main.scene);
+                }
+            });
+            firstOption(b_back, 0, 500, true);
 
             Scene scene = new Scene(p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
