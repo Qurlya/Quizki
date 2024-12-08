@@ -3,14 +3,16 @@ package Quizki.Pages.Create;
 import Quizki.Models.Card;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -23,8 +25,6 @@ import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
  * - Изменения полей запроса и ответа каждой карточки;
  * - Переключения между карточками;
  * - Сохранение карточек в JSON-файл;
- * Необходимо добавить:
- * - Улучшение читаемости интерфейса;
  */
 
 public class Create {
@@ -83,7 +83,6 @@ public class Create {
             b_next.setOnAction(new Events.NextCard());
             b_next.setDisable(true);
 
-
             b_count = new Label("0");
             firstOption(create_p, b_count, 165, 210, true);
 
@@ -92,18 +91,55 @@ public class Create {
             b_prev.setOnAction(new Events.PrevCard());
             b_prev.setDisable(true);
 
-
             l_card = new Label("");
             firstOption(create_p, l_card, 100, 260, true);
 
             b_back = new Button(Variables.curLanguageList.get("Back"));
             firstOption(create_p, b_back, 100, 500, true);
-            b_back.setOnAction(new Events.BackScene());
-
+            b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
 
             sc_create = new Scene(create_p, Variables.appWidth, Variables.appHeight);
             sc_create.getStylesheets().add("create_style.css");
             Main.temp.setScene(sc_create);
         }
+    }
+
+    // Окно загрузки (необходимо при создании/удалении файлов)
+    public static void showLoadingWindow() {
+        Stage loadingStage = new Stage();
+        loadingStage.initModality(Modality.APPLICATION_MODAL);
+        loadingStage.setTitle("Download");
+
+        ProgressIndicator progressIndicator = new ProgressIndicator();
+        VBox loadingLayout = new VBox(progressIndicator);
+        loadingLayout.setStyle("-fx-padding: 20; -fx-alignment: center;");
+        Scene loadingScene = new Scene(loadingLayout, 200, 100);
+        loadingStage.setResizable(false);
+        // Отменяем событие закрытия
+        loadingStage.setOnCloseRequest(Event::consume);
+        loadingStage.setScene(loadingScene);
+        loadingStage.show();
+
+        // Запускаем задачу в отдельном потоке
+        Task<Void> task = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                // ИСПРАВИТЬ НА ЦИКЛ 'ПОКА ФАЙЛА НЕТ'
+                Thread.sleep(7500);
+                return null;
+            }
+
+            @Override
+            protected void succeeded() {
+                loadingStage.close(); // Закрываем окно загрузки
+            }
+
+            @Override
+            protected void failed() {
+                loadingStage.close(); // Закрываем окно загрузки в случае ошибки
+            }
+        };
+
+        new Thread(task).start(); // Запускаем задачу в новом потоке
     }
 }

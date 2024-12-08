@@ -14,7 +14,8 @@ public class Variables {
     public static final int appWidth = 1024;    // Ширина окна приложения
     public static final String projectTitle = "Quizki";     // Название приложения
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
-    public static final int inputLimit = 20;    // Ограничение на ввод по символам
+    public static final int inputLimit = 40;    // Ограничение на ввод по символам
+    public static final String user_file = "__user__.json";
 
     // Расцветки
     // ...
@@ -26,10 +27,9 @@ public class Variables {
     public static final HashMap<String, String> chnList = fillChnList();  // Китайский
     //Стили (only ru!)
     public static final HashMap<String, String> style_1List = fillDesignList_1();   // 1-й набор косметики в дизайне (Cats)
-    public static final HashMap<String, String> style_2List = fillDesignList_2();   // 2-й набор косметики в дизайне (Cursed)
-    public static final HashMap<String, String> style_3List = fillDesignList_3();   // 3-й набор косметики в дизайне (1337)
+    public static final HashMap<String, String> style_2List = fillDesignList_2();   // 2-й набор косметики в дизайне (1337)
 
-    public static HashMap<String, String> curLanguageList = style_3List;    // По умолчанию - английский
+    public static HashMap<String, String> curLanguageList = engList;    // По умолчанию - английский
 
     // Инициализация для английского набора
     private static HashMap<String, String> fillEngList() {
@@ -68,6 +68,25 @@ public class Variables {
         temp.put("Alert_EmptyName", "The test cannot have an empty name/description!");
         temp.put("Alert_UserFile", "The test cannot have the name '__user__'!");
         temp.put("Alert_SpecSymbols", "The name of the test must not have special characters!");
+        temp.put("Alert_EmptyUserName", "The user must have a name!");
+        temp.put("Settings_LanguageRus", "Russian");
+        temp.put("Settings_LanguageEng", "English");
+        temp.put("Settings_LanguageDeu", "Deutsche");
+        temp.put("Settings_LanguageChn", "Chinese");
+        temp.put("Settings_LanguageCats", "Kaomoji");
+        temp.put("Settings_Language1337", "1337");
+        temp.put("Settings_Color", "Select color theme");
+        temp.put("Settings_ColorBlue", "Blue");
+        temp.put("Settings_ColorYellow", "Yellow");
+        temp.put("Settings_ColorGreen", "Green");
+        temp.put("Settings_ColorBlack", "Black");
+        temp.put("Settings_ColorWhite", "White");
+        temp.put("Account_Registration", "Registration");
+        temp.put("Account_Name", "Name");
+        temp.put("Account_Date", "Registration date");
+        temp.put("Account_CollectionCount", "Collections created");
+        temp.put("Account_CollectionStudy", "Collections completed");
+        temp.put("Account_Activity", "Activity tracking");
         return temp;
     }
 
@@ -108,6 +127,26 @@ public class Variables {
         temp.put("Alert_EmptyName", "Тест не может иметь пустое имя/описание!");
         temp.put("Alert_UserFile", "Тест не может иметь имя '__user__'!");
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
+        temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
+        temp.put("Settings_Language", "Выберите язык");
+        temp.put("Settings_LanguageRus", "Русский");
+        temp.put("Settings_LanguageEng", "Английский");
+        temp.put("Settings_LanguageDeu", "Немецкий");
+        temp.put("Settings_LanguageChn", "Китайский");
+        temp.put("Settings_LanguageCats", "Каомодзи");
+        temp.put("Settings_Language1337", "1337");
+        temp.put("Settings_Color", "Выберите цвет");
+        temp.put("Settings_ColorBlue", "Синий");
+        temp.put("Settings_ColorYellow", "Жёлтый");
+        temp.put("Settings_ColorGreen", "Зелёный");
+        temp.put("Settings_ColorBlack", "Чёрный");
+        temp.put("Settings_ColorWhite", "Белый");
+        temp.put("Account_Registration", "Регистрация");
+        temp.put("Account_Name", "Имя");
+        temp.put("Account_Date", "Дата регистрации");
+        temp.put("Account_CollectionCount", "Коллекций создано");
+        temp.put("Account_CollectionStudy", "Коллекций пройдено");
+        temp.put("Account_Activity", "Учёт активности");
         return temp;
     }
 
@@ -148,6 +187,26 @@ public class Variables {
         temp.put("Alert_EmptyName", "Der Test darf keinen leeren Namen/keine leere Beschreibung haben!");
         temp.put("Alert_UserFile", "Der Test kann nicht den Namen '__user__' haben!");
         temp.put("Alert_SpecSymbols", "Der Name des Tests sollte keine Sonderzeichen haben!");
+        temp.put("Alert_EmptyUserName", "Der Benutzer muss einen Namen haben!");
+        temp.put("Settings_Language", "Sprache auswählen");
+        temp.put("Settings_LanguageRus", "Russisch");
+        temp.put("Settings_LanguageEng", "Englisch");
+        temp.put("Settings_LanguageDeu", "Deutsch");
+        temp.put("Settings_LanguageChn", "Chinesisch");
+        temp.put("Settings_LanguageCats", "Kaomoji");
+        temp.put("Settings_Language1337", "1337");
+        temp.put("Settings_Color", "Wählen Sie eine Farbe aus");
+        temp.put("Settings_ColorBlue", "Blau");
+        temp.put("Settings_ColorYellow", "Gelber");
+        temp.put("Settings_ColorGreen", "Grün");
+        temp.put("Settings_ColorBlack", "Schwarzer");
+        temp.put("Settings_ColorWhite", "Weiße");
+        temp.put("Account_Registration", "Rezeption");
+        temp.put("Account_Name", "Name");
+        temp.put("Account_Date", "Registrierungsdatum");
+        temp.put("Account_CollectionCount", "Sammlungen abgeschlossen");
+        temp.put("Account_CollectionStudy", "Sammlungen abgeschlossen");
+        temp.put("Account_Activity", "Aktivitäts-Tracking");
         return temp;
     }
 
@@ -188,6 +247,26 @@ public class Variables {
         temp.put("Alert_EmptyName", "测试不能有一个空的名称/描述！");
         temp.put("Alert_UserFile", "测试不能具有名称'__user__'！");
         temp.put("Alert_SpecSymbols", "考试名称不得有特殊字符！");
+        temp.put("Alert_EmptyUserName", "用户必须有一个名字！");
+        temp.put("Settings_Language", "选择语言");
+        temp.put("Settings_LanguageRus", "俄语");
+        temp.put("Settings_LanguageEng", "英语");
+        temp.put("Settings_LanguageDeu", "德语");
+        temp.put("Settings_LanguageChn", "中文");
+        temp.put("Settings_LanguageCats", "Kaomoji");
+        temp.put("Settings_Language1337", "1337");
+        temp.put("Settings_Color", "选择一种颜色");
+        temp.put("Settings_ColorBlue", "蓝色");
+        temp.put("Settings_ColorYellow", "黄色");
+        temp.put("Settings_ColorGreen", "绿色");
+        temp.put("Settings_ColorBlack", "黑色");
+        temp.put("Settings_ColorWhite", "白色");
+        temp.put("Account_Registration", "注册");
+        temp.put("Account_Name", "名称");
+        temp.put("Account_Date", "登记日期");
+        temp.put("Account_CollectionCount", "创建的集合");
+        temp.put("Account_CollectionStudy", "馆藏已完成");
+        temp.put("Account_Activity", "活动追踪");
         return temp;
     }
 
@@ -207,7 +286,7 @@ public class Variables {
         temp.put("Create_MakeNew", "Создать");
         temp.put("Create_AddCard", "Добавить");
         temp.put("Create_DelCard", "Удалить");
-        temp.put("Back", "💀");
+        temp.put("Back", "😼");
         temp.put("Test_Correct", "ヾ(≧▽≦*)o");
         temp.put("Test_Wrong", "(┬┬﹏┬┬)");
         temp.put("Repos_Card", "Карточки");
@@ -228,51 +307,31 @@ public class Variables {
         temp.put("Alert_EmptyName", "Тест не может иметь пустое имя/описание!");
         temp.put("Alert_UserFile", "Тест не может иметь имя '__user__'!");
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
-        return temp;
-    }
-
-    // Cursed style
-    private static HashMap<String, String> fillDesignList_2() {
-        HashMap<String, String> temp = new HashMap<>();
-        temp.put("Page_AboutUs", "О разработчиках");
-        temp.put("Page_Materials", "Материалы");
-        temp.put("Page_Create", "Создание");
-        temp.put("Page_Repository", "Репозиторий");
-        temp.put("Page_Account", "Профиль");
-        temp.put("Page_Settings", "Настройки");
-        temp.put("Test_Name", "Name");
-        temp.put("Test_Description", "Описание");
-        temp.put("Create_Question", "Вопрос");
-        temp.put("Create_Answer", "Ответ");
-        temp.put("Create_MakeNew", "Создать");
-        temp.put("Create_AddCard", "Добавить");
-        temp.put("Create_DelCard", "Удалить");
-        temp.put("Back", "💀");
-        temp.put("Test_Correct", "ヾ(≧▽≦*)o");
-        temp.put("Test_Wrong", "(┬┬﹏┬┬)");
-        temp.put("Repos_Card", "Карточки");
-        temp.put("Repos_Test", "Тест");
-        temp.put("Repos_Text", "Письменный ввод");
-        temp.put("Repos_Delete", "Удалить тест");
-        temp.put("Test_End", "＼（〇_ｏ）／");
-        temp.put("Test_Continue", "Продолжить");
-        temp.put("Test_Again", "≧ ﹏ ≦");
-        temp.put("Test_Check", "ヽ(￣ω￣(￣ω￣〃)ゝ");
-        temp.put("Test_CorrectAnswers", "Ваши правильные ответы");
-        temp.put("Test_WrongAnswers", "Ваши неправильные ответы");
-        temp.put("Alert_OverLimit", "Вопрос/Ответ не должен быть длиннее " + inputLimit + " символов!");
-        temp.put("Alert_IsEmpty", "Вопрос/Ответ не должен быть пустым!");
-        temp.put("Alert_AlreadyExist", "Такой вопрос уже существует! Придумайте другой.");
-        temp.put("Alert_DeleteErr", "Ошибка удаления объекта! (Попробуйте еще раз)");
-        temp.put("Alert_UnderLimit", "Тест должен содержать хотя бы 4 карточки!");
-        temp.put("Alert_EmptyName", "Тест не может иметь пустое имя/описание!");
-        temp.put("Alert_UserFile", "Тест не может иметь имя '__user__'!");
-        temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
+        temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
+        temp.put("Settings_Language", "Выберите язык");
+        temp.put("Settings_LanguageRus", "Русский");
+        temp.put("Settings_LanguageEng", "Английский");
+        temp.put("Settings_LanguageDeu", "Немецкий");
+        temp.put("Settings_LanguageChn", "Китайский");
+        temp.put("Settings_LanguageCats", "q(≧▽≦q)");
+        temp.put("Settings_Language1337", "1337");
+        temp.put("Settings_Color", "Выберите цвет");
+        temp.put("Settings_ColorBlue", "Синий");
+        temp.put("Settings_ColorYellow", "Жёлтый");
+        temp.put("Settings_ColorGreen", "Зелёный");
+        temp.put("Settings_ColorBlack", "Чёрный");
+        temp.put("Settings_ColorWhite", "Белый");
+        temp.put("Account_Registration", "(づ￣ 3￣)づ");
+        temp.put("Account_Name", "Имя");
+        temp.put("Account_Date", "Вы с нами уже с (*≧︶≦))(￣▽￣* )ゞ");
+        temp.put("Account_CollectionCount", "Коллекций создано");
+        temp.put("Account_CollectionStudy", "Коллекций пройдено");
+        temp.put("Account_Activity", "Учёт активности ㄟ(≧◇≦)ㄏ");
         return temp;
     }
 
     // 1337 style
-    private static HashMap<String, String> fillDesignList_3() {
+    private static HashMap<String, String> fillDesignList_2() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "0 Я◬ʒR∆ҔθŦ4N₭ĂХ");
         temp.put("Page_Materials", "/И∆7ΞR1∆LS");
@@ -286,20 +345,20 @@ public class Variables {
         temp.put("Create_Answer", "AN∑VV3Р");
         temp.put("Create_MakeNew", "CЯΞ∀73");
         temp.put("Create_AddCard", "∀∆∆");
-        temp.put("Create_DelCard", "∆EΛE7E");
+        temp.put("Create_DelCard", "∆ΞΛET∃");
         temp.put("Back", "💀");
         temp.put("Test_Correct", "CXЯR3C7");
         temp.put("Test_Wrong", "VVЯ0И6");
         temp.put("Repos_Card", "CXЯ∆∑");
         temp.put("Repos_Test", "∓E∑∓");
-        temp.put("Repos_Text", "73X7-1ИПY7");
-        temp.put("Repos_Delete", "∆EΛE7E 7357");
-        temp.put("Test_End", "Ξ|/|∆");
+        temp.put("Repos_Text", "7∄X7-1ИПYT");
+        temp.put("Repos_Delete", "∆ΞΛET∃ 7357");
+        temp.put("Test_End", "ΞN∆");
         temp.put("Test_Continue", "CXN7IИYΞ");
         temp.put("Test_Again", "A6∀1И");
         temp.put("Test_Check", "C|-|XϽ>|");
-        temp.put("Test_CorrectAnswers", "Vаши правильные 07VE7bI");
-        temp.put("Test_WrongAnswers", "Vаши NΞправильные 07VE7bI");
+        temp.put("Test_CorrectAnswers", "Vаши прАVилbные 07VE7bI");
+        temp.put("Test_WrongAnswers", "Vаши NΞпрАVилbные 07VE7bI");
         temp.put("Alert_OverLimit", "Вопрос/Ответ не должен быть длиннее " + inputLimit + " символов!");
         temp.put("Alert_IsEmpty", "Вопрос/Ответ не должен быть пустым!");
         temp.put("Alert_AlreadyExist", "Такой вопрос уже существует! Придумайте другой.");
@@ -308,6 +367,26 @@ public class Variables {
         temp.put("Alert_EmptyName", "Тест не может иметь пустое имя/описание!");
         temp.put("Alert_UserFile", "Тест не может иметь имя '__user__'!");
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
+        temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
+        temp.put("Settings_Language", "VbI6ери7е RZbI|<");
+        temp.put("Settings_LanguageRus", "Русский");
+        temp.put("Settings_LanguageEng", "Английский");
+        temp.put("Settings_LanguageDeu", "Немецкий");
+        temp.put("Settings_LanguageChn", "Китайский");
+        temp.put("Settings_LanguageCats", "Каомодзи");
+        temp.put("Settings_Language1337", "1337");
+        temp.put("Settings_Color", "VbI6ери7е цvе7");
+        temp.put("Settings_ColorBlue", "Синий");
+        temp.put("Settings_ColorYellow", "Жёлтый");
+        temp.put("Settings_ColorBlack", "Чёрный");
+        temp.put("Settings_ColorGreen", "Зелёный");
+        temp.put("Settings_ColorWhite", "Белый");
+        temp.put("Account_Registration", "ЯEGI57RA7I0И");
+        temp.put("Account_Name", "ŊÆɱΞ");
+        temp.put("Account_Date", "∆Λ7Λ ЯEGI57RAЦII");
+        temp.put("Account_CollectionCount", "SOZ∆AИ0");
+        temp.put("Account_CollectionStudy", "ПR0Й∆ΞŊO");
+        temp.put("Account_Activity", "Y4E7 AK71VИOS71");
         return temp;
     }
 }

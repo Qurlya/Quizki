@@ -42,21 +42,14 @@ public class Events {
         }
     }
 
-    // Изменение действующей сцены на главную страницу
-    static class BackScene implements EventHandler<ActionEvent> {
-        @Override
-        public void handle(ActionEvent actionEvent) {
-            Main.temp.setScene(Main.scene);
-        }
-    }
-
     // Удаление текущей выбранной коллекции
     static class DeleteCollection implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
+            Create.showLoadingWindow();
+
             File file = new File(Variables.card_filepath + Repository.cur_collect.getName() + ".json");
             if (file.delete()) {
-                // Добавить окно "прогресса удаления"
                 Main.temp.setScene(Repository.repos_p.getScene());
             } else {
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_DeleteErr"));

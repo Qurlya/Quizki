@@ -11,28 +11,35 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+
+import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
+
 
 /**
  * Реализация неполного функционала тестовой сцены, где пользователю предложен выбор между
  * функциональными вкладками, реализующими полноту проекта.
- * На будущее:
- * - Перенести лейбл с кнопками для каждого функционального окна в top_center
  */
 
 public class Main extends Application {
     static public Stage temp;
     static public Scene scene;
+    //public static Pane main_p;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         temp = stage;
+        //main_p = new Pane();
 
         // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
-        Button b_about_as = new Button(Variables.curLanguageList.get("Page_AboutUs"));
-        b_about_as.setOnAction(new About_us.changeScene());
+        Button b_about_us = new Button(Variables.curLanguageList.get("Page_AboutUs"));
+        b_about_us.setOnAction(new About_us.changeScene());
 
         Button b_materials = new Button(Variables.curLanguageList.get("Page_Materials"));
         b_materials.setOnAction(new Materials.changeScene());
@@ -49,14 +56,26 @@ public class Main extends Application {
         Button b_settings = new Button(Variables.curLanguageList.get("Page_Settings"));
         b_settings.setOnAction(new Settings.changeScene());
 
-        HBox p = new HBox(b_about_as, b_materials, b_create, b_repository, b_account, b_settings);
-        scene = new Scene(p, Variables.appWidth, Variables.appHeight);
+        /*firstOption(main_p, b_about_us, 0, 0, true);
+        firstOption(main_p, b_materials, 100, 0, true);
+        firstOption(main_p, b_create, 200, 0, true);
+        firstOption(main_p, b_repository, 300, 0, true);
+        firstOption(main_p, b_account, 400, 0, true);
+        firstOption(main_p, b_settings, 500, 0, true);*/
+
+        HBox main_p = new HBox(b_about_us, b_materials, b_create, b_repository, b_account, b_settings);
+        scene = new Scene(main_p, Variables.appWidth, Variables.appHeight);
 
         scene.getStylesheets().add("main_style.css");
         stage.setTitle(Variables.projectTitle);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+
+        // Сделать принудительную регистрацию!!!
+        if (!new ArrayList<>(Arrays.asList(Objects.requireNonNull(new File(Variables.card_filepath).listFiles()))).contains(Variables.card_filepath + "__user__.json")){
+            new Account.changeScene();
+        }
     }
 
     public static void main(String[] args) {

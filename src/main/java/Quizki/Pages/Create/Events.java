@@ -8,7 +8,7 @@ import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-import java.io.IOException;
+import static Quizki.Pages.Create.Create.showLoadingWindow;
 
 /**
  * Реализация событий для кнопок функционального окна Create (см. Create).
@@ -25,12 +25,15 @@ public class Events {
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_UnderLimit"));
                 Create.alert.showAndWait();
             } else if (Create.tf_name.getText().isEmpty() || Create.tf_describe.getText().isEmpty()) {
+                // Условие не пустоты вопрос и ответа
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_EmptyName"));
                 Create.alert.showAndWait();
             } else if (!parseString(Create.tf_name.getText())) {
+                // Условие, чтобы имя не содержало специальные символы
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_SpecSymbols"));
                 Create.alert.showAndWait();
             } else if (Create.tf_name.getText().trim().equals("__user__")) {
+                // Условие, чтобы файл не имел имени __user__ (имя файла пользователя)
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_UserFile"));
                 Create.alert.showAndWait();
             } else {
@@ -38,12 +41,8 @@ public class Events {
                 Collect collect = new Collect(Create.tf_name.getText(), Create.tf_describe.getText());
                 collect.setCard_set(Create.arr_card);
                 String path = Variables.card_filepath + Create.tf_name.getText() + ".json";
-                // Добавить окно "прогресса создания"
-                try {
-                    JsonHandler.saveToFile(collect, path);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                JsonHandler.saveToFile(collect, path);
+                showLoadingWindow();
             }
         }
 
@@ -77,14 +76,6 @@ public class Events {
         }
     }
 
-    // Изменение действующей сцены на главную страницу
-    static class BackScene implements EventHandler<ActionEvent> {
-        @Override
-        public void handle(ActionEvent actionEvent) {
-            Main.temp.setScene(Main.scene);
-        }
-    }
-
     // Добавление карточки в коллекцию
     static class AddCard implements EventHandler<ActionEvent> {
         @Override
@@ -100,16 +91,17 @@ public class Events {
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_IsEmpty"));
                 Create.alert.showAndWait();
             } else if (Create.arr_card.contains(new Card(face, back))) {
+                // Условие не повторения вопросов
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_AlreadyExist"));
                 Create.alert.showAndWait();
             } else {
                 Create.b_del.setDisable(false);
-                String back_text = Create.tf_back_card.getText();
-                String face_text = Create.tf_face_card.getText();
-                Card card = new Card(face_text, back_text);
+                Card card = new Card(face, back);
                 Create.arr_card.add(card);
                 Create.b_count.setText(String.valueOf(Create.arr_card.size()));
-                Create.l_card.setText(face_text + " // " + back_text);
+                Create.l_card.setText(face + " // " + back);
+                Create.tf_face_card.setText("");
+                Create.tf_back_card.setText("");
                 checkBorder();
             }
         }
@@ -135,7 +127,10 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             int count = Integer.parseInt(Create.b_count.getText());
             Create.b_count.setText(String.valueOf(count + 1));
-            Create.l_card.setText(Create.arr_card.get(count).getFace() + " // " + Create.arr_card.get(count).getBack());
+            Card temp = Create.arr_card.get(count);
+            Create.l_card.setText(temp.getFace() + " // " + temp.getBack());
+            Create.tf_face_card.setText(temp.getFace());
+            Create.tf_back_card.setText(temp.getBack());
             checkBorder();
         }
     }

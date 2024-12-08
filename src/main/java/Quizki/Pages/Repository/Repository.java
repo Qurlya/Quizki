@@ -11,14 +11,10 @@ import Quizki.Pages.Repository.TextType.TextType;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -47,12 +43,10 @@ public class Repository {
 
             // Добавление файлов с тестами в список коллекций карточек
             ArrayList<File> arr_files = new ArrayList<>(Arrays.asList(Objects.requireNonNull(new File(Variables.card_filepath).listFiles())));
+            arr_files.remove(new File(Variables.card_filepath + Variables.user_file));
+
             for (File f : arr_files) {
-                try {
-                    arr_cols.add(JsonHandler.loadCardFromFile(f.getPath()));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arr_cols.add(JsonHandler.loadCardFromFile(f.getPath()));
             }
             cur_collect = arr_cols.getFirst();
 
@@ -70,12 +64,12 @@ public class Repository {
             b_next = new Button(">");
             firstOption(repos_p, b_next, 215, 210, true);
             b_next.setOnAction(new Events.NextCollection());
-            b_next.setDisable(arr_cols.size() == 1);
+            b_next.setDisable(arr_cols.size() <= 1);
 
             b_prev = new Button("<");
             firstOption(repos_p, b_prev, 115, 210, true);
             b_prev.setOnAction(new Events.PrevCollection());
-            b_prev.setDisable(arr_cols.size() == 1);
+            b_prev.setDisable(true);
 
             b_card = new Button(Variables.curLanguageList.get("Repos_Card"));
             firstOption(repos_p, b_card, 0, 300, true);
@@ -91,11 +85,12 @@ public class Repository {
 
             b_back = new Button(Variables.curLanguageList.get("Back"));   // Кнопка назад
             firstOption(repos_p, b_back, 0, 400, true);
-            b_back.setOnAction(new Events.BackScene());
+            b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
 
             b_delete = new Button(Variables.curLanguageList.get("Repos_Delete"));
             firstOption(repos_p, b_delete, 0, 450, true);
             b_delete.setOnAction(new Events.DeleteCollection());
+            b_delete.setDisable(arr_cols.isEmpty());
 
             Scene scene = new Scene(repos_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
@@ -125,6 +120,13 @@ public class Repository {
         }
 
         public static void firstOption(Pane pane, RadioButton temp, int x, int y, boolean flag) {
+            temp.setLayoutX(x);
+            temp.setLayoutY(y);
+            temp.setVisible(flag);
+            pane.getChildren().add(temp);
+        }
+
+        public static void firstOption(Pane pane, ChoiceBox<String> temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);
             temp.setVisible(flag);

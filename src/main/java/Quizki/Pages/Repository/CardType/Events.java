@@ -19,6 +19,7 @@ public class Events {
     static class BackScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
+            // Обновление
             Repository.arr_wrong = new ArrayList<>();
             Repository.arr_corr = new ArrayList<>();
             Repository.card_count = 1;
@@ -35,6 +36,7 @@ public class Events {
             Repository.arr_corr.add(Repository.cur_card);
             Repository.card_count++;
             if (Repository.card_count == Repository.arr_cards.size() + 1) {
+                // Если это был последний вопрос - переход на окно результата прохождения
                 Result.changeScene();
                 Main.temp.setScene(Result.scene);
                 Result.b_continue.setDisable(Repository.arr_cards.equals(Repository.arr_corr));
@@ -53,6 +55,7 @@ public class Events {
             Repository.arr_wrong.add(Repository.cur_card);
             Repository.card_count++;
             if (Repository.card_count == Repository.arr_cards.size() + 1) {
+                // Если это был последний вопрос - переход на окно результата прохождения
                 Result.changeScene();
                 Main.temp.setScene(Result.scene);
             } else {
@@ -77,6 +80,7 @@ public class Events {
     static class Continue implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
+            // Обновление всех переменных
             Repository.arr_cards = Repository.arr_wrong;
             Collections.shuffle(Repository.arr_cards);
 
@@ -94,6 +98,7 @@ public class Events {
     static class Reset implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
+            // Обновление всех переменных
             Repository.arr_cards = Repository.cur_collect.getCard_set();
             Collections.shuffle(Repository.arr_cards);
 
