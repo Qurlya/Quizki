@@ -37,12 +37,11 @@ public class CardType {
             Repository.arr_cards = Repository.cur_collect.getCard_set();
             Repository.arr_corr = new ArrayList<>();
             Repository.arr_wrong = new ArrayList<>();
+            Collections.shuffle(Repository.arr_cards); // Перемешивание списка карточек
             Repository.cur_card = Repository.arr_cards.getFirst();
 
-            Collections.shuffle(Repository.arr_cards); // Перемешивание списка карточек
-
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
-            b_card = new Button(Repository.arr_cards.getFirst().getFace());
+            b_card = new Button(Repository.cur_card.getFace());
             firstOption(card_type_p, b_card, 50, 50, true);
             b_card.setOnAction(new Events.FlipCard());
 
@@ -53,11 +52,11 @@ public class CardType {
             firstOption(card_type_p, b_back, 0, 300, true);
             b_back.setOnAction(new Events.BackScene());
 
-            b_correct = new Button(Variables.curLanguageList.get("Repos_Card"));
+            b_correct = new Button(Variables.curLanguageList.get("Test_Correct"));
             firstOption(card_type_p, b_correct, 10, 200, true);
             b_correct.setOnAction(new Events.CorrectAnswer());
 
-            b_mistake = new Button(Variables.curLanguageList.get("Repos_Card"));
+            b_mistake = new Button(Variables.curLanguageList.get("Test_Wrong"));
             firstOption(card_type_p, b_mistake, 150, 200, true);
             b_mistake.setOnAction(new Events.WrongAnswer());
 
