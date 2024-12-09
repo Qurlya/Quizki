@@ -28,11 +28,11 @@ public class Account {
     public static Button b_back, b_registration;
     public static TextField tf_name;
     public static Label l_nickname, l_data_of_create, l_rate, l_collection_count, l_collection_study, l_info;
-    public static User user1;
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
             account_p = new Pane();
+            JsonHandler.changeColor(account_p);
             Scene scene = new Scene(account_p, Variables.appWidth, Variables.appHeight);
 
             l_nickname = new Label(curLanguageList.get("Account_Name") + ": ");
@@ -78,12 +78,14 @@ public class Account {
             b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
 
             if (Main.userExist){
-                user1 = JsonHandler.loadAccountData();
-                Account.l_nickname.setText(Account.l_nickname.getText() + user1.getLogin());
-                Account.l_data_of_create.setText(Account.l_data_of_create.getText() + user1.getRegistr_date());
-                Account.l_rate.setText(Account.l_rate.getText() + user1.getRate());
-                Account.l_collection_count.setText(Account.l_collection_count.getText() + user1.getCol_created());
-                Account.l_collection_study.setText(Account.l_collection_study.getText() + user1.getCol_studied());
+                JsonHandler.changeUserRate();
+                User user1 = JsonHandler.loadAccountData();
+
+                l_nickname.setText(l_nickname.getText() + user1.getLogin());
+                l_data_of_create.setText(l_data_of_create.getText() + user1.getRegistr_date());
+                l_rate.setText(l_rate.getText() + user1.getRate());
+                l_collection_count.setText(l_collection_count.getText() + user1.getCol_created());
+                l_collection_study.setText(l_collection_study.getText() + user1.getCol_studied());
             }
             firstOption(account_p, Variables.copyright, 0, Variables.appHeight - 20, true);
 

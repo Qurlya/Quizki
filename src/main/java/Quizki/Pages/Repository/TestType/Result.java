@@ -1,5 +1,6 @@
 package Quizki.Pages.Repository.TestType;
 
+import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
@@ -26,6 +27,8 @@ public class Result {
 
     public static void changeScene() {
         result_test_p = new Pane();
+        JsonHandler.changeColor(result_test_p);
+
         l_correct_count = new Label(Variables.curLanguageList.get("Test_CorrectAnswers") + ": " + Repository.arr_corr.size());
         firstOption(result_test_p, l_correct_count, 0, 20, true);
 

@@ -1,13 +1,18 @@
 package Quizki.Models;
 
+import Quizki.Pages.Create.Create;
+import Quizki.Pages.Repository.Repository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import javafx.scene.layout.Pane;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Реализация чтения и записи коллекций тестов и карточек в JSON файл.
@@ -80,10 +85,12 @@ public class JsonHandler {
         File file = new File(Variables.card_filepath + Variables.user_file);
         jsonNode.put("user_login", user.getLogin());
         jsonNode.put("user_reg_date", user.getRegistr_date());
+        jsonNode.put("user_rate", user.getRate());
         jsonNode.put("user_col_created", user.getCol_created());
         jsonNode.put("user_col_studied", user.getCol_studied());
         jsonNode.put("user_set_language", user.getLanguage());
         jsonNode.put("user_set_color", user.getColor());
+        jsonNode.put("user_last_enter", user.getLast_enter_date());
 
         try {
             mapper.writeValue(file, jsonNode);
@@ -106,15 +113,19 @@ public class JsonHandler {
         // Чтение данных пользователя
         String user_login = jsonNode.get("user_login").asText();
         String user_date = jsonNode.get("user_reg_date").asText();
+        String user_last_enter = jsonNode.get("user_last_enter").asText();
         String language = jsonNode.get("user_set_language").asText();
         String color = jsonNode.get("user_set_color").asText();
+        int rate = Integer.parseInt(jsonNode.get("user_rate").asText());
         int user_col_created = Integer.parseInt(jsonNode.get("user_col_created").asText());
         int user_col_studied = Integer.parseInt(jsonNode.get("user_col_studied").asText());
 
         User user = new User(user_login);
         user.setCol_studied(user_col_studied);
         user.setCol_created(user_col_created);
+        user.setRate(rate);
         user.setRegistr_date(user_date);
+        user.setLast_enter_date(user_last_enter);
         user.setLanguage(language);
         user.setColor(color);
 
@@ -135,24 +146,111 @@ public class JsonHandler {
         JsonHandler.createAccount(user);
     }
 
-    // Метод изменения учета активности пользователя
-    public static void changeUserRate(int plusRate){
+    // Метод инкремента учета активности пользователя
+    public static void changeUserRate(){
         User user = JsonHandler.loadAccountData();
-        user.setRate(user.getRate() + plusRate);
+        String temp = new SimpleDateFormat("dd_MM_yyyy").format(new Date());
+
+        int conditionToIncrement;
+
+        char[] today = temp.toCharArray();
+        char[] lastEnterDay = user.getLast_enter_date().toCharArray();
+        String[] strToday = new String[today.length];
+        String[] strLastEnter = new String[lastEnterDay.length];
+        for(int i = 0; i < strToday.length; i++){
+            strToday[i] = String.valueOf(today[i]);
+            strLastEnter[i] = String.valueOf(lastEnterDay[i]);
+        }
+
+        int thisDay = (strToday[0].equals("0")) ? Integer.parseInt(strToday[1]) : Integer.parseInt(strToday[0] + strToday[1]);
+        int thisMonth = (strToday[3].equals("0")) ? Integer.parseInt(strToday[4]) : Integer.parseInt(strToday[3] + strToday[4]);
+        int thisYear = Integer.parseInt(strToday[6] + strToday[7] + strToday[8] + strToday[9]);
+
+        int lastDay = (strLastEnter[0].equals("0")) ? Integer.parseInt(strLastEnter[1]) : Integer.parseInt(strLastEnter[0] + strLastEnter[1]);
+        int lastMonth = (strLastEnter[3].equals("0")) ? Integer.parseInt(strLastEnter[4]) : Integer.parseInt(strLastEnter[3] + strLastEnter[4]);
+        int lastYear = Integer.parseInt(strLastEnter[6] + strLastEnter[7] + strLastEnter[8] + strLastEnter[9]);
+        conditionToIncrement = ((thisYear - lastYear) + (thisMonth - lastMonth) + (thisDay - lastDay));
+
+        if (conditionToIncrement == 1){
+            user.setRate(user.getRate() + 1);
+        }else if (conditionToIncrement < 0){
+            Create.alert.setContentText("DO YOU THINK YOU CAN CHANGE YOUR RATING JUST LIKE THAT, IDIOT??? XD GO FUCK YOURSELF");
+            Create.alert.showAndWait();
+            user.setRate(0);
+        } else{
+            user.setRate(0);
+        }
         JsonHandler.createAccount(user);
     }
 
-    // Метод изменения языкового набора
-    public static void changeUserLanguage(String language){
+    // Метод изменения языкового набор на определенный (автоматически)
+    public static void changeLanguage(){
         User user = JsonHandler.loadAccountData();
+        String language = user.getLanguage();
+
+        switch (language) {
+            case "rus" -> Variables.curLanguageList = Variables.rusList;
+            case "eng" -> Variables.curLanguageList = Variables.engList;
+            case "deu" -> Variables.curLanguageList = Variables.deuList;
+            case "chn" -> Variables.curLanguageList = Variables.chnList;
+            case "cat" -> Variables.curLanguageList = Variables.style_1List;
+            default -> Variables.curLanguageList = Variables.style_2List;
+        }
+
         user.setLanguage(language);
         JsonHandler.createAccount(user);
     }
 
-    // Метод изменения цветовой темы
-    public static void changeUserColor(String color){
+    // Метод изменения языкового набор на определенный
+    public static void changeLanguage(String language){
         User user = JsonHandler.loadAccountData();
+
+        switch (language) {
+            case "rus" -> Variables.curLanguageList = Variables.rusList;
+            case "eng" -> Variables.curLanguageList = Variables.engList;
+            case "deu" -> Variables.curLanguageList = Variables.deuList;
+            case "chn" -> Variables.curLanguageList = Variables.chnList;
+            case "cat" -> Variables.curLanguageList = Variables.style_1List;
+            default -> Variables.curLanguageList = Variables.style_2List;
+        }
+
+        user.setLanguage(language);
+        JsonHandler.createAccount(user);
+    }
+
+    // Метод изменения цветовой темы на определенной панели (с учетом существующей темы)
+    public static void changeColor(Pane pane){
+        User user = JsonHandler.loadAccountData();
+        String color = user.getColor();
+        switch (color){
+            case "green" -> pane.getStyleClass().add("greenTheme");
+            case "blue" -> pane.getStyleClass().add("blueTheme");
+            case "yellow" -> pane.getStyleClass().add("yellowTheme");
+            case "black" -> pane.getStyleClass().add("blackTheme");
+            default -> pane.getStyleClass().add("whiteTheme");
+        }
         user.setColor(color);
+        JsonHandler.createAccount(user);
+    }
+
+    // Метод изменения цветовой темы пользователя на определенную (на определенной панели)
+    public static void changeColor(Pane pane, String color){
+        User user = JsonHandler.loadAccountData();
+        switch (color){
+            case "green" -> pane.getStyleClass().add("greenTheme");
+            case "blue" -> pane.getStyleClass().add("blueTheme");
+            case "yellow" -> pane.getStyleClass().add("yellowTheme");
+            case "black" -> pane.getStyleClass().add("blackTheme");
+            default -> pane.getStyleClass().add("whiteTheme");
+        }
+        user.setColor(color);
+        JsonHandler.createAccount(user);
+    }
+
+    // Метод изменения последнего входа пользователя
+    public static void changeLastEnter(){
+        User user = JsonHandler.loadAccountData();
+        user.setLast_enter_date(new SimpleDateFormat("dd_MM_yyyy").format(new Date()));
         JsonHandler.createAccount(user);
     }
 }

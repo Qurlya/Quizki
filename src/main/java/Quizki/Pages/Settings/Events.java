@@ -91,52 +91,40 @@ public class Events {
             String temp = Settings.languageChoiceBox.getValue();
 
             if(temp.equals(curLanguageList.get("Settings_LanguageRus"))){
-                curLanguageList = Variables.rusList;
-                Settings.user1.setLanguage("rus");
-
+                temp = "rus";
             } else if (temp.equals(curLanguageList.get("Settings_LanguageEng"))) {
-                curLanguageList = Variables.engList;
-                Settings.user1.setLanguage("eng");
-
+                temp = "eng";
             } else if (temp.equals(curLanguageList.get("Settings_LanguageDeu"))) {
-                curLanguageList = Variables.deuList;
-                Settings.user1.setLanguage("deu");
-
+                temp = "deu";
             } else if (temp.equals(curLanguageList.get("Settings_LanguageChn"))) {
-                curLanguageList = Variables.chnList;
-                Settings.user1.setLanguage("chn");
-
+                temp = "chn";
             } else if (temp.equals(curLanguageList.get("Settings_LanguageCats"))) {
-                curLanguageList = Variables.style_1List;
-                Settings.user1.setLanguage("cat");
-
+                temp = "cat";
             } else {
-                curLanguageList = Variables.style_2List;
-                Settings.user1.setLanguage("1337");
+                temp = "1337";
             }
+            JsonHandler.changeLanguage(temp);
 
             temp = Settings.colorChoiceBox.getValue();
 
             if(temp.equals(curLanguageList.get("Settings_ColorBlue"))){
-                Settings.user1.setColor("blue");
-
+                temp = "blue";
             } else if (temp.equals(curLanguageList.get("Settings_ColorYellow"))) {
-                Settings.user1.setColor("yellow");
-
+                temp = "yellow";
             } else if (temp.equals(curLanguageList.get("Settings_ColorBlack"))) {
-                Settings.user1.setColor("black");
-
+                temp = "black";
             }else if (temp.equals(curLanguageList.get("Settings_ColorGreen"))) {
-                Settings.user1.setColor("green");
-
+                temp = "green";
             } else {
-                Settings.user1.setColor("white");
+                temp = "white";
             }
+
+            JsonHandler.changeColor(Settings.settings_p, temp);
 
             // Обновление параметров
             Settings.languageChoiceBox.setValue(Settings.curLang);
             Settings.colorChoiceBox.setValue(Settings.curColor);
-            JsonHandler.createAccount(Settings.user1);
+            //JsonHandler.createAccount(Settings.user1);
 
             new Settings.changeScene();
         }

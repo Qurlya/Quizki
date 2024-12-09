@@ -1,5 +1,6 @@
 package Quizki.Pages.Repository.CardType;
 
+import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
@@ -24,6 +25,7 @@ public class Result {
 
     public static void changeScene() {
         result_card_p = new Pane();
+        JsonHandler.changeColor(result_card_p);
 
         // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
         l_correct_count = new Label(Variables.curLanguageList.get("Test_CorrectAnswers") + ": " + Repository.arr_corr.size());

@@ -1,5 +1,6 @@
 package Quizki.Pages.Repository.CardType;
 
+import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
@@ -33,6 +34,7 @@ public class CardType {
         @Override
         public void handle(ActionEvent actionEvent) {
             card_type_p = new Pane();
+            JsonHandler.changeColor(card_type_p);
 
             // Инициализация списков
             Repository.arr_cards = Repository.cur_collect.getCard_set();

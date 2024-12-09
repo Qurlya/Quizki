@@ -44,6 +44,7 @@ public class Repository {
         @Override
         public void handle(ActionEvent actionEvent) {
             repos_p = new Pane();
+            JsonHandler.changeColor(repos_p);
 
             // Добавление файлов с тестами в список коллекций карточек
             ArrayList<File> arr_files = new ArrayList<>(Arrays.asList(Objects.requireNonNull(new File(Variables.card_filepath).listFiles())));

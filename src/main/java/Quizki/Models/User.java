@@ -2,7 +2,6 @@ package Quizki.Models;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 
 /**
  * Пользователь - единичный участник системы тестирования Quizki.
@@ -11,12 +10,14 @@ import java.util.HashMap;
  * - Пароль;
  * - Актуальный рейтинг в локальной системе учета активности;
  * - Информация о созданных тестах;
+ * - Дата последнего входа в приложение;
  * - Дата регистрации.
  */
 
 public class User {
     private String login;
     private String registr_date;
+    private String last_enter_date;
     private int col_created;
     private int col_studied;
     private int rate;
@@ -26,6 +27,7 @@ public class User {
     public User(String login) {
         this.login = login;
         this.registr_date = new SimpleDateFormat("dd_MM_yyyy").format(new Date());
+        this.last_enter_date = this.registr_date;
         this.col_created = 0;
         this.col_studied = 0;
         this.rate = 0;
@@ -34,6 +36,14 @@ public class User {
     }
 
     public User(){}
+
+    public String getLast_enter_date() {
+        return last_enter_date;
+    }
+
+    public void setLast_enter_date(String last_enter_date) {
+        this.last_enter_date = last_enter_date;
+    }
 
     public String getLogin() {
         return login;

@@ -1,6 +1,7 @@
 package Quizki.Pages.Create;
 
 import Quizki.Models.Card;
+import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import javafx.concurrent.Task;
@@ -42,6 +43,7 @@ public class Create {
         public void handle(ActionEvent actionEvent) {
             create_p = new Pane();
             alert.setTitle("Quizki Alarm");
+            JsonHandler.changeColor(create_p);
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             Label l_name = new Label(Variables.curLanguageList.get("Test_Name"));
@@ -100,9 +102,9 @@ public class Create {
 
             firstOption(create_p, Variables.copyright, 0, Variables.appHeight - 20, true);
 
+            //create_p.getStyleClass().add("greenTheme"); - цветовая тема
             sc_create = new Scene(create_p, Variables.appWidth, Variables.appHeight);
             sc_create.getStylesheets().add("create_style.css");
-            //create_p.getStyleClass().add(""); - цветовая тема
             Main.temp.setScene(sc_create);
         }
     }

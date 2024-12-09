@@ -14,8 +14,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Objects;
 
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
@@ -39,9 +41,9 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
     }
 
+    // Вынесено в отдельную функцию, для корректной работы сохранения пользовательских настроек
     public static void printScene(){
         main_p = new Pane();
 
@@ -52,17 +54,13 @@ public class Main extends Application {
 
         // Назначение языкового набора соответственно выбранного языка пользователем
         if(userExist){
-            String language = JsonHandler.loadAccountData().getLanguage();
-
-            switch (language) {
-                case "rus" -> Variables.curLanguageList = Variables.rusList;
-                case "eng" -> Variables.curLanguageList = Variables.engList;
-                case "deu" -> Variables.curLanguageList = Variables.deuList;
-                case "chn" -> Variables.curLanguageList = Variables.chnList;
-                case "cat" -> Variables.curLanguageList = Variables.style_1List;
-                default -> Variables.curLanguageList = Variables.style_2List;
-            }
+            JsonHandler.changeLanguage();
+            JsonHandler.changeColor(main_p);
+            JsonHandler.changeLastEnter();
+            JsonHandler.changeUserRate();
         }else{
+            JsonHandler.changeLanguage("eng");
+            JsonHandler.changeColor(main_p, "green");
             Variables.curLanguageList = Variables.engList;  // по умолчанию - английский
         }
 
@@ -98,6 +96,7 @@ public class Main extends Application {
 
         scene.getStylesheets().add("main_style.css");
     }
+
     public static void main(String[] args) {
         launch(args);
     }

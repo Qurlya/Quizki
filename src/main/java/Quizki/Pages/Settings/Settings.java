@@ -33,6 +33,8 @@ public class Settings {
         @Override
         public void handle(ActionEvent actionEvent) {
             settings_p = new Pane();
+            JsonHandler.changeColor(settings_p);
+
             Scene scene = new Scene(settings_p, Variables.appWidth, Variables.appHeight);
 
             Label l_choiceLang = new Label(Variables.curLanguageList.get("Settings_Language") + ": ");

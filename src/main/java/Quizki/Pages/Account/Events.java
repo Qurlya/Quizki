@@ -1,6 +1,7 @@
 package Quizki.Pages.Account;
 
 import Quizki.Models.JsonHandler;
+import Quizki.Models.User;
 import Quizki.Pages.Create.Create;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -23,9 +24,9 @@ public class Events {
                 Create.alert.showAndWait();
             }else {
                 // Сохранение данных пользователя
-                JsonHandler.createAccount(user1);
-                b_registration.setDisable(tf_name.getText().isEmpty());
+                User user1 = new User(tf_name.getText());
 
+                JsonHandler.createAccount(user1);
                 Create.showLoadingWindow();
 
                 // Смена элементов окна, при регистрации пользователя

@@ -1,6 +1,7 @@
 package Quizki.Pages.Repository.TextType;
 
 import Quizki.Models.Card;
+import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
@@ -47,6 +48,7 @@ public class TextType {
 
         public static void printScene() {
             txt_type_p = new Pane();
+            JsonHandler.changeColor(txt_type_p);
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
