@@ -121,6 +121,7 @@ public class Create {
             VBox loadingLayout = new VBox(progressIndicator);
             loadingLayout.setStyle("-fx-padding: 20; -fx-alignment: center;");
             Scene loadingScene = new Scene(loadingLayout, 200, 100);
+            loadingScene.getStylesheets().add("create_style.css");
             loadingStage.setScene(loadingScene);
             loadingStage.show();
 

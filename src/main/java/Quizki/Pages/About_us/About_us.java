@@ -64,6 +64,7 @@ public class About_us {
             });
 
             scene.getStylesheets().add("about_us_style.css");
+
             Main.temp.setScene(scene);
         }
         private void firstOption(Button temp, int x, int y, boolean flag) {
