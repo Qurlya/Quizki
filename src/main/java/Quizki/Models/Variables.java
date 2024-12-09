@@ -1,5 +1,7 @@
 package Quizki.Models;
 
+import javafx.scene.control.Label;
+
 import java.util.HashMap;
 
 /**
@@ -14,8 +16,10 @@ public class Variables {
     public static final int appWidth = 1024;    // Ширина окна приложения
     public static final String projectTitle = "Quizki";     // Название приложения
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
-    public static final int inputLimit = 40;    // Ограничение на ввод по символам
     public static final String user_file = "__user__.json";     // Файл с данными пользователя (+настройки)
+    public static final int inputLimit = 40;    // Ограничение на ввод по символам
+    public static final int picSize = 150;     // Размер изображения
+    public static final Label copyright = new Label("© Quizki 2024");  // Знак авторского права на продукт
 
     // Расцветки
     public static final String themeGreen = "";     // Зеленая
@@ -34,13 +38,12 @@ public class Variables {
     public static final HashMap<String, String> style_1List = fillDesignList_1();   // 1-й набор косметики в дизайне (Cats)
     public static final HashMap<String, String> style_2List = fillDesignList_2();   // 2-й набор косметики в дизайне (1337)
 
-    public static HashMap<String, String> curLanguageList = engList;    // По умолчанию - английский
+    public static HashMap<String, String> curLanguageList;    // По умолчанию - английский
 
     // Инициализация для английского набора
     private static HashMap<String, String> fillEngList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "About us");
-        temp.put("Page_Materials", "Materials");
         temp.put("Page_Create", "Create");
         temp.put("Page_Repository", "Repository");
         temp.put("Page_Account", "Account");
@@ -74,6 +77,7 @@ public class Variables {
         temp.put("Alert_UserFile", "The test cannot have the name '__user__'!");
         temp.put("Alert_SpecSymbols", "The name of the test must not have special characters!");
         temp.put("Alert_EmptyUserName", "The user must have a name!");
+        temp.put("Settings_Language", "Select language");
         temp.put("Settings_LanguageRus", "Russian");
         temp.put("Settings_LanguageEng", "English");
         temp.put("Settings_LanguageDeu", "Deutsche");
@@ -100,7 +104,6 @@ public class Variables {
     private static HashMap<String, String> fillRusList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "О разработчиках");
-        temp.put("Page_Materials", "Материалы");
         temp.put("Page_Create", "Создание");
         temp.put("Page_Repository", "Репозиторий");
         temp.put("Page_Account", "Профиль");
@@ -116,7 +119,7 @@ public class Variables {
         temp.put("Test_Correct", "Верно");
         temp.put("Test_Wrong", "Неверно");
         temp.put("Repos_Card", "Карточки");
-        temp.put("Repos_Test", "Тест");
+        temp.put("Repos_Test", "Тестирование");
         temp.put("Repos_Text", "Письменный ввод");
         temp.put("Repos_Delete", "Удалить тест");
         temp.put("Test_End", "Закончить");
@@ -161,7 +164,6 @@ public class Variables {
     private static HashMap<String, String> fillDeuList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "Über Entwickler");
-        temp.put("Page_Materials", "Werkstoffe");
         temp.put("Page_Create", "Schaffung");
         temp.put("Page_Repository", "Repository");
         temp.put("Page_Account", "Profil");
@@ -222,7 +224,6 @@ public class Variables {
     private static HashMap<String, String> fillChnList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "关于开发人员");
-        temp.put("Page_Materials", "材料");
         temp.put("Page_Create", "创作");
         temp.put("Page_Repository", "存储库");
         temp.put("Page_Account", "个人资料");
@@ -283,7 +284,6 @@ public class Variables {
     private static HashMap<String, String> fillDesignList_1() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "О разработчиках");
-        temp.put("Page_Materials", "Материалы");
         temp.put("Page_Create", "Создание");
         temp.put("Page_Repository", "Репозиторий");
         temp.put("Page_Account", "Профиль");
@@ -344,7 +344,6 @@ public class Variables {
     private static HashMap<String, String> fillDesignList_2() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "0 Я◬ʒR∆ҔθŦ4N₭ĂХ");
-        temp.put("Page_Materials", "/И∆7ΞR1∆LS");
         temp.put("Page_Create", "ΣØʒ∂∀Ŋ⨝Ξ");
         temp.put("Page_Repository", "ЯEP05170RУ");
         temp.put("Page_Account", "∐ΡΟΦ◪λb");
@@ -360,7 +359,7 @@ public class Variables {
         temp.put("Test_Correct", "CXЯR3C7");
         temp.put("Test_Wrong", "VVЯ0И6");
         temp.put("Repos_Card", "CXЯ∆∑");
-        temp.put("Repos_Test", "∓E∑∓");
+        temp.put("Repos_Test", "∓E∑∓NРОV∆ԨNЕ");
         temp.put("Repos_Text", "7∄X7-1ИПYT");
         temp.put("Repos_Delete", "∆ΞΛET∃ 7357");
         temp.put("Test_End", "ΞN∆");

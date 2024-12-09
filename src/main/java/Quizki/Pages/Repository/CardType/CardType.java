@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static Quizki.Models.Variables.curLanguageList;
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 /**
@@ -48,15 +49,15 @@ public class CardType {
             l_count = new Label(Repository.card_count + " / " + Repository.arr_cards.size());
             firstOption(card_type_p, l_count, 25, 100, true);
 
-            b_back = new Button(Variables.curLanguageList.get("Back"));
+            b_back = new Button(curLanguageList.get("Back"));
             firstOption(card_type_p, b_back, 0, 300, true);
             b_back.setOnAction(new Events.BackScene());
 
-            b_correct = new Button(Variables.curLanguageList.get("Test_Correct"));
+            b_correct = new Button(curLanguageList.get("Test_Correct"));
             firstOption(card_type_p, b_correct, 10, 200, true);
             b_correct.setOnAction(new Events.CorrectAnswer());
 
-            b_mistake = new Button(Variables.curLanguageList.get("Test_Wrong"));
+            b_mistake = new Button(curLanguageList.get("Test_Wrong"));
             firstOption(card_type_p, b_mistake, 150, 200, true);
             b_mistake.setOnAction(new Events.WrongAnswer());
 

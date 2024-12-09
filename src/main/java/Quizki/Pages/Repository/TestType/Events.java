@@ -11,6 +11,8 @@ import javafx.scene.control.RadioButton;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static Quizki.Models.Variables.curLanguageList;
+
 /**
  * Реализация класса обработки событий
  * прохождения тестового формата теста (см. TestType).
@@ -50,7 +52,7 @@ public class Events {
             TestType.b_continue.setDisable(false);
 
             if (Repository.card_count == Repository.arr_cards.size()) {
-                TestType.b_continue.setText(Variables.curLanguageList.get("Test_End"));
+                TestType.b_continue.setText(curLanguageList.get("Test_End"));
             }
 
         }
@@ -60,7 +62,7 @@ public class Events {
     static class NextCard implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (TestType.b_continue.getText().equals(Variables.curLanguageList.get("Test_End"))) {
+            if (TestType.b_continue.getText().equals(curLanguageList.get("Test_End"))) {
                 Result.changeScene();
                 if (Repository.arr_wrong.isEmpty()) {
                     Result.b_continue.setDisable(true);

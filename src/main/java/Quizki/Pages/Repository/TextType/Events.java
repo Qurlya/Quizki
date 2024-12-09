@@ -10,6 +10,8 @@ import javafx.event.EventHandler;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static Quizki.Models.Variables.curLanguageList;
+
 /**
  * Реализация класса обработки событий
  * прохождения текстового формата теста (см. TextType).
@@ -29,7 +31,7 @@ public class Events {
     static class NextCard implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (TextType.b_continue.getText().equals(Variables.curLanguageList.get("Test_Check"))) {
+            if (TextType.b_continue.getText().equals(curLanguageList.get("Test_Check"))) {
                 if (TextType.tf_answer.getText().trim().equalsIgnoreCase(TextType.cur_card.getBack())) {
                     TextType.tf_answer.setStyle("-fx-text-fill: green");
                     Repository.arr_corr.add(TextType.cur_card);
@@ -40,7 +42,7 @@ public class Events {
                 TextType.tf_answer.setDisable(true);
                 TextType.b_continue.setText("-->");
                 if (Repository.card_count == Repository.arr_cards.size()) {
-                    TextType.b_continue.setText(Variables.curLanguageList.get("Test_End"));
+                    TextType.b_continue.setText(curLanguageList.get("Test_End"));
                 }
             } else if (TextType.b_continue.getText().equals("-->")) {
                 Repository.card_count++;
@@ -54,7 +56,7 @@ public class Events {
                 TextType.tf_answer.setStyle("-fx-text-fill: black");
                 TextType.tf_answer.setDisable(false);
                 TextType.tf_answer.setText("");
-                TextType.b_continue.setText(Variables.curLanguageList.get("Test_Check"));
+                TextType.b_continue.setText(curLanguageList.get("Test_Check"));
 
             } else {
                 Result.changeScene();

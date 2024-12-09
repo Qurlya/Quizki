@@ -1,6 +1,0 @@
-{"collect_name":"animals","collect_description":"desc_animals","card_set":[
-  {"face":"Cat","back":"Кот"},
-  {"face":"Dog","back":"Собака"},
-  {"face":"Monkey","back":"Обезьяна"},
-  {"face":"Frog","back":"Лягушка"}]
-}

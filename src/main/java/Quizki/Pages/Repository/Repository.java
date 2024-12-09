@@ -12,12 +12,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static Quizki.Models.Variables.curLanguageList;
 
 /**
  * Реализация функционального окна персонального репозитория.
@@ -51,10 +55,10 @@ public class Repository {
             cur_collect = arr_cols.getFirst();
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
-            name = new Label(Variables.curLanguageList.get("Test_Name") + ": " + cur_collect.getName());
+            name = new Label(curLanguageList.get("Test_Name") + ": " + cur_collect.getName());
             firstOption(repos_p, name, 10, 10, true);
 
-            description = new Label(Variables.curLanguageList.get("Test_Description") + ": " + cur_collect.getDescription());
+            description = new Label(curLanguageList.get("Test_Description") + ": " + cur_collect.getDescription());
             firstOption(repos_p, description, 10, 40, true);
 
             l_count = new Label("");
@@ -71,29 +75,30 @@ public class Repository {
             b_prev.setOnAction(new Events.PrevCollection());
             b_prev.setDisable(true);
 
-            b_card = new Button(Variables.curLanguageList.get("Repos_Card"));
+            b_card = new Button(curLanguageList.get("Repos_Card"));
             firstOption(repos_p, b_card, 0, 300, true);
             b_card.setOnAction(new CardType.changeScene());
 
-            b_test = new Button(Variables.curLanguageList.get("Repos_Test"));
+            b_test = new Button(curLanguageList.get("Repos_Test"));
             firstOption(repos_p, b_test, 150, 300, true);
             b_test.setOnAction(new TestType.changeScene());
 
-            b_write = new Button(Variables.curLanguageList.get("Repos_Text"));
+            b_write = new Button(curLanguageList.get("Repos_Text"));
             firstOption(repos_p, b_write, 250, 300, true);
             b_write.setOnAction(new TextType.changeScene());
 
-            b_back = new Button(Variables.curLanguageList.get("Back"));   // Кнопка назад
+            b_back = new Button(curLanguageList.get("Back"));   // Кнопка назад
             firstOption(repos_p, b_back, 0, 400, true);
             b_back.setOnAction(_ -> {
                 arr_cols = new ArrayList<>();
                 Main.temp.setScene(Main.scene);
             });
 
-            b_delete = new Button(Variables.curLanguageList.get("Repos_Delete"));
+            b_delete = new Button(curLanguageList.get("Repos_Delete"));
             firstOption(repos_p, b_delete, 0, 450, true);
             b_delete.setOnAction(new Events.DeleteCollection());
             b_delete.setDisable(arr_cols.isEmpty());
+            firstOption(repos_p, Variables.copyright, 0, Variables.appHeight - 20, true);
 
             Scene scene = new Scene(repos_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
@@ -134,6 +139,15 @@ public class Repository {
             temp.setLayoutY(y);
             temp.setVisible(flag);
             pane.getChildren().add(temp);
+        }
+
+        public static void firstOption(Pane pane, Image temp, int x, int y, boolean flag) {
+            ImageView imageView = new ImageView();
+            imageView.setImage(temp);
+            imageView.setLayoutX(x);
+            imageView.setLayoutY(y);
+            imageView.setVisible(flag);
+            pane.getChildren().add(imageView);
         }
     }
 }

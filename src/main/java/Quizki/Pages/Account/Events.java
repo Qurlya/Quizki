@@ -1,10 +1,12 @@
 package Quizki.Pages.Account;
 
 import Quizki.Models.JsonHandler;
-import Quizki.Models.Variables;
 import Quizki.Pages.Create.Create;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+
+import static Quizki.Models.Variables.curLanguageList;
+import static Quizki.Pages.Account.Account.*;
 
 /**
  *  Класс обработки событий функционального окна регистрации (см. Account).
@@ -17,33 +19,31 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             // Условие не пустоты имени пользователя
             if (Account.tf_name.getText().isEmpty()) {
-                Create.alert.setContentText(Variables.curLanguageList.get("Alert_EmptyUserName"));
+                Create.alert.setContentText(curLanguageList.get("Alert_EmptyUserName"));
                 Create.alert.showAndWait();
             }else {
                 // Сохранение данных пользователя
-                //User user1 = new User(Account.tf_name.getText());
-                JsonHandler.createAccount(Account.user1);
-                Account.b_registration.setDisable(Account.tf_name.getText().isEmpty());
+                JsonHandler.createAccount(user1);
+                b_registration.setDisable(tf_name.getText().isEmpty());
 
                 Create.showLoadingWindow();
 
                 // Смена элементов окна, при регистрации пользователя
-                Account.tf_name.setVisible(false);
-                Account.l_info.setVisible(false);
-                Account.b_registration.setVisible(false);
+                tf_name.setVisible(false);
+                l_info.setVisible(false);
+                b_registration.setVisible(false);
+                l_nickname.setText(l_nickname.getText() + user1.getLogin());
+                l_data_of_create.setText(l_data_of_create.getText() + user1.getRegistr_date());
+                l_rate.setText(l_rate.getText() + user1.getRate());
+                l_collection_count.setText(l_collection_count.getText() + user1.getCol_created());
+                l_collection_study.setText(l_collection_study.getText() + user1.getCol_studied());
 
-                Account.l_nickname.setText(Account.l_nickname.getText() + Account.user1.getLogin());
-                Account.l_data_of_create.setText(Account.l_data_of_create.getText() + Account.user1.getRegistr_date());
-                Account.l_rate.setText(Account.l_rate.getText() + Account.user1.getRate());
-                Account.l_collection_count.setText(Account.l_collection_count.getText() + Account.user1.getCol_created());
-                Account.l_collection_study.setText(Account.l_collection_study.getText() + Account.user1.getCol_studied());
-
-                Account.b_back.setVisible(true);
-                Account.l_nickname.setVisible(true);
-                Account.l_data_of_create.setVisible(true);
-                Account.l_rate.setVisible(true);
-                Account.l_collection_count.setVisible(true);
-                Account.l_collection_study.setVisible(true);
+                b_back.setVisible(true);
+                l_nickname.setVisible(true);
+                l_data_of_create.setVisible(true);
+                l_rate.setVisible(true);
+                l_collection_count.setVisible(true);
+                l_collection_study.setVisible(true);
             }
         }
     }

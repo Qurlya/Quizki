@@ -8,6 +8,9 @@ import javafx.event.EventHandler;
 
 import java.io.File;
 
+import static Quizki.Models.Variables.curLanguageList;
+import static Quizki.Pages.Repository.Repository.*;
+
 
 /**
  * Реализация класса обработки событий для кнопок
@@ -20,11 +23,11 @@ public class Events {
     static class PrevCollection implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            int count = Integer.parseInt(Repository.l_count.getText());
-            Repository.l_count.setText(String.valueOf(count - 1));
-            Repository.cur_collect = Repository.arr_cols.get(count - 2);
-            Repository.name.setText(Variables.curLanguageList.get("Test_Name") + ": " + Repository.cur_collect.getName());
-            Repository.description.setText(Variables.curLanguageList.get("Test_Description") + ": " + Repository.cur_collect.getDescription());
+            int count = Integer.parseInt(l_count.getText());
+            l_count.setText(String.valueOf(count - 1));
+            cur_collect = arr_cols.get(count - 2);
+            name.setText(curLanguageList.get("Test_Name") + ": " + cur_collect.getName());
+            description.setText(curLanguageList.get("Test_Description") + ": " + cur_collect.getDescription());
             checkBorder();
         }
     }
@@ -33,11 +36,11 @@ public class Events {
     static class NextCollection implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            int count = Integer.parseInt(Repository.l_count.getText());
-            Repository.l_count.setText(String.valueOf(count + 1));
-            Repository.cur_collect = Repository.arr_cols.get(count);
-            Repository.name.setText(Variables.curLanguageList.get("Test_Name") + ": " + Repository.cur_collect.getName());
-            Repository.description.setText(Variables.curLanguageList.get("Test_Description") + ": " + Repository.cur_collect.getDescription());
+            int count = Integer.parseInt(l_count.getText());
+            l_count.setText(String.valueOf(count + 1));
+            cur_collect = arr_cols.get(count);
+            name.setText(curLanguageList.get("Test_Name") + ": " + cur_collect.getName());
+            description.setText(curLanguageList.get("Test_Description") + ": " + cur_collect.getDescription());
             checkBorder();
         }
     }
@@ -48,11 +51,11 @@ public class Events {
         public void handle(ActionEvent actionEvent) {
             Create.showLoadingWindow();
 
-            File file = new File(Variables.card_filepath + Repository.cur_collect.getName() + ".json");
+            File file = new File(Variables.card_filepath + cur_collect.getName() + ".json");
             if (file.delete()) {
-                Main.temp.setScene(Repository.repos_p.getScene());
+                Main.temp.setScene(repos_p.getScene());
             } else {
-                Create.alert.setContentText(Variables.curLanguageList.get("Alert_DeleteErr"));
+                Create.alert.setContentText(curLanguageList.get("Alert_DeleteErr"));
                 Create.alert.showAndWait();
             }
         }

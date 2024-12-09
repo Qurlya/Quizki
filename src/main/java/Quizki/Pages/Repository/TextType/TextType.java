@@ -27,7 +27,7 @@ import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 public class TextType {
 
     public static Pane txt_type_p;
-    public static Button b_back, b_continue, b_check;
+    public static Button b_back, b_continue;
     public static Label l_count, l_card;
     public static Card cur_card;
     public static TextField tf_answer;

@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
+import static Quizki.Models.Variables.curLanguageList;
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 /**
@@ -34,19 +35,19 @@ public class Account {
             account_p = new Pane();
             Scene scene = new Scene(account_p, Variables.appWidth, Variables.appHeight);
 
-            l_nickname = new Label(Variables.curLanguageList.get("Account_Name") + ": ");
+            l_nickname = new Label(curLanguageList.get("Account_Name") + ": ");
             firstOption(account_p, l_nickname, 100, 100, Main.userExist);
 
-            l_data_of_create = new Label(Variables.curLanguageList.get("Account_Date") + ": ");
+            l_data_of_create = new Label(curLanguageList.get("Account_Date") + ": ");
             firstOption(account_p, l_data_of_create, 100, 150, Main.userExist);
 
-            l_rate = new Label(Variables.curLanguageList.get("Account_Activity") + ": ");
+            l_rate = new Label(curLanguageList.get("Account_Activity") + ": ");
             firstOption(account_p, l_rate, 100, 200, Main.userExist);
 
-            l_collection_count = new Label(Variables.curLanguageList.get("Account_CollectionCount") + ": ");
+            l_collection_count = new Label(curLanguageList.get("Account_CollectionCount") + ": ");
             firstOption(account_p, l_collection_count, 100, 250, Main.userExist);
 
-            l_collection_study = new Label(Variables.curLanguageList.get("Account_CollectionStudy") + ": ");
+            l_collection_study = new Label(curLanguageList.get("Account_CollectionStudy") + ": ");
             firstOption(account_p, l_collection_study, 100, 300, Main.userExist);
 
             l_info = new Label("Тварь, мы знаем, где ты живешь и учишься, " +
@@ -67,12 +68,12 @@ public class Account {
             tf_name = new TextField();
             firstOption(account_p, tf_name, 100, 400, !Main.userExist);
 
-            b_registration = new Button(Variables.curLanguageList.get("Account_Registration"));
+            b_registration = new Button(curLanguageList.get("Account_Registration"));
             firstOption(account_p, b_registration, 100, 450, !Main.userExist);
 
             b_registration.setOnAction(new Events.Registration());
 
-            b_back = new Button(Variables.curLanguageList.get("Back"));
+            b_back = new Button(curLanguageList.get("Back"));
             firstOption(account_p, b_back, 0, 500, Main.userExist);
             b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
 
@@ -84,6 +85,7 @@ public class Account {
                 Account.l_collection_count.setText(Account.l_collection_count.getText() + user1.getCol_created());
                 Account.l_collection_study.setText(Account.l_collection_study.getText() + user1.getCol_studied());
             }
+            firstOption(account_p, Variables.copyright, 0, Variables.appHeight - 20, true);
 
             scene.getStylesheets().add("account_style.css");
             Main.temp.setScene(scene);

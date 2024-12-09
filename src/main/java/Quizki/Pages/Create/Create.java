@@ -98,6 +98,8 @@ public class Create {
             firstOption(create_p, b_back, 100, 500, true);
             b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
 
+            firstOption(create_p, Variables.copyright, 0, Variables.appHeight - 20, true);
+
             sc_create = new Scene(create_p, Variables.appWidth, Variables.appHeight);
             sc_create.getStylesheets().add("create_style.css");
             //create_p.getStyleClass().add(""); - цветовая тема

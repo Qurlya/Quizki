@@ -26,7 +26,7 @@ public class Settings {
     public static Pane settings_p;
     public static Button b_back, b_apply;
     public static ChoiceBox<String> languageChoiceBox, colorChoiceBox;
-    User user1 = JsonHandler.loadAccountData();
+    public static User user1 = JsonHandler.loadAccountData();
     public static String curColor = Variables.curLanguageList.get("Settings_ColorGreen");
     public static String curLang = Variables.curLanguageList.get("Settings_LanguageEng");
     public static class changeScene implements EventHandler<ActionEvent> {
@@ -48,6 +48,20 @@ public class Settings {
                     Variables.curLanguageList.get("Settings_ColorBlack"),
                     Variables.curLanguageList.get("Settings_ColorWhite"));
 
+            if(Main.userExist){
+                String color = JsonHandler.loadAccountData().getColor();
+
+                switch (color) {
+                    case "white" -> curColor = Variables.curLanguageList.get("Settings_ColorWhite");
+                    case "blue" -> curColor = Variables.curLanguageList.get("Settings_ColorBlue");
+                    case "yellow" -> curColor = Variables.curLanguageList.get("Settings_ColorYellow");
+                    case "black" -> curColor = Variables.curLanguageList.get("Settings_ColorBlack");
+                    default -> curColor = Variables.curLanguageList.get("Settings_ColorGreen");
+                }
+            }else{
+                Variables.curLanguageList = Variables.engList;  // цвет по умолчанию - зелёный
+            }
+
             colorChoiceBox = new ChoiceBox<>(colorLang);
             colorChoiceBox.setValue(curColor);
             firstOption(settings_p, colorChoiceBox, 100, 100, true);
@@ -62,6 +76,21 @@ public class Settings {
                     Variables.curLanguageList.get("Settings_Language1337"),
                     Variables.curLanguageList.get("Settings_LanguageCats"));
 
+            if(Main.userExist){
+                String language = JsonHandler.loadAccountData().getLanguage();
+
+                switch (language) {
+                    case "rus" -> curLang = Variables.curLanguageList.get("Settings_LanguageRus");
+                    case "1337" -> curLang = Variables.curLanguageList.get("Settings_Language1337");
+                    case "deu" -> curLang = Variables.curLanguageList.get("Settings_LanguageDeu");
+                    case "chn" -> curLang = Variables.curLanguageList.get("Settings_LanguageChn");
+                    case "cat" -> curLang = Variables.curLanguageList.get("Settings_LanguageCats");
+                    default -> curLang = Variables.curLanguageList.get("Settings_LanguageEng");
+                }
+            }else{
+                Variables.curLanguageList = Variables.engList;  // язык по умолчанию - английский
+            }
+
             languageChoiceBox = new ChoiceBox<>(languageLang);
             languageChoiceBox.setValue(curLang);
             firstOption(settings_p, languageChoiceBox, 100, 50, true);
@@ -69,11 +98,15 @@ public class Settings {
 
             b_back = new Button(Variables.curLanguageList.get("Back"));
             firstOption(settings_p, b_back, 0, 500, true);
-            b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
+            b_back.setOnAction(_ -> {
+                Main.printScene();
+                Main.temp.setScene(Main.scene);
+            });
 
             b_apply = new Button(Variables.curLanguageList.get("Settings_Apply"));
             firstOption(settings_p, b_apply, 200, 500, true);
             b_apply.setOnAction(new Events.ApplySettings());
+            firstOption(settings_p, Variables.copyright, 0, Variables.appHeight - 20, true);
 
             scene.getStylesheets().add("settings_style.css");
             Main.temp.setScene(scene);

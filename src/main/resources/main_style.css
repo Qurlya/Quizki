@@ -27,4 +27,12 @@
     /*При наведении на кнопку "Создать"*/
     #b_create:hover{
         -fx-background-color: rgba(17, 116, 121, 0.7);
+
+}
+/*Текст*/
+.label{
+    -fx-font-size: 12;
+    -fx-font-style: normal;
+    -fx-font-weight: normal;
+    -fx-text-fill: #ACCBC3;
 }
