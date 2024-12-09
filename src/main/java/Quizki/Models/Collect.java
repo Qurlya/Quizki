@@ -13,13 +13,13 @@ public class Collect {
     private String description;
     private ArrayList<Card> card_set;
 
-    public Collect(String name, String description){
+    public Collect(String name, String description) {
         this.name = name;
         this.description = description;
         this.card_set = new ArrayList<>();
     }
 
-    public Collect(){
+    public Collect() {
         this.name = "no-name";
         this.description = "...";
         this.card_set = new ArrayList<>();

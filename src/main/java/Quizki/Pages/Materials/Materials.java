@@ -1,7 +1,7 @@
 package Quizki.Pages.Materials;
 
-import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
+import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
  * к которым пользователи могут свободно обращаться с целью просвещения.
  * В будущем:
  * - Реализовать ИИ для распознавания и создания соответствующего теста по выбранным
- *   контекстам материалов.
+ * контекстам материалов.
  */
 
 public class Materials {
