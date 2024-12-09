@@ -82,6 +82,8 @@ public class JsonHandler {
         jsonNode.put("user_reg_date", user.getRegistr_date());
         jsonNode.put("user_col_created", user.getCol_created());
         jsonNode.put("user_col_studied", user.getCol_studied());
+        jsonNode.put("user_set_language", user.getLanguage());
+        jsonNode.put("user_set_color", user.getColor());
 
         try {
             mapper.writeValue(file, jsonNode);
@@ -101,17 +103,20 @@ public class JsonHandler {
             throw new RuntimeException(e);
         }
 
-        // Чтение имени и описания коллекции
+        // Чтение данных пользователя
         String user_login = jsonNode.get("user_login").asText();
         String user_date = jsonNode.get("user_reg_date").asText();
+        String language = jsonNode.get("user_set_language").asText();
+        String color = jsonNode.get("user_set_color").asText();
         int user_col_created = Integer.parseInt(jsonNode.get("user_col_created").asText());
         int user_col_studied = Integer.parseInt(jsonNode.get("user_col_studied").asText());
 
-        // Создаем коллекцию и устанавливаем ее параметры
         User user = new User(user_login);
         user.setCol_studied(user_col_studied);
         user.setCol_created(user_col_created);
         user.setRegistr_date(user_date);
+        user.setLanguage(language);
+        user.setColor(color);
 
         return user;
     }
@@ -134,6 +139,20 @@ public class JsonHandler {
     public static void changeUserRate(int plusRate){
         User user = JsonHandler.loadAccountData();
         user.setRate(user.getRate() + plusRate);
+        JsonHandler.createAccount(user);
+    }
+
+    // Метод изменения языкового набора
+    public static void changeUserLanguage(String language){
+        User user = JsonHandler.loadAccountData();
+        user.setLanguage(language);
+        JsonHandler.createAccount(user);
+    }
+
+    // Метод изменения цветовой темы
+    public static void changeUserColor(String color){
+        User user = JsonHandler.loadAccountData();
+        user.setColor(color);
         JsonHandler.createAccount(user);
     }
 }

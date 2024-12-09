@@ -85,7 +85,10 @@ public class Repository {
 
             b_back = new Button(Variables.curLanguageList.get("Back"));   // Кнопка назад
             firstOption(repos_p, b_back, 0, 400, true);
-            b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
+            b_back.setOnAction(_ -> {
+                arr_cols = new ArrayList<>();
+                Main.temp.setScene(Main.scene);
+            });
 
             b_delete = new Button(Variables.curLanguageList.get("Repos_Delete"));
             firstOption(repos_p, b_delete, 0, 450, true);

@@ -42,6 +42,7 @@ public class Events {
                 collect.setCard_set(Create.arr_card);
                 String path = Variables.card_filepath + Create.tf_name.getText() + ".json";
                 JsonHandler.saveToFile(collect, path);
+                JsonHandler.changeUserColsCreated();
                 showLoadingWindow();
             }
         }

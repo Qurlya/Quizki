@@ -1,5 +1,7 @@
 package Quizki.Pages.Settings;
 
+import Quizki.Models.JsonHandler;
+import Quizki.Models.User;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
 import javafx.collections.FXCollections;
@@ -22,8 +24,9 @@ import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 public class Settings {
     public static Pane settings_p;
-    public static Button b_back;
+    public static Button b_back, b_apply;
     public static ChoiceBox<String> languageChoiceBox, colorChoiceBox;
+    User user1 = JsonHandler.loadAccountData();
     public static String curColor = Variables.curLanguageList.get("Settings_ColorGreen");
     public static String curLang = Variables.curLanguageList.get("Settings_LanguageEng");
     public static class changeScene implements EventHandler<ActionEvent> {
@@ -67,6 +70,11 @@ public class Settings {
             b_back = new Button(Variables.curLanguageList.get("Back"));
             firstOption(settings_p, b_back, 0, 500, true);
             b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
+
+            b_apply = new Button(Variables.curLanguageList.get("Settings_Apply"));
+            firstOption(settings_p, b_apply, 200, 500, true);
+            b_apply.setOnAction(new Events.ApplySettings());
+
             scene.getStylesheets().add("settings_style.css");
             Main.temp.setScene(scene);
         }

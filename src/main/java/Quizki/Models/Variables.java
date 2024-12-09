@@ -15,10 +15,15 @@ public class Variables {
     public static final String projectTitle = "Quizki";     // Название приложения
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
     public static final int inputLimit = 40;    // Ограничение на ввод по символам
-    public static final String user_file = "__user__.json";
+    public static final String user_file = "__user__.json";     // Файл с данными пользователя (+настройки)
 
     // Расцветки
-    // ...
+    public static final String themeGreen = "";     // Зеленая
+    public static final String themeBlue = "";      // Синяя
+    public static final String themeYellow = "";    // Жёлтая
+    public static final String themeBlack = "";     // Чёрная
+    public static final String themeWhite = "";     // Белая
+
 
     // Языковые и косметические наборы
     public static final HashMap<String, String> engList = fillEngList();  // Английский
@@ -81,6 +86,7 @@ public class Variables {
         temp.put("Settings_ColorGreen", "Green");
         temp.put("Settings_ColorBlack", "Black");
         temp.put("Settings_ColorWhite", "White");
+        temp.put("Settings_Apply", "Apply");
         temp.put("Account_Registration", "Registration");
         temp.put("Account_Name", "Name");
         temp.put("Account_Date", "Registration date");
@@ -141,6 +147,7 @@ public class Variables {
         temp.put("Settings_ColorGreen", "Зелёный");
         temp.put("Settings_ColorBlack", "Чёрный");
         temp.put("Settings_ColorWhite", "Белый");
+        temp.put("Settings_Apply", "Принять");
         temp.put("Account_Registration", "Регистрация");
         temp.put("Account_Name", "Имя");
         temp.put("Account_Date", "Дата регистрации");
@@ -201,6 +208,7 @@ public class Variables {
         temp.put("Settings_ColorGreen", "Grün");
         temp.put("Settings_ColorBlack", "Schwarzer");
         temp.put("Settings_ColorWhite", "Weiße");
+        temp.put("Settings_Apply", "Annehmen");
         temp.put("Account_Registration", "Rezeption");
         temp.put("Account_Name", "Name");
         temp.put("Account_Date", "Registrierungsdatum");
@@ -261,6 +269,7 @@ public class Variables {
         temp.put("Settings_ColorGreen", "绿色");
         temp.put("Settings_ColorBlack", "黑色");
         temp.put("Settings_ColorWhite", "白色");
+        temp.put("Settings_Apply", "接受");
         temp.put("Account_Registration", "注册");
         temp.put("Account_Name", "名称");
         temp.put("Account_Date", "登记日期");
@@ -321,6 +330,7 @@ public class Variables {
         temp.put("Settings_ColorGreen", "Зелёный");
         temp.put("Settings_ColorBlack", "Чёрный");
         temp.put("Settings_ColorWhite", "Белый");
+        temp.put("Settings_Apply", "ヾ(•ω•`)o");
         temp.put("Account_Registration", "(づ￣ 3￣)づ");
         temp.put("Account_Name", "Имя");
         temp.put("Account_Date", "Вы с нами уже с (*≧︶≦))(￣▽￣* )ゞ");
@@ -381,9 +391,10 @@ public class Variables {
         temp.put("Settings_ColorBlack", "Чёрный");
         temp.put("Settings_ColorGreen", "Зелёный");
         temp.put("Settings_ColorWhite", "Белый");
+        temp.put("Settings_Apply", "Принять");
         temp.put("Account_Registration", "ЯEGI57RA7I0И");
         temp.put("Account_Name", "ŊÆɱΞ");
-        temp.put("Account_Date", "∆Λ7Λ ЯEGI57RAЦII");
+        temp.put("Account_Date", "∆∀7А ЯEGI57RAЦII");
         temp.put("Account_CollectionCount", "SOZ∆AИ0");
         temp.put("Account_CollectionStudy", "ПR0Й∆ΞŊO");
         temp.put("Account_Activity", "Y4E7 AK71VИOS71");

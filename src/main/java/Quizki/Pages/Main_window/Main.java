@@ -11,7 +11,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 
 /**
@@ -31,11 +29,16 @@ public class Main extends Application {
     static public Stage temp;
     static public Scene scene;
     //public static Pane main_p;
+    public static boolean userExist;
 
     @Override
     public void start(Stage stage) {
         temp = stage;
         //main_p = new Pane();
+        // Условие существования пользователя
+        userExist = new ArrayList<>(Arrays.asList(
+                Objects.requireNonNull(new File(Variables.card_filepath).listFiles())))
+                .contains(new File(Variables.card_filepath + Variables.user_file));
 
         // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
         Button b_about_us = new Button(Variables.curLanguageList.get("Page_AboutUs"));
@@ -56,6 +59,13 @@ public class Main extends Application {
         Button b_settings = new Button(Variables.curLanguageList.get("Page_Settings"));
         b_settings.setOnAction(new Settings.changeScene());
 
+        // Принудительная регистрация
+        b_about_us.setDisable(!userExist);
+        b_create.setDisable(!userExist);
+        b_settings.setDisable(!userExist);
+        b_repository.setDisable(!userExist);
+        b_materials.setDisable(!userExist);
+
         /*firstOption(main_p, b_about_us, 0, 0, true);
         firstOption(main_p, b_materials, 100, 0, true);
         firstOption(main_p, b_create, 200, 0, true);
@@ -71,11 +81,6 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
-        // Сделать принудительную регистрацию!!!
-        if (!new ArrayList<>(Arrays.asList(Objects.requireNonNull(new File(Variables.card_filepath).listFiles()))).contains(Variables.card_filepath + "__user__.json")){
-            new Account.changeScene();
-        }
     }
 
     public static void main(String[] args) {

@@ -2,6 +2,7 @@ package Quizki.Models;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Пользователь - единичный участник системы тестирования Quizki.
@@ -19,6 +20,8 @@ public class User {
     private int col_created;
     private int col_studied;
     private int rate;
+    public String language;
+    public String color;
 
     public User(String login) {
         this.login = login;
@@ -26,7 +29,11 @@ public class User {
         this.col_created = 0;
         this.col_studied = 0;
         this.rate = 0;
+        this.language = "eng";
+        this.color = "green";
     }
+
+    public User(){}
 
     public String getLogin() {
         return login;
@@ -66,5 +73,21 @@ public class User {
 
     public void setCol_studied(int col_studied) {
         this.col_studied = col_studied;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getLanguage() {
+        return this.language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

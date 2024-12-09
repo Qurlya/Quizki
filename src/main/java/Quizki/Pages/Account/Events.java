@@ -1,7 +1,6 @@
 package Quizki.Pages.Account;
 
 import Quizki.Models.JsonHandler;
-import Quizki.Models.User;
 import Quizki.Models.Variables;
 import Quizki.Pages.Create.Create;
 import javafx.event.ActionEvent;
@@ -22,8 +21,8 @@ public class Events {
                 Create.alert.showAndWait();
             }else {
                 // Сохранение данных пользователя
-                User user1 = new User(Account.tf_name.getText());
-                JsonHandler.createAccount(user1);
+                //User user1 = new User(Account.tf_name.getText());
+                JsonHandler.createAccount(Account.user1);
                 Account.b_registration.setDisable(Account.tf_name.getText().isEmpty());
 
                 Create.showLoadingWindow();
@@ -33,11 +32,11 @@ public class Events {
                 Account.l_info.setVisible(false);
                 Account.b_registration.setVisible(false);
 
-                Account.l_nickname.setText(Account.l_nickname.getText() + user1.getLogin());
-                Account.l_data_of_create.setText(Account.l_data_of_create.getText() + user1.getRegistr_date());
-                Account.l_rate.setText(Account.l_rate.getText() + user1.getRate());
-                Account.l_collection_count.setText(Account.l_collection_count.getText() + user1.getCol_created());
-                Account.l_collection_study.setText(Account.l_collection_study.getText() + user1.getCol_studied());
+                Account.l_nickname.setText(Account.l_nickname.getText() + Account.user1.getLogin());
+                Account.l_data_of_create.setText(Account.l_data_of_create.getText() + Account.user1.getRegistr_date());
+                Account.l_rate.setText(Account.l_rate.getText() + Account.user1.getRate());
+                Account.l_collection_count.setText(Account.l_collection_count.getText() + Account.user1.getCol_created());
+                Account.l_collection_study.setText(Account.l_collection_study.getText() + Account.user1.getCol_studied());
 
                 Account.b_back.setVisible(true);
                 Account.l_nickname.setVisible(true);
