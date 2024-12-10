@@ -26,16 +26,16 @@ public class Settings {
     public static Pane settings_p;
     public static Button b_back, b_apply;
     public static ChoiceBox<String> languageChoiceBox, colorChoiceBox;
-    public static User user1 = JsonHandler.loadAccountData();
     public static String curColor = Variables.curLanguageList.get("Settings_ColorGreen");
     public static String curLang = Variables.curLanguageList.get("Settings_LanguageEng");
+    protected static Scene scene;
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
             settings_p = new Pane();
             JsonHandler.changeColor(settings_p);
 
-            Scene scene = new Scene(settings_p, Variables.appWidth, Variables.appHeight);
+            scene = new Scene(settings_p, Variables.appWidth, Variables.appHeight);
 
             Label l_choiceLang = new Label(Variables.curLanguageList.get("Settings_Language") + ": ");
             firstOption(settings_p, l_choiceLang, 0, 50, true);

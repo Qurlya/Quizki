@@ -14,10 +14,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Objects;
 
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
@@ -56,8 +54,8 @@ public class Main extends Application {
         if(userExist){
             JsonHandler.changeLanguage();
             JsonHandler.changeColor(main_p);
-            JsonHandler.changeLastEnter();
             JsonHandler.changeUserRate();
+            JsonHandler.changeLastEnter();
         }else{
             JsonHandler.changeLanguage("eng");
             JsonHandler.changeColor(main_p, "green");

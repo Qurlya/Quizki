@@ -1,8 +1,6 @@
 package Quizki.Models;
 
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-
 import java.util.HashMap;
 
 /**
@@ -18,17 +16,10 @@ public class Variables {
     public static final String projectTitle = "Quizki";     // Название приложения
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
     public static final String user_file = "__user__.json";     // Файл с данными пользователя (+настройки)
+    public static final String dataFormat = "dd_MM_yyyy";   // Формат записи даты
     public static final int inputLimit = 40;    // Ограничение на ввод по символам
     public static final int picSize = 150;     // Размер изображения
     public static final Label copyright = new Label("© Quizki 2024");  // Знак авторского права на продукт
-
-    // Расцветки
-    public static final String themeGreen = "";     // Зеленая
-    public static final String themeBlue = "";      // Синяя
-    public static final String themeYellow = "";    // Жёлтая
-    public static final String themeBlack = "";     // Чёрная
-    public static final String themeWhite = "";     // Белая
-
 
     // Языковые и косметические наборы
     public static final HashMap<String, String> engList = fillEngList();  // Английский

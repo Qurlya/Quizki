@@ -78,7 +78,6 @@ public class Account {
             b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
 
             if (Main.userExist){
-                JsonHandler.changeUserRate();
                 User user1 = JsonHandler.loadAccountData();
 
                 l_nickname.setText(l_nickname.getText() + user1.getLogin());

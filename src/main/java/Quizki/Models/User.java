@@ -26,7 +26,7 @@ public class User {
 
     public User(String login) {
         this.login = login;
-        this.registr_date = new SimpleDateFormat("dd_MM_yyyy").format(new Date());
+        this.registr_date = new SimpleDateFormat(Variables.dataFormat).format(new Date());
         this.last_enter_date = this.registr_date;
         this.col_created = 0;
         this.col_studied = 0;

@@ -149,18 +149,10 @@ public class JsonHandler {
     // Метод инкремента учета активности пользователя
     public static void changeUserRate(){
         User user = JsonHandler.loadAccountData();
-        String temp = new SimpleDateFormat("dd_MM_yyyy").format(new Date());
-
         int conditionToIncrement;
 
-        char[] today = temp.toCharArray();
-        char[] lastEnterDay = user.getLast_enter_date().toCharArray();
-        String[] strToday = new String[today.length];
-        String[] strLastEnter = new String[lastEnterDay.length];
-        for(int i = 0; i < strToday.length; i++){
-            strToday[i] = String.valueOf(today[i]);
-            strLastEnter[i] = String.valueOf(lastEnterDay[i]);
-        }
+        String[] strToday = stringToStringArr(new SimpleDateFormat(Variables.dataFormat).format(new Date()));
+        String[] strLastEnter = stringToStringArr(user.getLast_enter_date());
 
         int thisDay = (strToday[0].equals("0")) ? Integer.parseInt(strToday[1]) : Integer.parseInt(strToday[0] + strToday[1]);
         int thisMonth = (strToday[3].equals("0")) ? Integer.parseInt(strToday[4]) : Integer.parseInt(strToday[3] + strToday[4]);
@@ -169,18 +161,32 @@ public class JsonHandler {
         int lastDay = (strLastEnter[0].equals("0")) ? Integer.parseInt(strLastEnter[1]) : Integer.parseInt(strLastEnter[0] + strLastEnter[1]);
         int lastMonth = (strLastEnter[3].equals("0")) ? Integer.parseInt(strLastEnter[4]) : Integer.parseInt(strLastEnter[3] + strLastEnter[4]);
         int lastYear = Integer.parseInt(strLastEnter[6] + strLastEnter[7] + strLastEnter[8] + strLastEnter[9]);
-        conditionToIncrement = ((thisYear - lastYear) + (thisMonth - lastMonth) + (thisDay - lastDay));
+
+        if(thisYear == lastYear){
+            if(thisMonth == lastMonth) conditionToIncrement = thisDay - lastDay;
+            else conditionToIncrement = 2;
+        }else conditionToIncrement = 2;
 
         if (conditionToIncrement == 1){
             user.setRate(user.getRate() + 1);
         }else if (conditionToIncrement < 0){
-            Create.alert.setContentText("DO YOU THINK YOU CAN CHANGE YOUR RATING JUST LIKE THAT, IDIOT??? XD GO FUCK YOURSELF");
+            Create.alert.setContentText("Don't change your rate yourself!");
             Create.alert.showAndWait();
             user.setRate(0);
-        } else{
+        } else if (conditionToIncrement != 0){
             user.setRate(0);
         }
         JsonHandler.createAccount(user);
+    }
+
+    // Преобразование строки в массив строк (посимвольно)
+    public static String[] stringToStringArr(String str){
+        char[] temp = str.toCharArray();
+        String[] res = new String[temp.length];
+        for(int i = 0; i < res.length; i++){
+            res[i] = String.valueOf(temp[i]);
+        }
+        return res;
     }
 
     // Метод изменения языкового набор на определенный (автоматически)
@@ -250,7 +256,7 @@ public class JsonHandler {
     // Метод изменения последнего входа пользователя
     public static void changeLastEnter(){
         User user = JsonHandler.loadAccountData();
-        user.setLast_enter_date(new SimpleDateFormat("dd_MM_yyyy").format(new Date()));
+        user.setLast_enter_date(new SimpleDateFormat(Variables.dataFormat).format(new Date()));
         JsonHandler.createAccount(user);
     }
 }
