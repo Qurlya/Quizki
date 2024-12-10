@@ -2041,3 +2041,16 @@
 {"ts":1733840100891,"action":"IDE_DEACTIVATED"}
 {"ts":1733840105510,"action":"IDE_ACTIVATED"}
 {"ts":1733840108189,"action":"IDE_DEACTIVATED"}
+{"ts":1733840199237,"action":"IDE_ACTIVATED"}
+{"ts":1733840201064,"action":"IDE_DEACTIVATED"}
+{"ts":1733840249146,"action":"IDE_ACTIVATED"}
+{"ts":1733840285351,"action":"IDE_DEACTIVATED"}
+{"ts":1733840291506,"action":"IDE_ACTIVATED"}
+{"ts":1733840294255,"action":"IDE_DEACTIVATED"}
+{"ts":1733840337763,"action":"IDE_ACTIVATED"}
+{"ts":1733840346139,"action":"FILE_CLOSED","file":"/src/main/java/Quizki/Pages/Main_window/Main.java","tags":{"FILE_LINE_OF_CODE":"103"}}
+{"ts":1733840346139,"action":"FILE_OPENED","file":"/src/main/java/Quizki/Pages/Create/Create.java","tags":{"FILE_LINE_OF_CODE":"150"}}
+{"ts":1733840346596,"action":"FILE_CLOSED","file":"/src/main/java/Quizki/Pages/Create/Create.java","tags":{"FILE_LINE_OF_CODE":"150"}}
+{"ts":1733840346596,"action":"FILE_OPENED","file":"/src/main/java/Quizki/Pages/Create/Events.java","tags":{"FILE_LINE_OF_CODE":"144"}}
+{"ts":1733840350890,"action":"FILE_CLOSED","file":"/src/main/java/Quizki/Pages/Create/Events.java","tags":{"FILE_LINE_OF_CODE":"144"}}
+{"ts":1733840350890,"action":"FILE_OPENED","file":"/src/main/java/Quizki/Pages/About_us/About_us.java","tags":{"FILE_LINE_OF_CODE":"89"}}
