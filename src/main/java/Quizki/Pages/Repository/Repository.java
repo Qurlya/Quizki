@@ -150,5 +150,12 @@ public class Repository {
             imageView.setVisible(flag);
             pane.getChildren().add(imageView);
         }
+
+        public static void firstOption(Pane pane, ImageView temp, int x, int y, boolean flag) {
+            temp.setLayoutX(x);
+            temp.setLayoutY(y);
+            temp.setVisible(flag);
+            pane.getChildren().add(temp);
+        }
     }
 }

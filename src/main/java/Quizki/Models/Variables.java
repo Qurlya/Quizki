@@ -1,14 +1,11 @@
 package Quizki.Models;
 
 import Quizki.Pages.Main_window.Main;
-import Quizki.Pages.Repository.Repository;
 import javafx.scene.control.Label;
 
-import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
-import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -51,19 +48,56 @@ public class Variables {
         ImageView leetCat = new ImageView();
 
         try {
-            defaultCat.setImage(new Image(new FileInputStream("")));
-            kaomojiCat.setImage(new Image(new FileInputStream("")));
-            leetCat.setImage(new Image(new FileInputStream("")));
-
-            //firstOption(Main.main_p,);
-
             User user1 = JsonHandler.loadAccountData();
+            Image kaomoji1Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/kaomoji1.png"));
+            Image kaomoji2Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/kaomoji2.png"));
 
-            switch(user1.getLanguage()){
-                case "Cats":;
-                case "1337":;
-                default:;
+            Image leet1Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/maximilian.png"));
+            Image leet2Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/maximilian2.png"));
+
+            Image default1Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/default1Cat.png"));
+            Image default2Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/default2Cat.png"));
+
+            defaultCat.setImage(default1Cat);
+            defaultCat.setOnMouseClicked(_->{
+                if(defaultCat.getImage().equals(default1Cat)){
+                    defaultCat.setImage(default2Cat);
+                }else{
+                    defaultCat.setImage(default1Cat);
+                }
+            });
+
+            kaomojiCat.setImage(kaomoji1Cat);
+            kaomojiCat.setOnMouseClicked(_->{
+                if(kaomojiCat.getImage().equals(kaomoji1Cat)){
+                    kaomojiCat.setImage(kaomoji2Cat);
+                }else{
+                    kaomojiCat.setImage(kaomoji1Cat);
+                }
+            });
+
+            leetCat.setImage(leet1Cat);
+            leetCat.setOnMouseClicked(_->{
+                if(leetCat.getImage().equals(leet1Cat)){
+                    leetCat.setImage(leet2Cat);
+                }else{
+                    leetCat.setImage(leet1Cat);
+                }
+            });
+
+            String temp = user1.getLanguage();
+            switch(temp){
+                case "cat":
+                    firstOption(Main.main_p, kaomojiCat, 700, 500, true);
+                    break;
+                case "1337":
+                    firstOption(Main.main_p, leetCat, 700, 500, true);
+                    break;
+                default:
+                    firstOption(Main.main_p, defaultCat, 700, 500, true);
+                    break;
             }
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

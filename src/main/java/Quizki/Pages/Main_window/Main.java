@@ -57,6 +57,7 @@ public class Main extends Application {
             JsonHandler.changeColor(main_p);
             JsonHandler.changeUserRate();
             JsonHandler.changeLastEnter();
+            Variables.changeMainCat();
         }else{
             JsonHandler.changeLanguage("eng");
             JsonHandler.changeColor(main_p, "green");
