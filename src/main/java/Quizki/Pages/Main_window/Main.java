@@ -1,6 +1,7 @@
 package Quizki.Pages.Main_window;
 
 import Quizki.Models.JsonHandler;
+import Quizki.Models.User;
 import Quizki.Models.Variables;
 import Quizki.Pages.About_us.About_us;
 import Quizki.Pages.Account.Account;

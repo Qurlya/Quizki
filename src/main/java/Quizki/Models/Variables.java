@@ -1,7 +1,18 @@
 package Quizki.Models;
 
+import Quizki.Pages.Main_window.Main;
+import Quizki.Pages.Repository.Repository;
 import javafx.scene.control.Label;
+
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 /**
  * Реализация класса констант и переменных, задействованных в коде проекта.
@@ -17,7 +28,8 @@ public class Variables {
     public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
     public static final String user_file = "__user__.json";     // Файл с данными пользователя (+настройки)
     public static final String dataFormat = "dd_MM_yyyy";   // Формат записи даты
-    public static final int inputLimit = 40;    // Ограничение на ввод по символам
+    public static final int loginLimit = 40;    // ограничение на длину имени пользователя
+    public static final int inputLimit = 88;    // Ограничение на ввод по символам
     public static final int picSize = 150;     // Размер изображения
     public static final Label copyright = new Label("© Quizki 2024");  // Знак авторского права на продукт
 
@@ -31,6 +43,33 @@ public class Variables {
     public static final HashMap<String, String> style_2List = fillDesignList_2();   // 2-й набор косметики в дизайне (1337)
 
     public static HashMap<String, String> curLanguageList;    // По умолчанию - английский
+
+    // Изменение картинки кота на основном экране в зависимости от выбранного языка
+    public static void changeMainCat(){
+        ImageView defaultCat = new ImageView();
+        ImageView kaomojiCat = new ImageView();
+        ImageView leetCat = new ImageView();
+
+        try {
+            defaultCat.setImage(new Image(new FileInputStream("")));
+            kaomojiCat.setImage(new Image(new FileInputStream("")));
+            leetCat.setImage(new Image(new FileInputStream("")));
+
+            //firstOption(Main.main_p,);
+
+            User user1 = JsonHandler.loadAccountData();
+
+            switch(user1.getLanguage()){
+                case "Cats":;
+                case "1337":;
+                default:;
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 
     // Инициализация для английского набора
     private static HashMap<String, String> fillEngList() {
@@ -69,6 +108,7 @@ public class Variables {
         temp.put("Alert_UserFile", "The test cannot have the name '__user__'!");
         temp.put("Alert_SpecSymbols", "The name of the test must not have special characters!");
         temp.put("Alert_EmptyUserName", "The user must have a name!");
+        temp.put("Alert_UserLimit", "The user name must be under " + loginLimit + " symbols!");
         temp.put("Settings_Language", "Select language");
         temp.put("Settings_LanguageRus", "Russian");
         temp.put("Settings_LanguageEng", "English");
@@ -89,6 +129,7 @@ public class Variables {
         temp.put("Account_CollectionCount", "Collections created");
         temp.put("Account_CollectionStudy", "Collections completed");
         temp.put("Account_Activity", "Activity tracking");
+        temp.put("Account_ChangeName", "New name input");
         return temp;
     }
 
@@ -129,6 +170,7 @@ public class Variables {
         temp.put("Alert_UserFile", "Тест не может иметь имя '__user__'!");
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
         temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
+        temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
         temp.put("Settings_Language", "Выберите язык");
         temp.put("Settings_LanguageRus", "Русский");
         temp.put("Settings_LanguageEng", "Английский");
@@ -149,6 +191,7 @@ public class Variables {
         temp.put("Account_CollectionCount", "Коллекций создано");
         temp.put("Account_CollectionStudy", "Коллекций пройдено");
         temp.put("Account_Activity", "Учёт активности");
+        temp.put("Account_ChangeName", "Ввод нового имени");
         return temp;
     }
 
@@ -189,6 +232,7 @@ public class Variables {
         temp.put("Alert_UserFile", "Der Test kann nicht den Namen '__user__' haben!");
         temp.put("Alert_SpecSymbols", "Der Name des Tests sollte keine Sonderzeichen haben!");
         temp.put("Alert_EmptyUserName", "Der Benutzer muss einen Namen haben!");
+        temp.put("Alert_UserLimit", "Der Benutzername muss unter " + loginLimit + " Zeichen sein!");
         temp.put("Settings_Language", "Sprache auswählen");
         temp.put("Settings_LanguageRus", "Russisch");
         temp.put("Settings_LanguageEng", "Englisch");
@@ -209,6 +253,7 @@ public class Variables {
         temp.put("Account_CollectionCount", "Sammlungen abgeschlossen");
         temp.put("Account_CollectionStudy", "Sammlungen abgeschlossen");
         temp.put("Account_Activity", "Aktivitäts-Tracking");
+        temp.put("Account_ChangeName", "Eingabe eines neuen Namens");
         return temp;
     }
 
@@ -249,6 +294,7 @@ public class Variables {
         temp.put("Alert_UserFile", "测试不能具有名称'__user__'！");
         temp.put("Alert_SpecSymbols", "考试名称不得有特殊字符！");
         temp.put("Alert_EmptyUserName", "用户必须有一个名字！");
+        temp.put("Alert_UserLimit", "用户名必须在" + loginLimit + "个符号以下！");
         temp.put("Settings_Language", "选择语言");
         temp.put("Settings_LanguageRus", "俄语");
         temp.put("Settings_LanguageEng", "英语");
@@ -269,6 +315,7 @@ public class Variables {
         temp.put("Account_CollectionCount", "创建的集合");
         temp.put("Account_CollectionStudy", "馆藏已完成");
         temp.put("Account_Activity", "活动追踪");
+        temp.put("Account_ChangeName", "新名称输入");
         return temp;
     }
 
@@ -309,6 +356,7 @@ public class Variables {
         temp.put("Alert_UserFile", "Тест не может иметь имя '__user__'!");
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
         temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
+        temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
         temp.put("Settings_Language", "Выберите язык");
         temp.put("Settings_LanguageRus", "Русский");
         temp.put("Settings_LanguageEng", "Английский");
@@ -329,6 +377,7 @@ public class Variables {
         temp.put("Account_CollectionCount", "Коллекций создано");
         temp.put("Account_CollectionStudy", "Коллекций пройдено");
         temp.put("Account_Activity", "Учёт активности ㄟ(≧◇≦)ㄏ");
+        temp.put("Account_ChangeName", "Ввод нового имени ㄟ( ▔, ▔ )ㄏ");
         return temp;
     }
 
@@ -369,6 +418,7 @@ public class Variables {
         temp.put("Alert_UserFile", "Тест не может иметь имя '__user__'!");
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
         temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
+        temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
         temp.put("Settings_Language", "VbI6ери7е RZbI|<");
         temp.put("Settings_LanguageRus", "Русский");
         temp.put("Settings_LanguageEng", "Английский");
@@ -389,6 +439,8 @@ public class Variables {
         temp.put("Account_CollectionCount", "SOZ∆AИ0");
         temp.put("Account_CollectionStudy", "ПR0Й∆ΞŊO");
         temp.put("Account_Activity", "Y4E7 AK71VИOS71");
+        temp.put("Account_ChangeName", "VV0∆ NE\\/\\/ ИA/ИE");
+
         return temp;
     }
 }

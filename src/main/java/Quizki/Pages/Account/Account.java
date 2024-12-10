@@ -2,6 +2,7 @@ package Quizki.Pages.Account;
 
 import Quizki.Models.JsonHandler;
 import Quizki.Models.User;
+import Quizki.Pages.Create.Create;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
 import javafx.event.ActionEvent;
@@ -25,9 +26,9 @@ public class Account {
     // Главная страница персонального доступа
     // Окно регистрации
     public static Pane account_p;
-    public static Button b_back, b_registration;
-    public static TextField tf_name;
-    public static Label l_nickname, l_data_of_create, l_rate, l_collection_count, l_collection_study, l_info;
+    public static Button b_back, b_registration, b_changeName;
+    public static TextField tf_name, tf_changeName;
+    public static Label l_nickname, l_data_of_create, l_rate, l_collection_count, l_collection_study, l_info, l_changeName;
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
@@ -50,6 +51,9 @@ public class Account {
             l_collection_study = new Label(curLanguageList.get("Account_CollectionStudy") + ": ");
             firstOption(account_p, l_collection_study, 100, 300, Main.userExist);
 
+            l_changeName = new Label(curLanguageList.get("Account_ChangeName"));
+            firstOption(account_p, l_changeName, 250, 25, false);
+
             l_info = new Label("Тварь, мы знаем, где ты живешь и учишься, " +
                     "\nмы уже взломали твой пк и знаем всю информацию о тебе, " +
                     "\nесли ты сейчас не зарегистрируешься, то мы будем каждую минуту, " +
@@ -70,12 +74,18 @@ public class Account {
 
             b_registration = new Button(curLanguageList.get("Account_Registration"));
             firstOption(account_p, b_registration, 100, 450, !Main.userExist);
-
             b_registration.setOnAction(new Events.Registration());
+
+            b_changeName = new Button(curLanguageList.get("Account_ChangeName"));
+            firstOption(account_p, b_changeName, 100, 50, Main.userExist);
+            b_changeName.setOnAction(new Events.ChangeName());
+
+            tf_changeName = new TextField();
+            firstOption(account_p, tf_changeName, 250, 50, false);
 
             b_back = new Button(curLanguageList.get("Back"));
             firstOption(account_p, b_back, 0, 500, Main.userExist);
-            b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
+            b_back.setOnAction(new Events.Back());
 
             if (Main.userExist){
                 User user1 = JsonHandler.loadAccountData();

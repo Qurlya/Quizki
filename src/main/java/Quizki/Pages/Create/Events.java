@@ -59,21 +59,6 @@ public class Events {
                 }
             }
             return true;
-            /*ArrayList<Character> charToParse = new ArrayList<>();
-            for (char c : temp){
-                charToParse.add(c);
-            }
-            return !charToParse.contains('/')
-                    && !charToParse.contains('.')
-                    && !charToParse.contains('\\')
-                    && !charToParse.contains('*')
-                    && !charToParse.contains('?')
-                    && !charToParse.contains('!')
-                    && !charToParse.contains('>')
-                    && !charToParse.contains('<')
-                    && !charToParse.contains('|')
-                    && !charToParse.contains(':')
-                    && !charToParse.contains('"');*/
         }
     }
 

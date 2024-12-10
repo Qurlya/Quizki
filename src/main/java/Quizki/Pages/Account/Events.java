@@ -2,7 +2,9 @@ package Quizki.Pages.Account;
 
 import Quizki.Models.JsonHandler;
 import Quizki.Models.User;
+import Quizki.Models.Variables;
 import Quizki.Pages.Create.Create;
+import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -21,6 +23,9 @@ public class Events {
             // Условие не пустоты имени пользователя
             if (Account.tf_name.getText().isEmpty()) {
                 Create.alert.setContentText(curLanguageList.get("Alert_EmptyUserName"));
+                Create.alert.showAndWait();
+            }else if(tf_name.getText().length() > Variables.loginLimit){
+                Create.alert.setContentText(curLanguageList.get("Alert_UserLimit"));
                 Create.alert.showAndWait();
             }else {
                 // Сохранение данных пользователя
@@ -45,6 +50,36 @@ public class Events {
                 l_rate.setVisible(true);
                 l_collection_count.setVisible(true);
                 l_collection_study.setVisible(true);
+            }
+        }
+    }
+
+    static class ChangeName implements EventHandler<ActionEvent>{
+        @Override
+        public void handle(ActionEvent actionEvent) {
+            if(tf_changeName.isVisible() && l_changeName.isVisible()){
+                tf_changeName.setVisible(false);
+                l_changeName.setVisible(false);
+            }else{
+                tf_changeName.setVisible(true);
+                l_changeName.setVisible(true);
+            }
+        }
+    }
+
+    static class Back implements EventHandler<ActionEvent>{
+        @Override
+        public void handle(ActionEvent actionEvent) {
+            if(tf_changeName.isVisible() && l_changeName.isVisible()){
+                if (tf_changeName.getText().isEmpty()){
+                    Create.alert.setContentText(curLanguageList.get("Alert_EmptyUserName"));
+                    Create.alert.showAndWait();
+                }else{
+                    JsonHandler.changeLogin(tf_changeName.getText());
+                    Main.temp.setScene(Main.scene);
+                }
+            }else {
+                Main.temp.setScene(Main.scene);
             }
         }
     }

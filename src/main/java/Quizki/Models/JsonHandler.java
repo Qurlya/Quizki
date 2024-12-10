@@ -259,5 +259,12 @@ public class JsonHandler {
         user.setLast_enter_date(new SimpleDateFormat(Variables.dataFormat).format(new Date()));
         JsonHandler.createAccount(user);
     }
+
+    // Метод изменения имени пользователя
+    public static void changeLogin(String login){
+        User user = JsonHandler.loadAccountData();
+        user.setLogin(login);
+        JsonHandler.createAccount(user);
+    }
 }
 
