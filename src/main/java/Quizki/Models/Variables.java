@@ -171,10 +171,11 @@ public class Variables {
     private static HashMap<String, String> fillRusList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "О разработчиках");
-        temp.put("Page_Create", "Создание");
-        temp.put("Page_Repository", "Репозиторий");
-        temp.put("Page_Account", "Профиль");
-        temp.put("Page_Settings", "Настройки");
+        /*temp.put("Page_Create", "Создание");*/
+        temp.put("Page_Create", "➕");
+        temp.put("Page_Repository", "\uD83D\uDCC1 Репозиторий");
+        temp.put("Page_Account", "\uD83D\uDC64 Профиль");
+        temp.put("Page_Settings", "⚙ Настройки");
         temp.put("Test_Name", "Название");
         temp.put("Test_Description", "Описание");
         temp.put("Create_Question", "Вопрос");
