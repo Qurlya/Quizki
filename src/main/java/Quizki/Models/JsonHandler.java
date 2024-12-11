@@ -1,13 +1,11 @@
 package Quizki.Models;
 
 import Quizki.Pages.Create.Create;
-import Quizki.Pages.Repository.Repository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 
 import java.io.File;
 import java.io.IOException;
@@ -193,19 +191,15 @@ public class JsonHandler {
     // Метод изменения языкового набор на определенный (автоматически)
     public static void changeLanguage(){
         User user = JsonHandler.loadAccountData();
-        String language = user.getLanguage();
 
-        switch (language) {
+        switch (user.getLanguage()) {
             case "rus" -> Variables.curLanguageList = Variables.rusList;
-            case "eng" -> Variables.curLanguageList = Variables.engList;
+            case "1337" -> Variables.curLanguageList = Variables.style_2List;
             case "deu" -> Variables.curLanguageList = Variables.deuList;
             case "chn" -> Variables.curLanguageList = Variables.chnList;
             case "cat" -> Variables.curLanguageList = Variables.style_1List;
-            default -> Variables.curLanguageList = Variables.style_2List;
+            default -> Variables.curLanguageList = Variables.engList;
         }
-
-        user.setLanguage(language);
-        JsonHandler.createAccount(user);
     }
 
     // Метод изменения языкового набор на определенный
@@ -214,11 +208,11 @@ public class JsonHandler {
 
         switch (language) {
             case "rus" -> Variables.curLanguageList = Variables.rusList;
-            case "eng" -> Variables.curLanguageList = Variables.engList;
+            case "1337" -> Variables.curLanguageList = Variables.style_2List;
             case "deu" -> Variables.curLanguageList = Variables.deuList;
             case "chn" -> Variables.curLanguageList = Variables.chnList;
             case "cat" -> Variables.curLanguageList = Variables.style_1List;
-            default -> Variables.curLanguageList = Variables.style_2List;
+            default -> Variables.curLanguageList = Variables.engList;
         }
 
         user.setLanguage(language);
@@ -230,11 +224,11 @@ public class JsonHandler {
         User user = JsonHandler.loadAccountData();
         String color = user.getColor();
         switch (color){
-            case "green" -> scene.getStylesheets().add("green.css");
+            case "white" -> scene.getStylesheets().add("white.css");
             case "blue" -> scene.getStylesheets().add("blue.css");
             case "yellow" -> scene.getStylesheets().add("yellow.css");
             case "black" -> scene.getStylesheets().add("black.css");
-            default -> scene.getStylesheets().add("white.css");
+            default -> scene.getStylesheets().add("green.css");
         }
     }
 
@@ -242,11 +236,11 @@ public class JsonHandler {
     public static void changeColor(Scene scene, String color){
         User user = JsonHandler.loadAccountData();
         switch (color){
-            case "green" -> scene.getStylesheets().add("green.css");
+            case "white" -> scene.getStylesheets().add("white.css");
             case "blue" -> scene.getStylesheets().add("blue.css");
             case "yellow" -> scene.getStylesheets().add("yellow.css");
             case "black" -> scene.getStylesheets().add("black.css");
-            default -> scene.getStylesheets().add("white.css");
+            default -> scene.getStylesheets().add("green.css");
         }
         user.setColor(color);
         JsonHandler.createAccount(user);

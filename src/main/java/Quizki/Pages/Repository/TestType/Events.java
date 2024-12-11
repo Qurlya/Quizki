@@ -1,7 +1,6 @@
 package Quizki.Pages.Repository.TestType;
 
 import Quizki.Models.Card;
-import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;

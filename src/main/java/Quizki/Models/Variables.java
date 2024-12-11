@@ -171,11 +171,10 @@ public class Variables {
     private static HashMap<String, String> fillRusList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "О разработчиках");
-        /*temp.put("Page_Create", "Создание");*/
         temp.put("Page_Create", "➕");
-        temp.put("Page_Repository", "\uD83D\uDCC1 Репозиторий");
-        temp.put("Page_Account", "\uD83D\uDC64 Профиль");
-        temp.put("Page_Settings", "⚙ Настройки");
+        temp.put("Page_Repository", "Репозиторий");
+        temp.put("Page_Account", "Профиль");
+        temp.put("Page_Settings", "Настройки");
         temp.put("Test_Name", "Название");
         temp.put("Test_Description", "Описание");
         temp.put("Create_Question", "Вопрос");
@@ -234,7 +233,7 @@ public class Variables {
     private static HashMap<String, String> fillDeuList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "Über Entwickler");
-        temp.put("Page_Create", "Schaffung");
+        temp.put("Page_Create", "➕");
         temp.put("Page_Repository", "Repository");
         temp.put("Page_Account", "Profil");
         temp.put("Page_Settings", "Einstellungen");
@@ -296,7 +295,7 @@ public class Variables {
     private static HashMap<String, String> fillChnList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "关于开发人员");
-        temp.put("Page_Create", "创作");
+        temp.put("Page_Create", "➕");
         temp.put("Page_Repository", "存储库");
         temp.put("Page_Account", "个人资料");
         temp.put("Page_Settings", "设置");
@@ -358,7 +357,7 @@ public class Variables {
     private static HashMap<String, String> fillDesignList_1() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "О разработчиках");
-        temp.put("Page_Create", "Создание");
+        temp.put("Page_Create", "➕");
         temp.put("Page_Repository", "Репозиторий");
         temp.put("Page_Account", "Профиль");
         temp.put("Page_Settings", "Настройки");
@@ -420,7 +419,7 @@ public class Variables {
     private static HashMap<String, String> fillDesignList_2() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "0 Я◬ʒR∆ҔθŦ4N₭ĂХ");
-        temp.put("Page_Create", "ΣØʒ∂∀Ŋ⨝Ξ");
+        temp.put("Page_Create", "➕");
         temp.put("Page_Repository", "ЯEP05170RУ");
         temp.put("Page_Account", "∐ΡΟΦ◪λb");
         temp.put("Page_Settings", "₦∆S₸Я0ЙКN");
@@ -428,7 +427,7 @@ public class Variables {
         temp.put("Test_Description", "∆E∑XРIПTION");
         temp.put("Create_Question", "QYE∑710N");
         temp.put("Create_Answer", "AN∑VV3Р");
-        temp.put("Create_MakeNew", "CЯΞ∀73");
+        temp.put("Create_MakeNew", "ΣØʒ∂∀Ŋ⨝Ξ");
         temp.put("Create_AddCard", "∀∆∆");
         temp.put("Create_DelCard", "∆ΞΛET∃");
         temp.put("Back", "💀");
