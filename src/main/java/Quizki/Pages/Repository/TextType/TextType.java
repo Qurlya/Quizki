@@ -48,7 +48,7 @@ public class TextType {
 
         public static void printScene() {
             txt_type_p = new Pane();
-            JsonHandler.changeColor(txt_type_p);
+
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
@@ -70,6 +70,7 @@ public class TextType {
 
             Scene scene = new Scene(txt_type_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
+            JsonHandler.changeColor(scene);
             Main.temp.setScene(scene);
         }
     }

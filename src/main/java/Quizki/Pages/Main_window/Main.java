@@ -54,13 +54,12 @@ public class Main extends Application {
         // Назначение языкового набора соответственно выбранного языка пользователем
         if(userExist){
             JsonHandler.changeLanguage();
-            JsonHandler.changeColor(main_p);
+
             JsonHandler.changeUserRate();
             JsonHandler.changeLastEnter();
             Variables.changeMainCat();
         }else{
             JsonHandler.changeLanguage("eng");
-            JsonHandler.changeColor(main_p, "green");
             Variables.curLanguageList = Variables.engList;  // по умолчанию - английский
         }
 
@@ -98,6 +97,7 @@ public class Main extends Application {
         scene = new Scene(main_p, Variables.appWidth, Variables.appHeight);
 
         scene.getStylesheets().add("main_style.css");
+        JsonHandler.changeColor(scene);
     }
 
     public static void main(String[] args) {

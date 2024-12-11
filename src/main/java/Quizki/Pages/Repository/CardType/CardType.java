@@ -34,7 +34,7 @@ public class CardType {
         @Override
         public void handle(ActionEvent actionEvent) {
             card_type_p = new Pane();
-            JsonHandler.changeColor(card_type_p);
+
 
             // Инициализация списков
             Repository.arr_cards = Repository.cur_collect.getCard_set();
@@ -65,6 +65,7 @@ public class CardType {
 
             Scene scene = new Scene(card_type_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
+            JsonHandler.changeColor(scene);
             Main.temp.setScene(scene);
         }
     }

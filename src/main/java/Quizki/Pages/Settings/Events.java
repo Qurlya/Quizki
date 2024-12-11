@@ -114,7 +114,7 @@ public class Events {
                 temp = "white";
             }
 
-            JsonHandler.changeColor(Settings.settings_p, temp);
+            JsonHandler.changeColor(Settings.scene, temp);
 
             // Обновление параметров
             Settings.languageChoiceBox.setValue(Settings.curLang);

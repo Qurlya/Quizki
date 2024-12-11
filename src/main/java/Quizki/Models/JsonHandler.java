@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import java.io.File;
@@ -225,29 +226,27 @@ public class JsonHandler {
     }
 
     // Метод изменения цветовой темы на определенной панели (с учетом существующей темы)
-    public static void changeColor(Pane pane){
+    public static void changeColor(Scene scene){
         User user = JsonHandler.loadAccountData();
         String color = user.getColor();
         switch (color){
-            case "green" -> pane.getStyleClass().add("greenTheme");
-            case "blue" -> pane.getStyleClass().add("blueTheme");
-            case "yellow" -> pane.getStyleClass().add("yellowTheme");
-            case "black" -> pane.getStyleClass().add("blackTheme");
-            default -> pane.getStyleClass().add("whiteTheme");
+            case "green" -> scene.getStylesheets().add("green.css");
+            case "blue" -> scene.getStylesheets().add("blue.css");
+            case "yellow" -> scene.getStylesheets().add("yellow.css");
+            case "black" -> scene.getStylesheets().add("black.css");
+            default -> scene.getStylesheets().add("white.css");
         }
-        user.setColor(color);
-        JsonHandler.createAccount(user);
     }
 
     // Метод изменения цветовой темы пользователя на определенную (на определенной панели)
-    public static void changeColor(Pane pane, String color){
+    public static void changeColor(Scene scene, String color){
         User user = JsonHandler.loadAccountData();
         switch (color){
-            case "green" -> pane.getStyleClass().add("greenTheme");
-            case "blue" -> pane.getStyleClass().add("blueTheme");
-            case "yellow" -> pane.getStyleClass().add("yellowTheme");
-            case "black" -> pane.getStyleClass().add("blackTheme");
-            default -> pane.getStyleClass().add("whiteTheme");
+            case "green" -> scene.getStylesheets().add("green.css");
+            case "blue" -> scene.getStylesheets().add("blue.css");
+            case "yellow" -> scene.getStylesheets().add("yellow.css");
+            case "black" -> scene.getStylesheets().add("black.css");
+            default -> scene.getStylesheets().add("white.css");
         }
         user.setColor(color);
         JsonHandler.createAccount(user);

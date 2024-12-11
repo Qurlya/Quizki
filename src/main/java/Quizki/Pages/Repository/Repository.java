@@ -44,7 +44,6 @@ public class Repository {
         @Override
         public void handle(ActionEvent actionEvent) {
             repos_p = new Pane();
-            JsonHandler.changeColor(repos_p);
 
             // Добавление файлов с тестами в список коллекций карточек
             ArrayList<File> arr_files = new ArrayList<>(Arrays.asList(Objects.requireNonNull(new File(Variables.card_filepath).listFiles())));
@@ -103,7 +102,10 @@ public class Repository {
 
             Scene scene = new Scene(repos_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
+            JsonHandler.changeColor(scene);
+
             Main.temp.setScene(scene);
+
         }
 
         // Методы быстрого добавления объекта интерфейса по определенным координатам с видимостью flag

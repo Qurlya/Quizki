@@ -1,5 +1,6 @@
 package Quizki.Pages.About_us;
 
+import Quizki.Models.JsonHandler;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
 import javafx.event.ActionEvent;
@@ -82,6 +83,7 @@ public class About_us {
                 firstOption(about_us_p, Variables.copyright, 0, Variables.appHeight - 20, true);
 
                 scene.getStylesheets().add("about_us_style.css");
+                JsonHandler.changeColor(scene);
                 Main.temp.setScene(scene);
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);

@@ -25,7 +25,7 @@ public class Result {
 
     public static void changeScene() {
         result_card_p = new Pane();
-        JsonHandler.changeColor(result_card_p);
+
 
         // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
         l_correct_count = new Label(Variables.curLanguageList.get("Test_CorrectAnswers") + ": " + Repository.arr_corr.size());
@@ -48,6 +48,7 @@ public class Result {
 
         scene = new Scene(result_card_p, Variables.appWidth, Variables.appHeight);
         scene.getStylesheets().add("repository_style.css");
+        JsonHandler.changeColor(scene);
         Main.temp.setScene(scene);
     }
 }

@@ -27,7 +27,7 @@ public class Result {
 
     public static void changeScene() {
         result_test_p = new Pane();
-        JsonHandler.changeColor(result_test_p);
+
 
         l_correct_count = new Label(Variables.curLanguageList.get("Test_CorrectAnswers") + ": " + Repository.arr_corr.size());
         firstOption(result_test_p, l_correct_count, 0, 20, true);
@@ -49,6 +49,7 @@ public class Result {
 
         scene = new Scene(result_test_p, Variables.appWidth, Variables.appHeight);
         scene.getStylesheets().add("repository_style.css");
+        JsonHandler.changeColor(scene);
         Main.temp.setScene(scene);
     }
 }

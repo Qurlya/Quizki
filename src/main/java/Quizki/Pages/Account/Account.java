@@ -33,7 +33,6 @@ public class Account {
         @Override
         public void handle(ActionEvent actionEvent) {
             account_p = new Pane();
-            JsonHandler.changeColor(account_p);
             Scene scene = new Scene(account_p, Variables.appWidth, Variables.appHeight);
 
             l_nickname = new Label(curLanguageList.get("Account_Name") + ": ");
@@ -99,6 +98,7 @@ public class Account {
             firstOption(account_p, Variables.copyright, 0, Variables.appHeight - 20, true);
 
             scene.getStylesheets().add("account_style.css");
+            JsonHandler.changeColor(scene);
             Main.temp.setScene(scene);
         }
     }

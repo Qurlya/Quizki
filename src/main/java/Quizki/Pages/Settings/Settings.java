@@ -33,7 +33,7 @@ public class Settings {
         @Override
         public void handle(ActionEvent actionEvent) {
             settings_p = new Pane();
-            JsonHandler.changeColor(settings_p);
+
 
             scene = new Scene(settings_p, Variables.appWidth, Variables.appHeight);
 
@@ -111,6 +111,7 @@ public class Settings {
             firstOption(settings_p, Variables.copyright, 0, Variables.appHeight - 20, true);
 
             scene.getStylesheets().add("settings_style.css");
+            JsonHandler.changeColor(scene);
             Main.temp.setScene(scene);
         }
     }

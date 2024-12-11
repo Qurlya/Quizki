@@ -43,7 +43,7 @@ public class Create {
         public void handle(ActionEvent actionEvent) {
             create_p = new Pane();
             alert.setTitle("Quizki Alarm");
-            JsonHandler.changeColor(create_p);
+
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             Label l_name = new Label(Variables.curLanguageList.get("Test_Name"));
@@ -107,6 +107,7 @@ public class Create {
             //create_p.getStyleClass().add("greenTheme"); - цветовая тема
             sc_create = new Scene(create_p, Variables.appWidth, Variables.appHeight);
             sc_create.getStylesheets().add("create_style.css");
+            JsonHandler.changeColor(sc_create);
             Main.temp.setScene(sc_create);
         }
     }
