@@ -1,6 +1,20 @@
 .root{
-    -fx-background-color: #37ca32;
+    -fx-background-color: #1A3524;
 }
+/*Кнопка*/
 .button{
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #9BC1AC;
+}
+/*При наведении кнопки*/
+.button:hover{
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-text-fill: #9BC1AC;
+}
+/*Кнопка "Создать"*/
+.b_create{
+    -fx-background-color: #4F8466;
+}
+/*При наведении на кнопку "Создать"*/
+.b_create:hover{
+    -fx-background-color: rgba(79, 132, 102, 0.7);
 }

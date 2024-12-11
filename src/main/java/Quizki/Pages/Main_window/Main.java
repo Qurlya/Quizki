@@ -68,15 +68,16 @@ public class Main extends Application {
         Button b_create = new Button(Variables.curLanguageList.get("Page_Create"));
         b_create.setOnAction(new Create.changeScene());
         b_create.setId("b_create");
+        b_create.getStyleClass().add("b_create");
 
-        Button b_repository = new Button("\uD83D\uDCC1" + Variables.curLanguageList.get("Page_Repository"));
+        Button b_repository = new Button("\uD83D\uDCC1 " + Variables.curLanguageList.get("Page_Repository"));
         b_repository.setOnAction(new Repository.changeScene());
 
-        Button b_account = new Button("\uD83D\uDC64" + Variables.curLanguageList.get("Page_Account"));
+        Button b_account = new Button("\uD83D\uDC64 " + Variables.curLanguageList.get("Page_Account"));
         b_account.setOnAction(new Account.changeScene());
         b_account.getStyleClass().add("b_right");
 
-        Button b_settings = new Button("⚙" + Variables.curLanguageList.get("Page_Settings"));
+        Button b_settings = new Button("⚙ " + Variables.curLanguageList.get("Page_Settings"));
         b_settings.setOnAction(new Settings.changeScene());
         b_settings.getStyleClass().add("b_right");
 
