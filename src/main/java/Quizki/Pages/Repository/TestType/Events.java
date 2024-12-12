@@ -2,6 +2,7 @@ package Quizki.Pages.Repository.TestType;
 
 import Quizki.Models.Card;
 import Quizki.Models.JsonHandler;
+import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static Quizki.Models.Variables.curLanguageList;
+import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 /**
  * Реализация класса обработки событий
@@ -24,7 +26,14 @@ public class Events {
     static class BackScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            Main.temp.setScene(Repository.repos_p.getScene());
+            // Обновление
+            Repository.arr_wrong = new ArrayList<>();
+            Repository.arr_corr = new ArrayList<>();
+            Repository.card_count = 1;
+            Repository.cur_card = Repository.arr_cards.getFirst();
+            firstOption(Repository.repos_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+
+            Main.temp.setScene(Repository.scene);
         }
     }
 

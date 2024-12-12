@@ -1,6 +1,7 @@
 package Quizki.Pages.Repository.CardType;
 
 import Quizki.Models.JsonHandler;
+import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
@@ -8,6 +9,8 @@ import javafx.event.EventHandler;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 /**
  * Реализация класса обработки событий функционального
@@ -25,8 +28,9 @@ public class Events {
             Repository.arr_corr = new ArrayList<>();
             Repository.card_count = 1;
             Repository.cur_card = Repository.arr_cards.getFirst();
+            firstOption(Repository.repos_p, Variables.copyright, 5, Variables.appHeight - 20, true);
 
-            Main.temp.setScene(Repository.repos_p.getScene());
+            Main.temp.setScene(Repository.scene);
         }
     }
 

@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
@@ -46,9 +45,13 @@ public class Main extends Application {
         main_p = new Pane();
 
         // Условие существования пользователя
-        userExist = new ArrayList<>(Arrays.asList(
-                Objects.requireNonNull(new File(Variables.card_filepath).listFiles())))
-                .contains(new File(Variables.card_filepath + Variables.user_file));
+        try {
+            userExist = new ArrayList<>(Arrays.asList(
+                    new File(Variables.card_filepath).listFiles()))
+                    .contains(new File(Variables.card_filepath + Variables.user_file));
+        }catch(NullPointerException e){
+            userExist = false;
+        }
 
         // Назначение языкового набора соответственно выбранного языка пользователем
         if(userExist){
@@ -56,8 +59,6 @@ public class Main extends Application {
             JsonHandler.changeUserRate();
             JsonHandler.changeLastEnter();
             Variables.changeMainCat();
-        }else{
-            //Variables.curLanguageList = Variables.engList;  // по умолчанию - английский
         }
 
         // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
@@ -95,6 +96,7 @@ public class Main extends Application {
         firstOption(main_p, b_settings, 835, 0, true);
         firstOption(main_p, Variables.copyright, 5, Variables.appHeight - 20, true);
         Variables.copyright.getStyleClass().add("copyright");
+
         scene = new Scene(main_p, Variables.appWidth, Variables.appHeight);
 
         scene.getStylesheets().add("main_style.css");

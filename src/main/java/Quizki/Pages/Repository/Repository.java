@@ -41,7 +41,7 @@ public class Repository {
     public static ArrayList<Card> arr_corr, arr_wrong, arr_cards;
     public static int card_count = 1;
     public static Card cur_card;
-    protected static Scene scene;
+    public static Scene scene;
 
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
@@ -101,6 +101,7 @@ public class Repository {
             firstOption(repos_p, b_back, 100, 700, true);
             b_back.setOnAction(_ -> {
                 arr_cols = new ArrayList<>();
+                Main.printScene();
                 Main.temp.setScene(Main.scene);
             });
 

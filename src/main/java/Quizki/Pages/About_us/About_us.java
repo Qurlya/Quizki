@@ -82,7 +82,10 @@ public class About_us {
 
                 b_back = new Button(Variables.curLanguageList.get("Back"));
                 firstOption(about_us_p, b_back, 100, 700, true);
-                b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
+                b_back.setOnAction(_ -> {
+                    Main.printScene();
+                    Main.temp.setScene(Main.scene);}
+                );
 
                 firstOption(about_us_p, Variables.copyright, 5, Variables.appHeight - 20, true);
                 Variables.copyright.getStyleClass().add("copyright");

@@ -22,7 +22,8 @@ public class Variables {
     public static final int appHeight = 768;    // Высота окна приложения
     public static final int appWidth = 1024;    // Ширина окна приложения
     public static final String projectTitle = "Quizki";     // Название приложения
-    public static final String card_filepath = "src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
+    public static final String card_filepath = "C:/Users/" + System.getProperty("user.name") + "/ideaProjects/Quizki/src/main/java/Quizki/Data/";    // Путь к файлу для создания JSON
+    public static final String pic_filepath = "C:/Users/" + System.getProperty("user.name") + "/ideaProjects/Quizki/src/main/java/Quizki/Pages/About_us/";
     public static final String user_file = "__user__.json";     // Файл с данными пользователя (+настройки)
     public static final String dataFormat = "dd_MM_yyyy";   // Формат записи даты
     public static final int loginLimit = 40;    // ограничение на длину имени пользователя
@@ -49,14 +50,14 @@ public class Variables {
 
         try {
             User user1 = JsonHandler.loadAccountData();
-            Image kaomoji1Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/kaomoji1.png"));
-            Image kaomoji2Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/kaomoji2.png"));
+            Image kaomoji1Cat = new Image(new FileInputStream(pic_filepath + "kaomoji1.png"));
+            Image kaomoji2Cat = new Image(new FileInputStream(pic_filepath + "kaomoji2.png"));
 
-            Image leet1Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/maximilian.png"));
-            Image leet2Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/maximilian2.png"));
+            Image leet1Cat = new Image(new FileInputStream(pic_filepath + "maximilian.png"));
+            Image leet2Cat = new Image(new FileInputStream(pic_filepath + "maximilian2.png"));
 
-            Image default1Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/default1Cat.png"));
-            Image default2Cat = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/default2Cat.png"));
+            Image default1Cat = new Image(new FileInputStream(pic_filepath + "default1Cat.png"));
+            Image default2Cat = new Image(new FileInputStream(pic_filepath + "default2Cat.png"));
 
             defaultCat.setImage(default1Cat);
             defaultCat.setOnMouseClicked(_->{
