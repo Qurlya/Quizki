@@ -1,24 +1,15 @@
-.root{
-    -fx-background-color: linear-gradient(#3f5efb, #c633d0);
-}
-/*Кнопка*/
-.button{
-    -fx-background-color: cornflowerblue ;
-    -fx-text-fill: #ffffff;
-    -fx-font-size: 20;
-}
-/*При наведении кнопки*/
-.button:hover{
-    -fx-background-color: #ffffff;
-    -fx-text-fill: cornflowerblue;
-}
-
 /*Текст*/
 .label{
-    -fx-alignment: top-center;
-    -fx-font-size: 24;
-    -fx-font-style: normal;
-    -fx-font-weight: normal;
-    -fx-text-fill: black;
-    /*-fx-font-family: "JetBrains Mono";*/
+    -fx-pref-width: 215px;
+}
+/*Текстовое поле*/
+.text-field{
+    -fx-pref-column-count: 50;
+}
+/*Лейблы "Счетчик" и "Созданная карточка"*/
+#create_card{
+    -fx-pref-width: 1000px;
+}
+#b_count{
+    -fx-pref-width: 50px;
 }
