@@ -67,12 +67,18 @@
     -fx-border-color: #D0A793;
 }
 
+/*Варианты ответов в тестировании*/
+.radio-button{
+    -fx-text-fill: #D2E6ED;
+}
+
 /*Текстовые поля*/
 .text-field{
-    -fx-text-fill: #D2E6ED;
+    -fx-text-fill: #1182C8;
     -fx-control-border-color: #74C6F6;
 }
 .text-field:focused{
+    -fx-text-fill: #D2E6ED;
     -fx-background-color: rgba(116, 198, 246, 0.3);
 }
 .text-field:hover{
@@ -84,6 +90,7 @@
     -fx-text-fill: #D2E6ED;
     -fx-font-size: 20;
     -fx-background-color: rgba(116, 198, 246, 0.5);
+    -fx-pref-width: 200px;
 }
 
 /*Текст "О нас"*/

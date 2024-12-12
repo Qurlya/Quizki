@@ -53,9 +53,9 @@ public class TextType {
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
-            firstOption(txt_type_p, l_card, 350, 325, true);
-            l_card.setAlignment(Pos.CENTER);
-            l_card.getStyleClass().add("questions");
+            firstOption(txt_type_p, l_card, 203, 125, true);
+            l_card.setAlignment(Pos.BOTTOM_CENTER);
+            l_card.setId("questions_text");
 
             l_count = new Label(Repository.card_count + " / " + Repository.arr_cards.size());
             firstOption(txt_type_p, l_count, 490, 375, true);
@@ -65,7 +65,7 @@ public class TextType {
             b_back.setOnAction(new Events.BackScene());
 
             tf_answer = new TextField();
-            firstOption(txt_type_p, tf_answer, 350, 425, true);
+            firstOption(txt_type_p, tf_answer, 200, 425, true);
 
             b_continue = new Button(Variables.curLanguageList.get("Test_Check"));
             firstOption(txt_type_p, b_continue, 410, 475, true);
