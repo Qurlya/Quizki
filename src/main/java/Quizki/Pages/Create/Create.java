@@ -4,17 +4,12 @@ import Quizki.Models.Card;
 import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -27,6 +22,7 @@ import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
  * - Изменения полей запроса и ответа каждой карточки;
  * - Переключения между карточками;
  * - Сохранение карточек в JSON-файл;
+ * - Удаление определенной карточки.
  */
 
 public class Create {
@@ -118,43 +114,5 @@ public class Create {
             JsonHandler.changeColor(sc_create);
             Main.temp.setScene(sc_create);
         }
-    }
-
-    // Окно загрузки (необходимо при создании/удалении файлов)
-    public static void showLoadingWindow() {
-        Stage loadingStage = new Stage();
-        loadingStage.initModality(Modality.APPLICATION_MODAL);
-        loadingStage.setTitle("Download");
-
-        ProgressIndicator progressIndicator = new ProgressIndicator();
-        VBox loadingLayout = new VBox(progressIndicator);
-        loadingLayout.setStyle("-fx-padding: 20; -fx-alignment: center;");
-        Scene loadingScene = new Scene(loadingLayout, 200, 100);
-        loadingStage.setResizable(false);
-        // Отменяем событие закрытия
-        loadingStage.setOnCloseRequest(Event::consume); // Без возможности закрыть
-        loadingStage.setScene(loadingScene);
-        loadingStage.show();
-
-        // Запускаем задачу в отдельном потоке
-        Task<Void> task = new Task<>() {
-            @Override
-            protected Void call() throws Exception {
-                Thread.sleep(2000);
-                return null;
-            }
-
-            @Override
-            protected void succeeded() {
-                loadingStage.close(); // Закрываем окно загрузки
-            }
-
-            @Override
-            protected void failed() {
-                loadingStage.close(); // Закрываем окно загрузки в случае ошибки
-            }
-        };
-
-        new Thread(task).start(); // Запускаем задачу в новом потоке
     }
 }
