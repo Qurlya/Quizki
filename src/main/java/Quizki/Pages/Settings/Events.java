@@ -121,32 +121,6 @@ public class Events {
                 }
             }
 
-            /*if(temp.equals(curLanguageList.get("Settings_LanguageRus"))){
-                temp = "rus";
-                curLanguageList = rusList;
-                Settings.curLang = curLanguageList.get("Settings_LanguageRus");
-            } else if (temp.equals(curLanguageList.get("Settings_LanguageEng"))) {
-                temp = "eng";
-                curLanguageList = engList;
-                Settings.curLang = curLanguageList.get("Settings_LanguageEng");
-            } else if (temp.equals(curLanguageList.get("Settings_LanguageDeu"))) {
-                temp = "deu";
-                curLanguageList = deuList;
-                Settings.curLang = curLanguageList.get("Settings_LanguageDeu");
-            } else if (temp.equals(curLanguageList.get("Settings_LanguageChn"))) {
-                temp = "chn";
-                curLanguageList = chnList;
-                Settings.curLang = curLanguageList.get("Settings_LanguageChn");
-            } else if (temp.equals(curLanguageList.get("Settings_LanguageCats"))) {
-                temp = "cat";
-                curLanguageList = style_1List;
-                Settings.curLang = curLanguageList.get("Settings_LanguageCats");
-            } else {
-                temp = "1337";
-                curLanguageList = style_2List;
-                Settings.curLang = curLanguageList.get("Settings_Language1337");
-            }*/
-
             JsonHandler.changeLanguage(temp);
 
             temp = Settings.colorChoiceBox.getValue();
