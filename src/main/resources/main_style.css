@@ -1,3 +1,18 @@
-.root{
-    -fx-background-color: linear-gradient(#3f5efb, #c633d0);
+/*Кнопка*/
+.button{
+    -fx-translate-y: 10;
+    -fx-translate-x: 10;
+}
+/*Кнопки "Аккаунт" и "Настройки"*/
+.b_right{
+    -fx-pref-width: 170px;
+}
+/*Кнопка "Создать"*/
+#b_create{
+    -fx-font-weight: bold;
+    -fx-translate-x: 225;
+}
+/*Кнопки "О нас" и "Репозиторий"*/
+.b_left{
+    -fx-pref-width: 195px;
 }

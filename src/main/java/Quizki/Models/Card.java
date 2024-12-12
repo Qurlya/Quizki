@@ -10,17 +10,18 @@ package Quizki.Models;
  * с ответом на задней стороне карточки.
  */
 
-public class Card{
+public class Card {
     private String face;
     private String back;
 
     //конструкторы (с параметрами и без)
-    public Card(String face, String back){
+    public Card(String face, String back) {
         this.face = face;
         this.back = back;
     }
 
-    public Card(){}
+    public Card() {
+    }
 
     //геттеры и сеттеры
     public String getFace() {
@@ -39,7 +40,7 @@ public class Card{
         this.back = back;
     }
 
-    public String toString(){
-        return "{" + face + ":" + back+ "}";
+    public String toString() {
+        return "{" + face + ":" + back + "}";
     }
 }

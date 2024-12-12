@@ -1,6 +1,0 @@
-{"collect_name":"test_name",
-  "collect_description":"test_desc",
-  "card_set":[
-    {"face":"card_face_1","back":"card_back_1"},
-    {"face":"card_face_2","back":"card_back_2"},
-    {"face":"card_face_3","back":"card_back_3"}]}
