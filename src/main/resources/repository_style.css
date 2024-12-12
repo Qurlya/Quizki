@@ -15,6 +15,7 @@
 #card{
     -fx-pref-width: 300px;
     -fx-pref-height: 300px;
+    -fx-wrap-text: true;
 }
 /*Кнопки "Верно" и "Неверно" в карточках*/
 .cards_answers{
@@ -28,18 +29,27 @@
 /*Варианты ответов в тестировании*/
 .radio-button{
     -fx-font-size: 15;
+    -fx-pref-width: 350px;
+    -fx-wrap-text: true;
 }
 
 /*Лейблы вопросов из тестирования и письма*/
-.questions{
-    -fx-pref-width: 320px;
+#questions_test{
+    -fx-pref-width: 350px;
+    -fx-pref-height: 200px;
+    -fx-wrap-text: true;
+}
+#questions_text{
+    -fx-pref-width: 615px;
+    -fx-pref-height: 200px;
+    -fx-wrap-text: true;
 }
 
 /*Текстовые поля в письме*/
 .text-field{
     -fx-control-inner-background: white;
     -fx-background-radius: 5;
-    -fx-pref-width: 320px;
+    -fx-pref-width: 615px;
     -fx-pref-height: 30px;
     -fx-font-size: 15px;
 }

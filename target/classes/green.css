@@ -67,6 +67,11 @@
     -fx-border-color: #BF7E3A;
 }
 
+/*Варианты ответов в тестировании*/
+.radio-button{
+    -fx-text-fill: #9BC1AC;
+}
+
 /*Текстовые поля*/
 .text-field{
     -fx-text-fill: #9BC1AC;
@@ -84,6 +89,7 @@
     -fx-text-fill: #9BC1AC;
     -fx-font-size: 20;
     -fx-background-color: rgba(79, 132, 102, 0.5);
+    -fx-pref-width: 200px;
 }
 
 /*Текст "О нас"*/

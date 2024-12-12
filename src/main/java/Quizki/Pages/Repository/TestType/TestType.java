@@ -54,9 +54,9 @@ public class TestType {
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
-            firstOption(test_type_p, l_card, 350, 200, true);
-            l_card.setAlignment(Pos.CENTER);
-            l_card.getStyleClass().add("questions");
+            firstOption(test_type_p, l_card, 350, 0, true);
+            l_card.setAlignment(Pos.BOTTOM_CENTER);
+            l_card.setId("questions_test");
 
             l_count = new Label(Repository.card_count + " / " + Repository.arr_cards.size());
             firstOption(test_type_p, l_count, 490, 475, true);
@@ -71,19 +71,19 @@ public class TestType {
             group = new ToggleGroup();
 
             rb_answer1 = new RadioButton(arr_answer.getFirst());
-            firstOption(test_type_p, rb_answer1, 400, 245, true);
+            firstOption(test_type_p, rb_answer1, 350, 235, true);
             rb_answer1.setOnAction(new Events.CheckAnswer(rb_answer1));
 
             rb_answer2 = new RadioButton(arr_answer.get(1));
-            firstOption(test_type_p, rb_answer2, 400, 305, true);
+            firstOption(test_type_p, rb_answer2, 350, 295, true);
             rb_answer2.setOnAction(new Events.CheckAnswer(rb_answer2));
 
             rb_answer3 = new RadioButton(arr_answer.get(2));
-            firstOption(test_type_p, rb_answer3, 400, 365, true);
+            firstOption(test_type_p, rb_answer3, 350, 355, true);
             rb_answer3.setOnAction(new Events.CheckAnswer(rb_answer3));
 
             rb_answer4 = new RadioButton(arr_answer.get(3));
-            firstOption(test_type_p, rb_answer4, 400, 425, true);
+            firstOption(test_type_p, rb_answer4, 350, 415, true);
             rb_answer4.setOnAction(new Events.CheckAnswer(rb_answer4));
 
             rb_answer1.setToggleGroup(group);
