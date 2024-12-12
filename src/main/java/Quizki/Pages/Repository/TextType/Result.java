@@ -30,22 +30,25 @@ public class Result {
 
 
         l_correct_count = new Label(Variables.curLanguageList.get("Test_CorrectAnswers") + ": " + Repository.arr_corr.size());
-        firstOption(result_txt_type_p, l_correct_count, 0, 20, true);
+        firstOption(result_txt_type_p, l_correct_count, 350, 300, true);
 
         l_incorrect_count = new Label(Variables.curLanguageList.get("Test_WrongAnswers") + ": " + Repository.arr_wrong.size());
-        firstOption(result_txt_type_p, l_incorrect_count, 0, 50, true);
+        firstOption(result_txt_type_p, l_incorrect_count, 350, 350, true);
 
         b_continue = new Button(Variables.curLanguageList.get("Test_Continue"));
-        firstOption(result_txt_type_p, b_continue, 0, 100, true);
+        firstOption(result_txt_type_p, b_continue, 530, 400, true);
         b_continue.setOnAction(new Events.ContinueTest());
 
         b_again = new Button(Variables.curLanguageList.get("Test_Again"));
-        firstOption(result_txt_type_p, b_again, 150, 100, true);
+        firstOption(result_txt_type_p, b_again, 350, 400, true);
         b_again.setOnAction(new Events.AgainTest());
 
         b_back = new Button(Variables.curLanguageList.get("Back"));
-        firstOption(result_txt_type_p, b_back, 0, 300, true);
+        firstOption(result_txt_type_p, b_back, 100, 700, true);
         b_back.setOnAction(new Events.BackScene());
+
+        firstOption(result_txt_type_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+        Variables.copyright.getStyleClass().add("copyright");
 
         scene = new Scene(result_txt_type_p, Variables.appWidth, Variables.appHeight);
         scene.getStylesheets().add("repository_style.css");

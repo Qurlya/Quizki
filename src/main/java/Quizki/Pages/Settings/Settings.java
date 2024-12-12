@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -38,9 +39,9 @@ public class Settings {
             scene = new Scene(settings_p, Variables.appWidth, Variables.appHeight);
 
             Label l_choiceLang = new Label(Variables.curLanguageList.get("Settings_Language") + ": ");
-            firstOption(settings_p, l_choiceLang, 0, 50, true);
+            firstOption(settings_p, l_choiceLang, 200, 200, true);
             Label l_choiceColor = new Label(Variables.curLanguageList.get("Settings_Color") + ": ");
-            firstOption(settings_p, l_choiceColor, 0, 100, true);
+            firstOption(settings_p, l_choiceColor, 550, 200, true);
 
             // Контейнер цветовых наборов
             ObservableList<String> colorLang = FXCollections.observableArrayList(
@@ -66,7 +67,7 @@ public class Settings {
 
             colorChoiceBox = new ChoiceBox<>(colorLang);
             colorChoiceBox.setValue(curColor);
-            firstOption(settings_p, colorChoiceBox, 100, 100, true);
+            firstOption(settings_p, colorChoiceBox, 745, 195, true);
             colorChoiceBox.setOnAction(new Events.ChangeColor());
 
             // Контейнер языковых наборов
@@ -95,20 +96,21 @@ public class Settings {
 
             languageChoiceBox = new ChoiceBox<>(languageLang);
             languageChoiceBox.setValue(curLang);
-            firstOption(settings_p, languageChoiceBox, 100, 50, true);
+            firstOption(settings_p, languageChoiceBox, 360, 195, true);
             languageChoiceBox.setOnAction(new Events.ChangeLanguage());
 
             b_back = new Button(Variables.curLanguageList.get("Back"));
-            firstOption(settings_p, b_back, 0, 500, true);
+            firstOption(settings_p, b_back, 100, 700, true);
             b_back.setOnAction(_ -> {
                 Main.printScene();
                 Main.temp.setScene(Main.scene);
             });
 
             b_apply = new Button(Variables.curLanguageList.get("Settings_Apply"));
-            firstOption(settings_p, b_apply, 200, 500, true);
+            firstOption(settings_p, b_apply, 200, 700, true);
             b_apply.setOnAction(new Events.ApplySettings());
-            firstOption(settings_p, Variables.copyright, 0, Variables.appHeight - 20, true);
+            firstOption(settings_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+            Variables.copyright.getStyleClass().add("copyright");
 
             scene.getStylesheets().add("settings_style.css");
             JsonHandler.changeColor(scene);

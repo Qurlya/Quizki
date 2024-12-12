@@ -7,6 +7,7 @@ import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -36,54 +37,49 @@ public class Account {
             Scene scene = new Scene(account_p, Variables.appWidth, Variables.appHeight);
 
             l_nickname = new Label(curLanguageList.get("Account_Name") + ": ");
-            firstOption(account_p, l_nickname, 100, 100, Main.userExist);
+            firstOption(account_p, l_nickname, 400, 200, Main.userExist);
 
             l_data_of_create = new Label(curLanguageList.get("Account_Date") + ": ");
-            firstOption(account_p, l_data_of_create, 100, 150, Main.userExist);
+            firstOption(account_p, l_data_of_create, 400, 250, Main.userExist);
 
             l_rate = new Label(curLanguageList.get("Account_Activity") + ": ");
-            firstOption(account_p, l_rate, 100, 200, Main.userExist);
+            firstOption(account_p, l_rate, 400, 300, Main.userExist);
 
             l_collection_count = new Label(curLanguageList.get("Account_CollectionCount") + ": ");
-            firstOption(account_p, l_collection_count, 100, 250, Main.userExist);
+            firstOption(account_p, l_collection_count, 400, 350, Main.userExist);
 
             l_collection_study = new Label(curLanguageList.get("Account_CollectionStudy") + ": ");
-            firstOption(account_p, l_collection_study, 100, 300, Main.userExist);
+            firstOption(account_p, l_collection_study, 400, 400, Main.userExist);
 
             l_changeName = new Label(curLanguageList.get("Account_ChangeName"));
-            firstOption(account_p, l_changeName, 250, 25, false);
+            firstOption(account_p, l_changeName, 7000, 25000, false);
 
-            l_info = new Label("Тварь, мы знаем, где ты живешь и учишься, " +
-                    "\nмы уже взломали твой пк и знаем всю информацию о тебе, " +
-                    "\nесли ты сейчас не зарегистрируешься, то мы будем каждую минуту, " +
-                    "\nпока ты тупишь, списывать по 1.000.000 с твоего счета, " +
-                    "\nа потом мы введем тебя в долги. Делать это будем до тех пор, " +
-                    "\nпока ты не нажнешь эту долбанную кнопку регистрации. " +
-                    "\nА ЕСЛИ ТЫ УДАЛИШЬ ПРОГРАММУ, " +
-                    "\nМЫ ЗАЛЕЗЕМ В ТВОЙ САЙТ ГУАПА И ОБНУЛИМ ВСЕ БАЛЛЫ ПО ВСЕМ ПРЕДМЕТАМИ " +
-                    "\nИ ПРИГЛАСИМ ОТ ТВОЕГО ИМЕНИ НА СВИДАНИЕ ЕЛЕНУ МИХАЙЛОВКУ ИЛЬИНСКУЮ B " +
-                    "\nИ ТЫ БУДЕШЬ СДАВАТЬ ЕЙ ЭКОНОМИКУ ДО КОНЦА ДНЕЙ СВОИХ" +
-                    "\nError: Спасибо, что выбрали наше приложение, просим вас, уважаемый пользователь, зарегистрироваться, " +
+            l_info = new Label("Спасибо, что выбрали наше приложение, " +
+                    "\nпросим вас, уважаемый пользователь, зарегистрироваться, " +
                     "\nчтобы вы могли видеть свои достижения в процессе обучения" +
                     "\nС уважением, разработчики <3");
-            firstOption(account_p, l_info, 100, 100, !Main.userExist);
+            firstOption(account_p, l_info, 0, 100, !Main.userExist);
+            l_info.setAlignment(Pos.CENTER);
+            l_info.setId("info");
 
             tf_name = new TextField();
-            firstOption(account_p, tf_name, 100, 400, !Main.userExist);
+            firstOption(account_p, tf_name, 380, 400, !Main.userExist);
 
             b_registration = new Button(curLanguageList.get("Account_Registration"));
-            firstOption(account_p, b_registration, 100, 450, !Main.userExist);
+            firstOption(account_p, b_registration, 450, 450, !Main.userExist);
             b_registration.setOnAction(new Events.Registration());
 
             b_changeName = new Button(curLanguageList.get("Account_ChangeName"));
-            firstOption(account_p, b_changeName, 100, 50, Main.userExist);
+            firstOption(account_p, b_changeName, 70, 194, Main.userExist);
             b_changeName.setOnAction(new Events.ChangeName());
+            b_changeName.getStyleClass().add("change_name");
 
             tf_changeName = new TextField();
-            firstOption(account_p, tf_changeName, 250, 50, false);
+            firstOption(account_p, tf_changeName, 70, 250, false);
+            tf_changeName.getStyleClass().add("change_name");
 
             b_back = new Button(curLanguageList.get("Back"));
-            firstOption(account_p, b_back, 0, 500, Main.userExist);
+            firstOption(account_p, b_back, 100, 700, Main.userExist);
             b_back.setOnAction(new Events.Back());
 
             if (Main.userExist){
@@ -95,7 +91,8 @@ public class Account {
                 l_collection_count.setText(l_collection_count.getText() + user1.getCol_created());
                 l_collection_study.setText(l_collection_study.getText() + user1.getCol_studied());
             }
-            firstOption(account_p, Variables.copyright, 0, Variables.appHeight - 20, true);
+            firstOption(account_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+            Variables.copyright.getStyleClass().add("copyright");
 
             scene.getStylesheets().add("account_style.css");
             JsonHandler.changeColor(scene);

@@ -56,56 +56,62 @@ public class Repository {
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             name = new Label(curLanguageList.get("Test_Name") + ": " + cur_collect.getName());
-            firstOption(repos_p, name, 10, 10, true);
+            firstOption(repos_p, name, 300, 240, true);
 
             description = new Label(curLanguageList.get("Test_Description") + ": " + cur_collect.getDescription());
-            firstOption(repos_p, description, 10, 40, true);
+            firstOption(repos_p, description, 300, 280, true);
 
             l_count = new Label("");
             l_count.setText(arr_cols.isEmpty() ? "0" : "1");
-            firstOption(repos_p, l_count, 175, 210, true);
+            firstOption(repos_p, l_count, 497, 435, true);
 
             b_next = new Button(">");
-            firstOption(repos_p, b_next, 215, 210, true);
+            firstOption(repos_p, b_next, 542, 430, true);
             b_next.setOnAction(new Events.NextCollection());
             b_next.setDisable(arr_cols.size() <= 1);
 
             b_prev = new Button("<");
-            firstOption(repos_p, b_prev, 115, 210, true);
+            firstOption(repos_p, b_prev, 420, 430, true);
             b_prev.setOnAction(new Events.PrevCollection());
             b_prev.setDisable(true);
 
             b_card = new Button(curLanguageList.get("Repos_Card"));
-            firstOption(repos_p, b_card, 0, 300, true);
+            firstOption(repos_p, b_card, 290, 360, true);
             b_card.setOnAction(new CardType.changeScene());
+            b_card.setId("b_card");
+            b_card.getStyleClass().add("tests");
 
             b_test = new Button(curLanguageList.get("Repos_Test"));
-            firstOption(repos_p, b_test, 150, 300, true);
+            firstOption(repos_p, b_test, 420, 360, true);
             b_test.setOnAction(new TestType.changeScene());
+            b_test.setId("b_test");
+            b_test.getStyleClass().add("tests");
 
             b_write = new Button(curLanguageList.get("Repos_Text"));
-            firstOption(repos_p, b_write, 250, 300, true);
+            firstOption(repos_p, b_write, 595, 360, true);
             b_write.setOnAction(new TextType.changeScene());
+            b_write.getStyleClass().add("tests");
 
             b_back = new Button(curLanguageList.get("Back"));   // Кнопка назад
-            firstOption(repos_p, b_back, 0, 400, true);
+            firstOption(repos_p, b_back, 100, 700, true);
             b_back.setOnAction(_ -> {
                 arr_cols = new ArrayList<>();
                 Main.temp.setScene(Main.scene);
             });
 
             b_delete = new Button(curLanguageList.get("Repos_Delete"));
-            firstOption(repos_p, b_delete, 0, 450, true);
+            firstOption(repos_p, b_delete, 420, 500, true);
             b_delete.setOnAction(new Events.DeleteCollection());
             b_delete.setDisable(arr_cols.isEmpty());
-            firstOption(repos_p, Variables.copyright, 0, Variables.appHeight - 20, true);
+            b_delete.setId("b_delete");
+
+            firstOption(repos_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+            Variables.copyright.getStyleClass().add("copyright");
 
             Scene scene = new Scene(repos_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
             JsonHandler.changeColor(scene);
-
             Main.temp.setScene(scene);
-
         }
 
         // Методы быстрого добавления объекта интерфейса по определенным координатам с видимостью flag

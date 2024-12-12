@@ -7,6 +7,7 @@ import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -52,21 +53,27 @@ public class TextType {
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
-            firstOption(txt_type_p, l_card, 50, 50, true);
+            firstOption(txt_type_p, l_card, 350, 325, true);
+            l_card.setAlignment(Pos.CENTER);
+            l_card.getStyleClass().add("questions");
 
             l_count = new Label(Repository.card_count + " / " + Repository.arr_cards.size());
-            firstOption(txt_type_p, l_count, 25, 100, true);
+            firstOption(txt_type_p, l_count, 490, 375, true);
 
             b_back = new Button(Variables.curLanguageList.get("Back"));
-            firstOption(txt_type_p, b_back, 0, 350, true);
+            firstOption(txt_type_p, b_back, 100, 700, true);
             b_back.setOnAction(new Events.BackScene());
 
             tf_answer = new TextField();
-            firstOption(txt_type_p, tf_answer, 10, 200, true);
+            firstOption(txt_type_p, tf_answer, 350, 425, true);
 
             b_continue = new Button(Variables.curLanguageList.get("Test_Check"));
-            firstOption(txt_type_p, b_continue, 200, 350, true);
+            firstOption(txt_type_p, b_continue, 410, 475, true);
             b_continue.setOnAction(new Events.NextCard());
+            b_continue.setId("text_continue");
+
+            firstOption(txt_type_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+            Variables.copyright.getStyleClass().add("copyright");
 
             Scene scene = new Scene(txt_type_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");

@@ -1,11 +1,13 @@
 package Quizki.Pages.Repository.TestType;
 
 import Quizki.Models.Card;
+import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -52,13 +54,15 @@ public class TestType {
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             l_card = new Label(Repository.arr_cards.getFirst().getFace());
-            firstOption(test_type_p, l_card, 50, 50, true);
+            firstOption(test_type_p, l_card, 350, 200, true);
+            l_card.setAlignment(Pos.CENTER);
+            l_card.getStyleClass().add("questions");
 
             l_count = new Label(Repository.card_count + " / " + Repository.arr_cards.size());
-            firstOption(test_type_p, l_count, 25, 100, true);
+            firstOption(test_type_p, l_count, 490, 475, true);
 
             b_back = new Button(Variables.curLanguageList.get("Back"));
-            firstOption(test_type_p, b_back, 0, 350, true);
+            firstOption(test_type_p, b_back, 100, 700, true);
             b_back.setOnAction(new Events.BackScene());
 
             ArrayList<String> arr_answer = createAnswer(cur_card);
@@ -67,19 +71,19 @@ public class TestType {
             group = new ToggleGroup();
 
             rb_answer1 = new RadioButton(arr_answer.getFirst());
-            firstOption(test_type_p, rb_answer1, 10, 200, true);
+            firstOption(test_type_p, rb_answer1, 400, 245, true);
             rb_answer1.setOnAction(new Events.CheckAnswer(rb_answer1));
 
             rb_answer2 = new RadioButton(arr_answer.get(1));
-            firstOption(test_type_p, rb_answer2, 10, 240, true);
+            firstOption(test_type_p, rb_answer2, 400, 305, true);
             rb_answer2.setOnAction(new Events.CheckAnswer(rb_answer2));
 
             rb_answer3 = new RadioButton(arr_answer.get(2));
-            firstOption(test_type_p, rb_answer3, 10, 280, true);
+            firstOption(test_type_p, rb_answer3, 400, 365, true);
             rb_answer3.setOnAction(new Events.CheckAnswer(rb_answer3));
 
             rb_answer4 = new RadioButton(arr_answer.get(3));
-            firstOption(test_type_p, rb_answer4, 10, 320, true);
+            firstOption(test_type_p, rb_answer4, 400, 425, true);
             rb_answer4.setOnAction(new Events.CheckAnswer(rb_answer4));
 
             rb_answer1.setToggleGroup(group);
@@ -88,12 +92,16 @@ public class TestType {
             rb_answer4.setToggleGroup(group);
 
             b_continue = new Button("--->");
-            firstOption(test_type_p, b_continue, 200, 350, true);
+            firstOption(test_type_p, b_continue, 560, 470, true);
             b_continue.setDisable(true);
             b_continue.setOnAction(new Events.NextCard());
 
+            firstOption(test_type_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+            Variables.copyright.getStyleClass().add("copyright");
+
             Scene scene = new Scene(test_type_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
+            JsonHandler.changeColor(scene);
             Main.temp.setScene(scene);
         }
 

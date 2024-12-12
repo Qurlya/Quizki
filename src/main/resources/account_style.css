@@ -1,10 +1,16 @@
-.root{
-    -fx-background-color: #004048;
+/*Смена имени*/
+.change_name{
+    -fx-pref-width: 300px;
 }
- /*Текст*/
- /*.label{
-     -fx-font-size: 12;
-     -fx-font-style: normal;
-     -fx-font-weight: normal;
-     -fx-text-fill: #ACCBC3;
- }*/
+/*Текстовое поле*/
+.text-field{
+    -fx-control-inner-background: white;
+    -fx-background-radius: 5;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 15px;
+}
+/*Информация во время регистрации*/
+#info{
+    -fx-pref-width: 1024px;
+}

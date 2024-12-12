@@ -51,6 +51,7 @@ public class About_us {
                                 "\nкоторые, благодаря ей, реализовываются проекте. :3" +
                                 "\nКонтактные данные: -");
                 firstOption(about_us_p, about_Anastasia, picSize + 20, 10, true);
+                about_Anastasia.getStyleClass().add("about_us");
 
                 Label about_Maximilian = new Label
                         ("Имя: Максимилиан \n" +
@@ -63,6 +64,7 @@ public class About_us {
                                 "\nСобрав все слова выше, можно с гордостью присвоить роль Аналитик и Координатор. =)" +
                                 "\nКонтактные данные: maksimilianbegunov@inbox.ru");
                 firstOption(about_us_p, about_Maximilian, picSize + 20, picSize + 60, true);
+                about_Maximilian.getStyleClass().add("about_us");
 
                 Label about_Pavel = new Label
                         ("" +
@@ -76,16 +78,19 @@ public class About_us {
                                 "С ним обсуждение никогда не бывает скучным, ведь он тот ещё шутник ;)\n" +
                                 "Контактные данные: BzzB\uD83D\uDCA4");
                 firstOption(about_us_p, about_Pavel, picSize + 20, 2 * (picSize + 60), true);
+                about_Pavel.getStyleClass().add("about_us");
 
                 b_back = new Button(Variables.curLanguageList.get("Back"));
-                firstOption(about_us_p, b_back, 0, 600, true);
+                firstOption(about_us_p, b_back, 100, 700, true);
                 b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
-                firstOption(about_us_p, Variables.copyright, 0, Variables.appHeight - 20, true);
+
+                firstOption(about_us_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+                Variables.copyright.getStyleClass().add("copyright");
 
                 scene.getStylesheets().add("about_us_style.css");
                 JsonHandler.changeColor(scene);
                 Main.temp.setScene(scene);
-            } catch (FileNotFoundException e) {
+            }   catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
         }

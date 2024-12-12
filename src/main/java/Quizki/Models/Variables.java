@@ -109,7 +109,7 @@ public class Variables {
     private static HashMap<String, String> fillEngList() {
         HashMap<String, String> temp = new HashMap<>();
         temp.put("Page_AboutUs", "About us");
-        temp.put("Page_Create", "Create");
+        temp.put("Page_Create", "➕");
         temp.put("Page_Repository", "Repository");
         temp.put("Page_Account", "Account");
         temp.put("Page_Settings", "Settings");
@@ -434,7 +434,7 @@ public class Variables {
         temp.put("Test_Correct", "CXЯR3C7");
         temp.put("Test_Wrong", "VVЯ0И6");
         temp.put("Repos_Card", "CXЯ∆∑");
-        temp.put("Repos_Test", "∓E∑∓NРОV∆ԨNЕ");
+        temp.put("Repos_Test", "∓E∑∓");
         temp.put("Repos_Text", "7∄X7-1ИПYT");
         temp.put("Repos_Delete", "∆ΞΛET∃ 7357");
         temp.put("Test_End", "ΞN∆");

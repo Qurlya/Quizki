@@ -4,12 +4,28 @@
 /*Кнопка*/
 .button{
     -fx-text-fill: #534F4C;
+    -fx-font-size: 20;
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-border-color: #BBAFA6;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
 }
 /*При наведении кнопки*/
 .button:hover{
     -fx-background-color: rgba(0, 0, 0, 0.1);
     -fx-text-fill: #534F4C;
 }
+/*Лейбл*/
+.label{
+    -fx-text-fill: #534F4C;
+    -fx-font-size: 20;
+}
+
+/*Копирайт*/
+.copyright{
+    -fx-font-size: 12;
+}
+
 /*Кнопка "Создать"*/
 .b_create{
     -fx-background-color: #BBAFA6;
@@ -17,4 +33,60 @@
 /*При наведении на кнопку "Создать"*/
 .b_create:hover{
     -fx-background-color: rgba(187, 175, 166, 0.7);
+}
+/*Кнопки "Аккаунт" и "Настройки"*/
+.b_right{
+    -fx-border-color: rgba(0, 0, 0, 0);
+}
+/*Кнопки "О нас" и "Репозиторий"*/
+.b_left{
+    -fx-border-color: rgba(0, 0, 0, 0);
+}
+
+/*Кнопки проверки знаний*/
+.tests{
+    -fx-background-color: #BBAFA6;
+}
+/*При наведении на кнопки проверки знаний*/
+.tests:hover{
+    -fx-background-color: rgba(187, 175, 166, 0.7);
+}
+
+/*Кнопка "Карточка" в карточках*/
+#card{
+    -fx-background-radius: 15;
+    -fx-background-color: rgba(187, 175, 166, 0.7);
+    -fx-border-color: #BBAFA6;
+    -fx-border-radius: 15;
+    -fx-border-width: 5;
+}
+#card:hover{
+    -fx-background-color: rgba(187, 175, 166, 1);
+}
+#card:pressed{
+    -fx-border-color: #9699A5;
+}
+
+/*Текстовые поля*/
+.text-field{
+    -fx-text-fill: #534F4C;
+    -fx-control-border-color: #BBAFA6;
+}
+.text-field:focused{
+    -fx-background-color: rgba(187, 175, 166, 0.3);
+}
+.text-field:hover{
+    -fx-background-color: rgba(187, 175, 166, 0.5);
+}
+
+/*Поле выбора*/
+.choice-box{
+    -fx-text-fill: #534F4C;
+    -fx-font-size: 20;
+    -fx-background-color: rgba(187, 175, 166, 0.5);
+}
+
+/*Текст "О нас"*/
+.about_us{
+    -fx-font-size: 12;
 }

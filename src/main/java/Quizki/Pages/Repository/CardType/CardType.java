@@ -45,23 +45,29 @@ public class CardType {
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             b_card = new Button(Repository.cur_card.getFace());
-            firstOption(card_type_p, b_card, 50, 50, true);
+            firstOption(card_type_p, b_card, 360, 150, true);
             b_card.setOnAction(new Events.FlipCard());
+            b_card.setId("card");
 
             l_count = new Label(Repository.card_count + " / " + Repository.arr_cards.size());
-            firstOption(card_type_p, l_count, 25, 100, true);
+            firstOption(card_type_p, l_count, 490, 475, true);
 
             b_back = new Button(curLanguageList.get("Back"));
-            firstOption(card_type_p, b_back, 0, 300, true);
+            firstOption(card_type_p, b_back, 100, 700, true);
             b_back.setOnAction(new Events.BackScene());
 
             b_correct = new Button(curLanguageList.get("Test_Correct"));
-            firstOption(card_type_p, b_correct, 10, 200, true);
+            firstOption(card_type_p, b_correct, 560, 470, true);
             b_correct.setOnAction(new Events.CorrectAnswer());
+            b_correct.getStyleClass().add("cards_answers");
 
             b_mistake = new Button(curLanguageList.get("Test_Wrong"));
-            firstOption(card_type_p, b_mistake, 150, 200, true);
+            firstOption(card_type_p, b_mistake, 350, 470, true);
             b_mistake.setOnAction(new Events.WrongAnswer());
+            b_mistake.getStyleClass().add("cards_answers");
+
+            firstOption(card_type_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+            Variables.copyright.getStyleClass().add("copyright");
 
             Scene scene = new Scene(card_type_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");

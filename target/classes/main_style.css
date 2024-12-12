@@ -1,20 +1,18 @@
-.root{
-    -fx-background-color: #004048
-}
 /*Кнопка*/
 .button{
-    -fx-background-color: rgba(0, 0, 0, 0);
-    -fx-font-size: 20;
     -fx-translate-y: 10;
     -fx-translate-x: 10;
 }
 /*Кнопки "Аккаунт" и "Настройки"*/
 .b_right{
-    -fx-translate-x: 610;
+    -fx-pref-width: 170px;
 }
 /*Кнопка "Создать"*/
 #b_create{
     -fx-font-weight: bold;
-    /*-fx-background-color: #117479;*/
     -fx-translate-x: 225;
+}
+/*Кнопки "О нас" и "Репозиторий"*/
+.b_left{
+    -fx-pref-width: 195px;
 }

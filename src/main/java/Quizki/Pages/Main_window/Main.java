@@ -64,6 +64,7 @@ public class Main extends Application {
         // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
         Button b_about_us = new Button(Variables.curLanguageList.get("Page_AboutUs"));
         b_about_us.setOnAction(new About_us.changeScene());
+        b_about_us.getStyleClass().add("b_left");
 
         Button b_create = new Button(Variables.curLanguageList.get("Page_Create"));
         b_create.setOnAction(new Create.changeScene());
@@ -72,6 +73,7 @@ public class Main extends Application {
 
         Button b_repository = new Button("\uD83D\uDCC1 " + Variables.curLanguageList.get("Page_Repository"));
         b_repository.setOnAction(new Repository.changeScene());
+        b_repository.getStyleClass().add("b_left");
 
         Button b_account = new Button("\uD83D\uDC64 " + Variables.curLanguageList.get("Page_Account"));
         b_account.setOnAction(new Account.changeScene());
@@ -90,9 +92,10 @@ public class Main extends Application {
         firstOption(main_p, b_about_us, 0, 0, true);
         firstOption(main_p, b_create, 265, 0, true);
         firstOption(main_p, b_repository, 200, 0, true);
-        firstOption(main_p, b_account, 105, 0, true);
-        firstOption(main_p, b_settings, 255, 0, true);
-        firstOption(main_p, Variables.copyright, 0, Variables.appHeight - 20, true);
+        firstOption(main_p, b_account, 660, 0, true);
+        firstOption(main_p, b_settings, 835, 0, true);
+        firstOption(main_p, Variables.copyright, 5, Variables.appHeight - 20, true);
+        Variables.copyright.getStyleClass().add("copyright");
         scene = new Scene(main_p, Variables.appWidth, Variables.appHeight);
 
         scene.getStylesheets().add("main_style.css");

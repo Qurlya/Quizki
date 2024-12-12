@@ -1,24 +1,49 @@
-.root{
-    -fx-background-color: #004048;
+/*Кнопка "Тест"*/
+#b_test{
+    -fx-pref-width: 165px;
 }
-/*Кнопка*/
-.button{
-    -fx-background-color: rgba(0, 0, 0, 0);
-    -fx-text-fill: #ACCBC3;
-    -fx-font-size: 20;
-    -fx-border-color: #ACCBC3;
+/*Кнопка "Карточки"*/
+#b_card{
+    -fx-pref-width: 120px;
 }
-/*При наведении кнопки*/
-.button:hover{
-    -fx-background-color: rgba(0, 0, 0, 0.1);
-    -fx-text-fill: #ACCBC3;
-    -fx-border-color: #ACCBC3;
+/*Кнопка "Удалить тест"*/
+#b_delete{
+    -fx-pref-width: 165px;
 }
 
-/*Текст*/
-.label{
-    -fx-font-size: 24;
-    -fx-font-style: normal;
-    -fx-font-weight: normal;
-    -fx-text-fill: #ACCBC3;
+/*Кнопка "Карточка" в карточках*/
+#card{
+    -fx-pref-width: 300px;
+    -fx-pref-height: 300px;
+}
+/*Кнопки "Верно" и "Неверно" в карточках*/
+.cards_answers{
+    -fx-pref-width: 115px;
+}
+/*Кнопки "Заново" и "Продолжить" в карточках*/
+.cards_result{
+    -fx-pref-width: 170px;
+}
+
+/*Варианты ответов в тестировании*/
+.radio-button{
+    -fx-font-size: 15;
+}
+
+/*Лейблы вопросов из тестирования и письма*/
+.questions{
+    -fx-pref-width: 320px;
+}
+
+/*Текстовые поля в письме*/
+.text-field{
+    -fx-control-inner-background: white;
+    -fx-background-radius: 5;
+    -fx-pref-width: 320px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 15px;
+}
+/*Кнопка "Продолжить" в письме*/
+#text_continue{
+    -fx-pref-width: 200px;
 }

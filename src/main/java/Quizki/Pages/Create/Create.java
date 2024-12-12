@@ -8,6 +8,7 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
@@ -47,13 +48,17 @@ public class Create {
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             Label l_name = new Label(Variables.curLanguageList.get("Test_Name"));
-            firstOption(create_p, l_name, 100, 205, true);
+            firstOption(create_p, l_name, 0, 205, true);
+            l_name.setAlignment(Pos.CENTER_RIGHT);
             Label l_desc = new Label(Variables.curLanguageList.get("Test_Description"));
-            firstOption(create_p, l_desc, 107, 235, true);
+            l_desc.setAlignment(Pos.CENTER_RIGHT);
+            firstOption(create_p, l_desc, 0, 235, true);
             Label l_quest = new Label(Variables.curLanguageList.get("Create_Question"));
-            firstOption(create_p, l_quest, 138, 295, true);
+            l_quest.setAlignment(Pos.CENTER_RIGHT);
+            firstOption(create_p, l_quest, 0, 295, true);
             Label l_answer = new Label(Variables.curLanguageList.get("Create_Answer"));
-            firstOption(create_p, l_answer, 155, 325, true);
+            l_answer.setAlignment(Pos.CENTER_RIGHT);
+            firstOption(create_p, l_answer, 0, 325, true);
 
             tf_name = new TextField();
             firstOption(create_p, tf_name,225, 210, true);
@@ -70,7 +75,6 @@ public class Create {
             b_create = new Button(Variables.curLanguageList.get("Create_MakeNew"));
             firstOption(create_p, b_create, 830, 700, true);
             b_create.setOnAction(new Events.CreateCollect());
-            b_create.setId("b_create");
 
             b_add = new Button(Variables.curLanguageList.get("Create_AddCard"));
             firstOption(create_p, b_add, 605, 390, true);
@@ -87,8 +91,9 @@ public class Create {
             b_next.setDisable(true);
 
             b_count = new Label("0");
-            firstOption(create_p, b_count, 497, 475, true);
-            b_count.setId("b_count");
+            firstOption(create_p, b_count, 0, 475, true);
+            b_count.setAlignment(Pos.CENTER);
+            b_count.getStyleClass().add("card_n_count");
 
             b_prev = new Button("<");
             firstOption(create_p, b_prev, 420, 470, true);
@@ -96,15 +101,16 @@ public class Create {
             b_prev.setDisable(true);
 
             l_card = new Label("");
-            firstOption(create_p, l_card, 437, 460, true);
+            firstOption(create_p, l_card, 0, 540, true);
+            l_card.setAlignment(Pos.CENTER);
+            l_card.getStyleClass().add("card_n_count");
 
             b_back = new Button(Variables.curLanguageList.get("Back"));
             firstOption(create_p, b_back, 100, 700, true);
             b_back.setOnAction(_ -> Main.temp.setScene(Main.scene));
 
-            firstOption(create_p, Variables.copyright, 0, Variables.appHeight - 20, true);
+            firstOption(create_p, Variables.copyright, 5, Variables.appHeight - 20, true);
 
-            //create_p.getStyleClass().add("greenTheme"); - цветовая тема
             sc_create = new Scene(create_p, Variables.appWidth, Variables.appHeight);
             sc_create.getStylesheets().add("create_style.css");
             JsonHandler.changeColor(sc_create);

@@ -1,40 +1,12 @@
-.root{
-    -fx-background-color: #004048;
-}
-/*Кнопка*/
-.button{
-    -fx-background-color: rgba(0, 0, 0, 0);
-    -fx-text-fill: #ACCBC3;
-    -fx-font-size: 20;
-    -fx-border-color: #ACCBC3;
-}
-/*При наведении кнопки*/
-.button:hover{
-    -fx-background-color: rgba(0, 0, 0, 0.1);
-    -fx-text-fill: #ACCBC3;
-    -fx-border-color: #ACCBC3;
-}
-
 /*Текст*/
 .label{
-    -fx-font-size: 24;
-    -fx-font-style: normal;
-    -fx-font-weight: normal;
-    -fx-text-fill: #ACCBC3;
+    -fx-pref-width: 215px;
 }
 /*Текстовое поле*/
 .text-field{
     -fx-pref-column-count: 50;
 }
-/*Счётчик*/
-#b_count{
-    -fx-font-weight: bold;
-}
-/*Кнопка "Создать"*/
-/*#b_create{
-    -fx-background-color: #117479;
-}
-/*При наведении на кнопку "Создать"*/
-/*#b_create:hover{
-    -fx-background-color: rgba(17, 116, 121, 0.7);
+/*Лейблы "Счетчик" и "Созданная карточка"*/
+.card_n_count{
+    -fx-pref-width: 1000px;
 }
