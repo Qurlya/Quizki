@@ -8,7 +8,8 @@ import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-import static Quizki.Pages.Create.Create.showLoadingWindow;
+import java.util.ArrayList;
+
 
 /**
  * Реализация событий для кнопок функционального окна Create (см. Create).
@@ -76,7 +77,7 @@ public class Events {
             } else if (face.isEmpty() || back.isEmpty()) {
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_IsEmpty"));
                 Create.alert.showAndWait();
-            } else if (Create.arr_card.contains(new Card(face, back))) {
+            } else if (Events.containsCard(Create.arr_card, new Card(face, back))) {
                 // Условие не повторения вопросов
                 Create.alert.setContentText(Variables.curLanguageList.get("Alert_AlreadyExist"));
                 Create.alert.showAndWait();
@@ -91,6 +92,15 @@ public class Events {
                 checkBorder();
             }
         }
+    }
+
+    public static boolean containsCard(ArrayList<Card> arr, Card card){
+        for (Card c : arr){
+            if(c.getFace().equals(card.getFace())){
+                return true;
+            }
+        }
+        return false;
     }
 
     // Переход на предыдущую созданную карточку

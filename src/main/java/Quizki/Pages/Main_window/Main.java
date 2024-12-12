@@ -57,7 +57,6 @@ public class Main extends Application {
             JsonHandler.changeLastEnter();
             Variables.changeMainCat();
         }else{
-            JsonHandler.changeLanguage("eng");
             Variables.curLanguageList = Variables.engList;  // по умолчанию - английский
         }
 
@@ -102,7 +101,7 @@ public class Main extends Application {
         if(userExist){
             JsonHandler.changeColor(scene);
         }else{
-            JsonHandler.changeColor(scene, "green");
+            scene.getStylesheets().add("green.css");
         }
     }
 

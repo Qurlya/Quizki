@@ -2,7 +2,6 @@ package Quizki.Pages.Account;
 
 import Quizki.Models.JsonHandler;
 import Quizki.Models.User;
-import Quizki.Pages.Create.Create;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Models.Variables;
 import javafx.event.ActionEvent;
@@ -29,7 +28,7 @@ public class Account {
     public static Pane account_p;
     public static Button b_back, b_registration, b_changeName;
     public static TextField tf_name, tf_changeName;
-    public static Label l_nickname, l_data_of_create, l_rate, l_collection_count, l_collection_study, l_info, l_changeName;
+    public static Label l_nickname, l_data_of_create, l_rate, l_collection_count, l_collection_study, l_info, l_changeName, l_inputName;
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
@@ -61,6 +60,9 @@ public class Account {
             firstOption(account_p, l_info, 0, 100, !Main.userExist);
             l_info.setAlignment(Pos.CENTER);
             l_info.setId("info");
+
+            l_inputName = new Label(curLanguageList.get("Account_ChangeName") + ": ");
+            firstOption(account_p, l_inputName, 380, 350, !Main.userExist);
 
             tf_name = new TextField();
             firstOption(account_p, tf_name, 380, 400, !Main.userExist);
@@ -95,7 +97,13 @@ public class Account {
             Variables.copyright.getStyleClass().add("copyright");
 
             scene.getStylesheets().add("account_style.css");
-            JsonHandler.changeColor(scene);
+            if (Main.userExist){
+                JsonHandler.changeColor(scene);
+            }
+            else{
+                scene.getStylesheets().add("green.css");
+            }
+
             Main.temp.setScene(scene);
         }
     }

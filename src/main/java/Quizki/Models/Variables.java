@@ -101,8 +101,6 @@ public class Variables {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     // Инициализация для английского набора
@@ -143,6 +141,7 @@ public class Variables {
         temp.put("Alert_SpecSymbols", "The name of the test must not have special characters!");
         temp.put("Alert_EmptyUserName", "The user must have a name!");
         temp.put("Alert_UserLimit", "The user name must be under " + loginLimit + " symbols!");
+        temp.put("Alert_ConfirmDelete", "Are you sure you wanna delete this test?");
         temp.put("Settings_Language", "Select language");
         temp.put("Settings_LanguageRus", "Russian");
         temp.put("Settings_LanguageEng", "English");
@@ -205,6 +204,7 @@ public class Variables {
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
         temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
         temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
+        temp.put("Alert_ConfirmDelete", "Вы уверены, что хотите удалить этот тест?");
         temp.put("Settings_Language", "Выберите язык");
         temp.put("Settings_LanguageRus", "Русский");
         temp.put("Settings_LanguageEng", "Английский");
@@ -267,6 +267,7 @@ public class Variables {
         temp.put("Alert_SpecSymbols", "Der Name des Tests sollte keine Sonderzeichen haben!");
         temp.put("Alert_EmptyUserName", "Der Benutzer muss einen Namen haben!");
         temp.put("Alert_UserLimit", "Der Benutzername muss unter " + loginLimit + " Zeichen sein!");
+        temp.put("Alert_ConfirmDelete", "Sind Sie sicher, dass Sie diesen Test löschen möchten?");
         temp.put("Settings_Language", "Sprache auswählen");
         temp.put("Settings_LanguageRus", "Russisch");
         temp.put("Settings_LanguageEng", "Englisch");
@@ -329,6 +330,7 @@ public class Variables {
         temp.put("Alert_SpecSymbols", "考试名称不得有特殊字符！");
         temp.put("Alert_EmptyUserName", "用户必须有一个名字！");
         temp.put("Alert_UserLimit", "用户名必须在" + loginLimit + "个符号以下！");
+        temp.put("Alert_ConfirmDelete", "您确定要删除此测试吗？");
         temp.put("Settings_Language", "选择语言");
         temp.put("Settings_LanguageRus", "俄语");
         temp.put("Settings_LanguageEng", "英语");
@@ -391,6 +393,7 @@ public class Variables {
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
         temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
         temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
+        temp.put("Alert_ConfirmDelete", "Вы уверены, что хотите удалить этот тест?");
         temp.put("Settings_Language", "Выберите язык");
         temp.put("Settings_LanguageRus", "Русский");
         temp.put("Settings_LanguageEng", "Английский");
@@ -453,6 +456,7 @@ public class Variables {
         temp.put("Alert_SpecSymbols", "Название теста не должно иметь специальные символы!");
         temp.put("Alert_EmptyUserName", "Пользователь обязан иметь имя!");
         temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
+        temp.put("Alert_ConfirmDelete", "Вы уверены, что хотите удалить этот тест?");
         temp.put("Settings_Language", "VbI6ери7е RZbI|<");
         temp.put("Settings_LanguageRus", "Русский");
         temp.put("Settings_LanguageEng", "Английский");

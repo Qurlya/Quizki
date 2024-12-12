@@ -5,8 +5,10 @@ import Quizki.Pages.Create.Create;
 import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.ButtonType;
 
 import java.io.File;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static Quizki.Models.Variables.curLanguageList;
 import static Quizki.Pages.Repository.Repository.*;
@@ -49,12 +51,18 @@ public class Events {
     static class DeleteCollection implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            File file = new File(Variables.card_filepath + cur_collect.getName() + ".json");
-            if (file.delete()) {
-                Main.temp.setScene(Main.scene);
-            } else {
-                Create.alert.setContentText(curLanguageList.get("Alert_DeleteErr"));
-                Create.alert.showAndWait();
+            AtomicBoolean toDelete = new AtomicBoolean(false);
+            Create.alertDel.setContentText("Are you sure delete this test?");
+            Create.alertDel.showAndWait().ifPresent(response -> toDelete.set(response != ButtonType.CANCEL));
+
+            if(toDelete.get()) {
+                File file = new File(Variables.card_filepath + cur_collect.getName() + ".json");
+                if (file.delete()) {
+                    Main.temp.setScene(Main.scene);
+                } else {
+                    Create.alert.setContentText(curLanguageList.get("Alert_DeleteErr"));
+                    Create.alert.showAndWait();
+                }
             }
         }
     }

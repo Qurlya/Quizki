@@ -38,13 +38,15 @@ public class Create {
     public static Label l_card, b_count;
     public static Scene sc_create;
     public static Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    public static Alert alertDel = new Alert(Alert.AlertType.CONFIRMATION);
+
 
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
             create_p = new Pane();
-            alert.setTitle("Quizki Alarm");
-
+            alert.setTitle("Quizki: Alarm");
+            alertDel.setTitle("Quizki: Confirm");
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             Label l_name = new Label(Variables.curLanguageList.get("Test_Name"));
@@ -135,11 +137,10 @@ public class Create {
         loadingStage.show();
 
         // Запускаем задачу в отдельном потоке
-        Task<Void> task = new Task<Void>() {
+        Task<Void> task = new Task<>() {
             @Override
             protected Void call() throws Exception {
-                // ИСПРАВИТЬ НА ЦИКЛ 'ПОКА ФАЙЛА НЕТ'
-                Thread.sleep(7500);
+                Thread.sleep(2000);
                 return null;
             }
 

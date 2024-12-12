@@ -4,6 +4,7 @@ import Quizki.Models.Card;
 import Quizki.Models.Collect;
 import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
+import Quizki.Pages.Create.Create;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.CardType.CardType;
 import Quizki.Pages.Repository.TestType.TestType;
@@ -19,6 +20,7 @@ import javafx.scene.layout.Pane;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 import static Quizki.Models.Variables.curLanguageList;
@@ -53,7 +55,9 @@ public class Repository {
             for (File f : arr_files) {
                 arr_cols.add(JsonHandler.loadCardFromFile(f.getPath()));
             }
-            cur_collect = arr_cols.getFirst();
+            // Если нет тестов - вызывается исключение
+            try {
+                cur_collect = arr_cols.getFirst();
 
             // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)
             name = new Label(curLanguageList.get("Test_Name") + ": " + cur_collect.getName());
@@ -113,6 +117,10 @@ public class Repository {
             scene.getStylesheets().add("repository_style.css");
             JsonHandler.changeColor(scene);
             Main.temp.setScene(scene);
+            }catch(NoSuchElementException e1){
+                Create.alert.setContentText("No tests for watch!");
+                Create.alert.showAndWait();
+            }
         }
 
         // Методы быстрого добавления объектов интерфейса на панель

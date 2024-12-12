@@ -30,14 +30,14 @@ public class Events {
             }else {
                 // Сохранение данных пользователя
                 User user1 = new User(tf_name.getText());
-
                 JsonHandler.createAccount(user1);
-                Create.showLoadingWindow();
 
+                // НАСТРОИТЬ НОРМАЛЬНОЕ СОЗДАНИЕ ПРИ ВЫХОДЕ В MAIN
                 // Смена элементов окна, при регистрации пользователя
                 tf_name.setVisible(false);
                 l_info.setVisible(false);
                 b_registration.setVisible(false);
+                l_inputName.setVisible(false);
                 l_nickname.setText(l_nickname.getText() + user1.getLogin());
                 l_data_of_create.setText(l_data_of_create.getText() + user1.getRegistr_date());
                 l_rate.setText(l_rate.getText() + user1.getRate());
