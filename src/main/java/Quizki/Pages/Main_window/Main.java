@@ -57,7 +57,7 @@ public class Main extends Application {
             JsonHandler.changeLastEnter();
             Variables.changeMainCat();
         }else{
-            Variables.curLanguageList = Variables.engList;  // по умолчанию - английский
+            //Variables.curLanguageList = Variables.engList;  // по умолчанию - английский
         }
 
         // Добавление элементов интерфейса (кнопки, текстовые поля, лейблы)

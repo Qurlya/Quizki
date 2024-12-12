@@ -53,10 +53,10 @@ public class Account {
             l_changeName = new Label(curLanguageList.get("Account_ChangeName"));
             firstOption(account_p, l_changeName, 7000, 25000, false);
 
-            l_info = new Label("Спасибо, что выбрали наше приложение, " +
-                    "\nпросим вас, уважаемый пользователь, зарегистрироваться, " +
-                    "\nчтобы вы могли видеть свои достижения в процессе обучения" +
-                    "\nС уважением, разработчики <3");
+            l_info = new Label("Thank you for choosing our app!" +
+                    "\nWe ask you, dear user, to register," +
+                    "\nSo that you can see your achievements in the learning process." +
+                    "\nSincerely, developers <3");
             firstOption(account_p, l_info, 0, 100, !Main.userExist);
             l_info.setAlignment(Pos.CENTER);
             l_info.setId("info");

@@ -38,6 +38,7 @@ public class Events {
                 l_info.setVisible(false);
                 b_registration.setVisible(false);
                 l_inputName.setVisible(false);
+
                 l_nickname.setText(l_nickname.getText() + user1.getLogin());
                 l_data_of_create.setText(l_data_of_create.getText() + user1.getRegistr_date());
                 l_rate.setText(l_rate.getText() + user1.getRate());
@@ -79,6 +80,7 @@ public class Events {
                     Main.temp.setScene(Main.scene);
                 }
             }else {
+                Main.printScene();
                 Main.temp.setScene(Main.scene);
             }
         }

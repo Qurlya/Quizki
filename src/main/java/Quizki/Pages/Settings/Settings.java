@@ -26,13 +26,12 @@ public class Settings {
     public static Button b_back, b_apply;
     public static ChoiceBox<String> languageChoiceBox, colorChoiceBox;
     public static String curColor = Variables.curLanguageList.get("Settings_ColorGreen");
-    public static String curLang = Variables.curLanguageList.get("Settings_LanguageEng");
+    public static String curLang = "English";
     protected static Scene scene;
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
             settings_p = new Pane();
-
 
             scene = new Scene(settings_p, Variables.appWidth, Variables.appHeight);
 
@@ -70,23 +69,18 @@ public class Settings {
 
             // Контейнер языковых наборов
             ObservableList<String> languageLang = FXCollections.observableArrayList(
-                    Variables.curLanguageList.get("Settings_LanguageEng"),
-                    Variables.curLanguageList.get("Settings_LanguageRus"),
-                    Variables.curLanguageList.get("Settings_LanguageDeu"),
-                    Variables.curLanguageList.get("Settings_LanguageChn"),
-                    Variables.curLanguageList.get("Settings_Language1337"),
-                    Variables.curLanguageList.get("Settings_LanguageCats"));
+                    "Русский", "English", "Deutsch", "中文", "q(≧▽≦q)", "1337");
 
             if(Main.userExist){
                 String language = JsonHandler.loadAccountData().getLanguage();
 
                 switch (language) {
-                    case "rus" -> curLang = Variables.curLanguageList.get("Settings_LanguageRus");
-                    case "1337" -> curLang = Variables.curLanguageList.get("Settings_Language1337");
-                    case "deu" -> curLang = Variables.curLanguageList.get("Settings_LanguageDeu");
-                    case "chn" -> curLang = Variables.curLanguageList.get("Settings_LanguageChn");
-                    case "cat" -> curLang = Variables.curLanguageList.get("Settings_LanguageCats");
-                    default -> curLang = Variables.curLanguageList.get("Settings_LanguageEng");
+                    case "rus" -> curLang = "Русский";
+                    case "1337" -> curLang = "1337";
+                    case "deu" -> curLang = "Deutsch";
+                    case "chn" -> curLang = "中文";
+                    case "cat" -> curLang = "q(≧▽≦q)";
+                    default -> curLang = "English";
                 }
             }else{
                 Variables.curLanguageList = Variables.engList;  // язык по умолчанию - английский

@@ -39,7 +39,7 @@ public class Variables {
     public static final HashMap<String, String> style_1List = fillDesignList_1();   // 1-й набор косметики в дизайне (Cats)
     public static final HashMap<String, String> style_2List = fillDesignList_2();   // 2-й набор косметики в дизайне (1337)
 
-    public static HashMap<String, String> curLanguageList;    // По умолчанию - английский
+    public static HashMap<String, String> curLanguageList = engList;    // По умолчанию - английский
 
     // Изменение картинки кота на основном экране в зависимости от выбранного языка
     public static void changeMainCat(){
@@ -143,12 +143,6 @@ public class Variables {
         temp.put("Alert_UserLimit", "The user name must be under " + loginLimit + " symbols!");
         temp.put("Alert_ConfirmDelete", "Are you sure you wanna delete this test?");
         temp.put("Settings_Language", "Select language");
-        temp.put("Settings_LanguageRus", "Russian");
-        temp.put("Settings_LanguageEng", "English");
-        temp.put("Settings_LanguageDeu", "Deutsche");
-        temp.put("Settings_LanguageChn", "Chinese");
-        temp.put("Settings_LanguageCats", "Kaomoji");
-        temp.put("Settings_Language1337", "1337");
         temp.put("Settings_Color", "Select color theme");
         temp.put("Settings_ColorBlue", "Blue");
         temp.put("Settings_ColorYellow", "Yellow");
@@ -163,6 +157,7 @@ public class Variables {
         temp.put("Account_CollectionStudy", "Collections completed");
         temp.put("Account_Activity", "Activity tracking");
         temp.put("Account_ChangeName", "New name input");
+
         return temp;
     }
 
@@ -206,12 +201,6 @@ public class Variables {
         temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
         temp.put("Alert_ConfirmDelete", "Вы уверены, что хотите удалить этот тест?");
         temp.put("Settings_Language", "Выберите язык");
-        temp.put("Settings_LanguageRus", "Русский");
-        temp.put("Settings_LanguageEng", "Английский");
-        temp.put("Settings_LanguageDeu", "Немецкий");
-        temp.put("Settings_LanguageChn", "Китайский");
-        temp.put("Settings_LanguageCats", "Каомодзи");
-        temp.put("Settings_Language1337", "1337");
         temp.put("Settings_Color", "Выберите цвет");
         temp.put("Settings_ColorBlue", "Синий");
         temp.put("Settings_ColorYellow", "Жёлтый");
@@ -226,6 +215,7 @@ public class Variables {
         temp.put("Account_CollectionStudy", "Коллекций пройдено");
         temp.put("Account_Activity", "Учёт активности");
         temp.put("Account_ChangeName", "Ввод нового имени");
+
         return temp;
     }
 
@@ -269,12 +259,6 @@ public class Variables {
         temp.put("Alert_UserLimit", "Der Benutzername muss unter " + loginLimit + " Zeichen sein!");
         temp.put("Alert_ConfirmDelete", "Sind Sie sicher, dass Sie diesen Test löschen möchten?");
         temp.put("Settings_Language", "Sprache auswählen");
-        temp.put("Settings_LanguageRus", "Russisch");
-        temp.put("Settings_LanguageEng", "Englisch");
-        temp.put("Settings_LanguageDeu", "Deutsch");
-        temp.put("Settings_LanguageChn", "Chinesisch");
-        temp.put("Settings_LanguageCats", "Kaomoji");
-        temp.put("Settings_Language1337", "1337");
         temp.put("Settings_Color", "Wählen Sie eine Farbe aus");
         temp.put("Settings_ColorBlue", "Blau");
         temp.put("Settings_ColorYellow", "Gelber");
@@ -289,6 +273,7 @@ public class Variables {
         temp.put("Account_CollectionStudy", "Sammlungen abgeschlossen");
         temp.put("Account_Activity", "Aktivitäts-Tracking");
         temp.put("Account_ChangeName", "Eingabe eines neuen Namens");
+
         return temp;
     }
 
@@ -332,12 +317,6 @@ public class Variables {
         temp.put("Alert_UserLimit", "用户名必须在" + loginLimit + "个符号以下！");
         temp.put("Alert_ConfirmDelete", "您确定要删除此测试吗？");
         temp.put("Settings_Language", "选择语言");
-        temp.put("Settings_LanguageRus", "俄语");
-        temp.put("Settings_LanguageEng", "英语");
-        temp.put("Settings_LanguageDeu", "德语");
-        temp.put("Settings_LanguageChn", "中文");
-        temp.put("Settings_LanguageCats", "Kaomoji");
-        temp.put("Settings_Language1337", "1337");
         temp.put("Settings_Color", "选择一种颜色");
         temp.put("Settings_ColorBlue", "蓝色");
         temp.put("Settings_ColorYellow", "黄色");
@@ -352,6 +331,7 @@ public class Variables {
         temp.put("Account_CollectionStudy", "馆藏已完成");
         temp.put("Account_Activity", "活动追踪");
         temp.put("Account_ChangeName", "新名称输入");
+
         return temp;
     }
 
@@ -395,12 +375,6 @@ public class Variables {
         temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
         temp.put("Alert_ConfirmDelete", "Вы уверены, что хотите удалить этот тест?");
         temp.put("Settings_Language", "Выберите язык");
-        temp.put("Settings_LanguageRus", "Русский");
-        temp.put("Settings_LanguageEng", "Английский");
-        temp.put("Settings_LanguageDeu", "Немецкий");
-        temp.put("Settings_LanguageChn", "Китайский");
-        temp.put("Settings_LanguageCats", "q(≧▽≦q)");
-        temp.put("Settings_Language1337", "1337");
         temp.put("Settings_Color", "Выберите цвет");
         temp.put("Settings_ColorBlue", "Синий");
         temp.put("Settings_ColorYellow", "Жёлтый");
@@ -415,6 +389,7 @@ public class Variables {
         temp.put("Account_CollectionStudy", "Коллекций пройдено");
         temp.put("Account_Activity", "Учёт активности ㄟ(≧◇≦)ㄏ");
         temp.put("Account_ChangeName", "Ввод нового имени ㄟ( ▔, ▔ )ㄏ");
+
         return temp;
     }
 
@@ -458,12 +433,6 @@ public class Variables {
         temp.put("Alert_UserLimit", "Имя пользователя не должно быть длиннее " + loginLimit + " символов!");
         temp.put("Alert_ConfirmDelete", "Вы уверены, что хотите удалить этот тест?");
         temp.put("Settings_Language", "VbI6ери7е RZbI|<");
-        temp.put("Settings_LanguageRus", "Русский");
-        temp.put("Settings_LanguageEng", "Английский");
-        temp.put("Settings_LanguageDeu", "Немецкий");
-        temp.put("Settings_LanguageChn", "Китайский");
-        temp.put("Settings_LanguageCats", "Каомодзи");
-        temp.put("Settings_Language1337", "1337");
         temp.put("Settings_Color", "VbI6ери7е цvе7");
         temp.put("Settings_ColorBlue", "Синий");
         temp.put("Settings_ColorYellow", "Жёлтый");
@@ -478,6 +447,7 @@ public class Variables {
         temp.put("Account_CollectionStudy", "ПR0Й∆ΞŊO");
         temp.put("Account_Activity", "Y4E7 AK71VИOS71");
         temp.put("Account_ChangeName", "VV0∆ NE\\/\\/ ИA/ИE");
+        // there was cry4me
 
         return temp;
     }

@@ -52,7 +52,7 @@ public class Events {
         @Override
         public void handle(ActionEvent actionEvent) {
             AtomicBoolean toDelete = new AtomicBoolean(false);
-            Create.alertDel.setContentText("Are you sure delete this test?");
+            Create.alertDel.setContentText(curLanguageList.get("Alert_ConfirmDelete"));
             Create.alertDel.showAndWait().ifPresent(response -> toDelete.set(response != ButtonType.CANCEL));
 
             if(toDelete.get()) {
