@@ -1,6 +1,7 @@
 package Quizki.Pages.Repository.TestType;
 
 import Quizki.Models.Card;
+import Quizki.Models.JsonHandler;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
@@ -64,6 +65,7 @@ public class Events {
             if (TestType.b_continue.getText().equals(curLanguageList.get("Test_End"))) {
                 Result.changeScene();
                 if (Repository.arr_wrong.isEmpty()) {
+                    JsonHandler.changeUserColsStudied();
                     Result.b_continue.setDisable(true);
                 }
                 return;

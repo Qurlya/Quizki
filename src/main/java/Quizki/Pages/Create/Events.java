@@ -43,7 +43,7 @@ public class Events {
                 String path = Variables.card_filepath + Create.tf_name.getText() + ".json";
                 JsonHandler.saveToFile(collect, path);
                 JsonHandler.changeUserColsCreated();
-                showLoadingWindow();
+                //showLoadingWindow();
             }
         }
 

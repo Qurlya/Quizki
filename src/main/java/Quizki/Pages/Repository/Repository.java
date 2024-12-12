@@ -39,6 +39,7 @@ public class Repository {
     public static ArrayList<Card> arr_corr, arr_wrong, arr_cards;
     public static int card_count = 1;
     public static Card cur_card;
+    protected static Scene scene;
 
     public static class changeScene implements EventHandler<ActionEvent> {
         @Override
@@ -108,13 +109,14 @@ public class Repository {
             firstOption(repos_p, Variables.copyright, 5, Variables.appHeight - 20, true);
             Variables.copyright.getStyleClass().add("copyright");
 
-            Scene scene = new Scene(repos_p, Variables.appWidth, Variables.appHeight);
+            scene = new Scene(repos_p, Variables.appWidth, Variables.appHeight);
             scene.getStylesheets().add("repository_style.css");
             JsonHandler.changeColor(scene);
             Main.temp.setScene(scene);
         }
 
-        // Методы быстрого добавления объекта интерфейса по определенным координатам с видимостью flag
+        // Методы быстрого добавления объектов интерфейса на панель
+        // по определенным координатам X и Y, с видимостью Flag
         public static void firstOption(Pane pane, Button temp, int x, int y, boolean flag) {
             temp.setLayoutX(x);
             temp.setLayoutY(y);

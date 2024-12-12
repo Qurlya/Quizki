@@ -1,5 +1,6 @@
 package Quizki.Pages.Repository.CardType;
 
+import Quizki.Models.JsonHandler;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
@@ -29,7 +30,7 @@ public class Events {
         }
     }
 
-    // Засчитать ответ, как неправильный
+    // Засчитать ответ, как правильный
     static class CorrectAnswer implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
@@ -37,6 +38,7 @@ public class Events {
             Repository.card_count++;
             if (Repository.card_count == Repository.arr_cards.size() + 1) {
                 // Если это был последний вопрос - переход на окно результата прохождения
+                if (Repository.arr_wrong.isEmpty()) JsonHandler.changeUserColsStudied();
                 Result.changeScene();
                 Main.temp.setScene(Result.scene);
                 Result.b_continue.setDisable(Repository.arr_cards.equals(Repository.arr_corr));

@@ -2,7 +2,6 @@ package Quizki.Pages.Settings;
 
 import Quizki.Models.JsonHandler;
 import Quizki.Models.Variables;
-import Quizki.Pages.Main_window.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -113,7 +112,6 @@ public class Events {
             } else {
                 temp = "white";
             }
-
             JsonHandler.changeColor(Settings.scene, temp);
 
             // Обновление параметров

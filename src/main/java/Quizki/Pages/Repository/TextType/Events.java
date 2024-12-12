@@ -1,6 +1,7 @@
 package Quizki.Pages.Repository.TextType;
 
 import Quizki.Models.Card;
+import Quizki.Models.JsonHandler;
 import Quizki.Pages.Main_window.Main;
 import Quizki.Pages.Repository.Repository;
 import javafx.event.ActionEvent;
@@ -60,6 +61,7 @@ public class Events {
             } else {
                 Result.changeScene();
                 if (Repository.arr_wrong.isEmpty()) {
+                    JsonHandler.changeUserColsStudied();
                     Result.b_continue.setDisable(true);
                 }
             }

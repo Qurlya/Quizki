@@ -49,11 +49,9 @@ public class Events {
     static class DeleteCollection implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent actionEvent) {
-            Create.showLoadingWindow();
-
             File file = new File(Variables.card_filepath + cur_collect.getName() + ".json");
             if (file.delete()) {
-                Main.temp.setScene(repos_p.getScene());
+                Main.temp.setScene(Main.scene);
             } else {
                 Create.alert.setContentText(curLanguageList.get("Alert_DeleteErr"));
                 Create.alert.showAndWait();
