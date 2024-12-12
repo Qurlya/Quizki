@@ -93,9 +93,9 @@ public class Create {
             b_next.setDisable(true);
 
             b_count = new Label("0");
-            firstOption(create_p, b_count, 0, 475, true);
+            firstOption(create_p, b_count, 478, 475, true);
             b_count.setAlignment(Pos.CENTER);
-            b_count.getStyleClass().add("card_n_count");
+            b_count.setId("b_count");
 
             b_prev = new Button("<");
             firstOption(create_p, b_prev, 420, 470, true);
@@ -105,7 +105,7 @@ public class Create {
             l_card = new Label("");
             firstOption(create_p, l_card, 0, 540, true);
             l_card.setAlignment(Pos.CENTER);
-            l_card.getStyleClass().add("card_n_count");
+            l_card.setId("create_card");
 
             b_back = new Button(Variables.curLanguageList.get("Back"));
             firstOption(create_p, b_back, 100, 700, true);

@@ -84,6 +84,7 @@
     -fx-text-fill: #534F4C;
     -fx-font-size: 20;
     -fx-background-color: rgba(187, 175, 166, 0.5);
+    -fx-pref-width: 200px;
 }
 
 /*Текст "О нас"*/

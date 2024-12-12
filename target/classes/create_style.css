@@ -7,6 +7,9 @@
     -fx-pref-column-count: 50;
 }
 /*Лейблы "Счетчик" и "Созданная карточка"*/
-.card_n_count{
+#create_card{
     -fx-pref-width: 1000px;
+}
+#b_count{
+    -fx-pref-width: 50px;
 }

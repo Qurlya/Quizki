@@ -36,9 +36,9 @@ public class Settings {
             scene = new Scene(settings_p, Variables.appWidth, Variables.appHeight);
 
             Label l_choiceLang = new Label(Variables.curLanguageList.get("Settings_Language") + ": ");
-            firstOption(settings_p, l_choiceLang, 200, 200, true);
+            firstOption(settings_p, l_choiceLang, 300, 200, true);
             Label l_choiceColor = new Label(Variables.curLanguageList.get("Settings_Color") + ": ");
-            firstOption(settings_p, l_choiceColor, 450, 200, true);
+            firstOption(settings_p, l_choiceColor, 550, 200, true);
 
             // Контейнер цветовых наборов
             ObservableList<String> colorLang = FXCollections.observableArrayList(
@@ -64,7 +64,7 @@ public class Settings {
 
             colorChoiceBox = new ChoiceBox<>(colorLang);
             colorChoiceBox.setValue(curColor);
-            firstOption(settings_p, colorChoiceBox, 450, 255, true);
+            firstOption(settings_p, colorChoiceBox, 550, 250, true);
             colorChoiceBox.setOnAction(new Events.ChangeColor());
 
             // Контейнер языковых наборов
@@ -88,7 +88,7 @@ public class Settings {
 
             languageChoiceBox = new ChoiceBox<>(languageLang);
             languageChoiceBox.setValue(curLang);
-            firstOption(settings_p, languageChoiceBox, 200, 255, true);
+            firstOption(settings_p, languageChoiceBox, 300, 250, true);
             languageChoiceBox.setOnAction(new Events.ChangeLanguage());
 
             b_back = new Button(Variables.curLanguageList.get("Back"));
