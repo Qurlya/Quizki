@@ -131,6 +131,35 @@ public class JsonHandler {
         return user;
     }
 
+    // Костыли
+    public static void savePath(String s){
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode jsonNode = mapper.createObjectNode();
+        File file = new File("src/main/java/Quizki/Pages/Main_window/path.json");
+        jsonNode.put("project_path", s);
+
+        try {
+            mapper.writeValue(file, jsonNode);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static String loadPath(){
+        File file = new File("src/main/java/Quizki/Pages/Main_window/path.json");
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode jsonNode = null;
+        String temp = "";
+        try {
+            jsonNode = mapper.readTree(file);
+            temp = jsonNode.get("project_path").asText();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }catch(NullPointerException e1){
+            return "";
+        }
+        return temp;
+    }
+
     // Метод инкремента количества созданных пользователем коллекций тестов
     public static void changeUserColsCreated(){
         User user = JsonHandler.loadAccountData();

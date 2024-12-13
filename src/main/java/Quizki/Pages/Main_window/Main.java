@@ -8,9 +8,11 @@ import Quizki.Pages.Create.Create;
 import Quizki.Pages.Repository.Repository;
 import Quizki.Pages.Settings.Settings;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -25,14 +27,17 @@ import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
  */
 
 public class Main extends Application {
-    static public Stage temp;
-    static public Scene scene;
+    public static Stage temp;
+    public static Scene scene;
     public static boolean userExist;
     public static Pane main_p;
 
     @Override
     public void start(Stage stage) {
         temp = stage;
+        if (JsonHandler.loadPath().isEmpty()) {
+            JsonHandler.savePath(chooseDirectory());
+        }
         printScene();
         stage.setTitle(Variables.projectTitle);
         stage.setScene(scene);
@@ -105,6 +110,19 @@ public class Main extends Application {
         }else{
             scene.getStylesheets().add("green.css");
         }
+    }
+
+    public static String chooseDirectory(){
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Select Project Directory (path/to/Quizki/)");
+        File selectedDirectory = directoryChooser.showDialog(temp);
+
+        if (selectedDirectory == null) {
+            Platform.exit();
+            System.exit(0);
+            return "";
+        }
+        return selectedDirectory.getAbsolutePath();
     }
 
     public static void main(String[] args) {

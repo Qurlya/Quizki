@@ -53,7 +53,7 @@ public class Repository {
             arr_files.remove(new File(Variables.card_filepath + Variables.user_file));
 
             for (File f : arr_files) {
-                arr_cols.add(JsonHandler.loadCardFromFile(f.getPath()));
+                arr_cols.add(JsonHandler.loadCardFromFile(f.getAbsolutePath()));
             }
             // Если нет тестов - вызывается исключение
             try {
