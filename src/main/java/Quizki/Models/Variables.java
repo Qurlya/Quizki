@@ -17,13 +17,14 @@ import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
  */
 
 public class Variables {
-    // ϏЯΞΣ⩱
+    // ϏЯΞΣ7
     // Основные параметры приложения
     public static final int appHeight = 768;    // Высота окна приложения
     public static final int appWidth = 1024;    // Ширина окна приложения
     public static final String projectTitle = "Quizki";     // Название приложения
-    public static String card_filepath = JsonHandler.loadPath() + "\\src\\main\\java\\Quizki\\Data\\";    // Путь к файлу для создания JSON
-    public static String pic_filepath = JsonHandler.loadPath() + "\\src\\main\\java\\Quizki\\Pages\\About_us\\";
+    public static String card_filepath = String.valueOf(Main.class.getResource("/data/")).substring(6);    // Путь к файлу для создания JSON
+    public static String pic_filepath = String.valueOf(Main.class.getResource("/images/")).substring(6);    // Путь к картинкам
+    public static final String projectFilePath = "src\\main\\java\\Quizki\\Pages\\Main_window\\path.json";
     public static final String user_file = "__user__.json";     // Файл с данными пользователя (+настройки)
     public static final String dataFormat = "dd_MM_yyyy";   // Формат записи даты
     public static final int loginLimit = 40;    // ограничение на длину имени пользователя

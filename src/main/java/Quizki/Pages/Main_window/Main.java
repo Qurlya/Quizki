@@ -8,11 +8,9 @@ import Quizki.Pages.Create.Create;
 import Quizki.Pages.Repository.Repository;
 import Quizki.Pages.Settings.Settings;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -35,9 +33,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         temp = stage;
-        if (JsonHandler.loadPath().isEmpty()) {
-            JsonHandler.savePath(chooseDirectory());
-        }
+
+        // Для разработчиков в Intellij IDEA
+        //tempPath = JsonHandler.loadPath();
+        //if (tempPath.isEmpty()) JsonHandler.savePath(chooseDirectory());
+
         printScene();
         stage.setTitle(Variables.projectTitle);
         stage.setScene(scene);
@@ -48,7 +48,6 @@ public class Main extends Application {
     // Вынесено в отдельную функцию, для корректной работы сохранения пользовательских настроек
     public static void printScene(){
         main_p = new Pane();
-
         // Условие существования пользователя
         try {
             userExist = new ArrayList<>(Arrays.asList(
@@ -110,19 +109,6 @@ public class Main extends Application {
         }else{
             scene.getStylesheets().add("green.css");
         }
-    }
-
-    public static String chooseDirectory(){
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Select Project Directory (path/to/Quizki/)");
-        File selectedDirectory = directoryChooser.showDialog(temp);
-
-        if (selectedDirectory == null) {
-            Platform.exit();
-            System.exit(0);
-            return "";
-        }
-        return selectedDirectory.getAbsolutePath();
     }
 
     public static void main(String[] args) {

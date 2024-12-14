@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import static Quizki.Models.Variables.picSize;
+import static Quizki.Models.Variables.pic_filepath;
 import static Quizki.Pages.Repository.Repository.changeScene.firstOption;
 
 /**
@@ -32,9 +33,9 @@ public class About_us {
             Scene scene = new Scene(about_us_p, Variables.appWidth, Variables.appHeight);
             try {
                 // Добавление изображений разработчиков
-                final Image anastasia = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/anastasia.jpg"));
-                final Image maximilian = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/maximilian.png"));
-                final Image pavel = new Image(new FileInputStream("src/main/java/Quizki/Pages/About_us/pavel.jpg"));
+                final Image anastasia = new Image(new FileInputStream(pic_filepath + "anastasia.jpg"));
+                final Image maximilian = new Image(new FileInputStream(pic_filepath + "maximilian.png"));
+                final Image pavel = new Image(new FileInputStream(pic_filepath + "pavel.jpg"));
 
                 firstOption(about_us_p, anastasia, 10, 10, true);
                 firstOption(about_us_p, maximilian, 10, picSize + 60, true);
@@ -67,8 +68,7 @@ public class About_us {
                 about_Maximilian.getStyleClass().add("about_us");
 
                 Label about_Pavel = new Label
-                        ("" +
-                                "Имя: Павел\n" +
+                        ("Имя: Павел\n" +
                                 "Командная функция: Back-end-разработчик\n" +
                                 "Описание: Паша - это наша трудолюбивая пчелка\n" +
                                 "Именно он создает основной функционал, на котором держится весь проект.\n" +
